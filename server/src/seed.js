@@ -79,8 +79,8 @@ const productTemplates = [
 ];
 
 const banners = [
-  { title: 'Summer Collection 2026', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1280&q=80', link: '/products', position: 'main', order: 1 },
-  { title: 'New Arrivals', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1280&q=80', link: '/products?sort=newest', position: 'main', order: 2 },
+  { title: 'Summer Collection 2026', image: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/fetch/w_1280,q_80,f_auto/https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1280`, link: '/products', position: 'main', order: 1 },
+  { title: 'New Arrivals', image: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/fetch/w_1280,q_80,f_auto/https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1280`, link: '/products?sort=newest', position: 'main', order: 2 },
 ];
 
 const faqs = [
@@ -124,7 +124,7 @@ async function seed() {
     name: p.name,
     price: p.price,
     description: p.desc,
-    images: [`https://images.unsplash.com/${p.img}?w=800&q=80`],
+    images: [`https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/fetch/w_800,q_80,f_auto/https://images.unsplash.com/${p.img}?w=800`],
     category: catMap[p.cat],
     stock: Math.floor(Math.random() * 50) + 10,
     isBestSeller: i % 5 === 0,
