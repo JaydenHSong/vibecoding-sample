@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results | THE CURATOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary-container": "#ca6752",
+                    "on-surface-variant": "#4c4546",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#58e6ff",
+                    "on-background": "#1a1c1c",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-secondary-container": "#006573",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-container": "#3e0500",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-highest": "#e2e2e2",
+                    "background": "#f9f9f9",
+                    "surface-container-low": "#f3f3f3",
+                    "surface": "#f9f9f9",
+                    "surface-container": "#eeeeee",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#3e0500",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-surface": "#1a1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-secondary-fixed": "#001f25",
+                    "tertiary-fixed": "#ffdad3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "secondary": "#006876",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "primary-container": "#1b1b1b",
+                    "outline": "#7e7576",
+                    "on-primary-fixed": "#1b1b1b",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#a0efff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-primary-container": "#848484"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-10 h-20 w-full">
+<div class="text-2xl font-black tracking-tighter text-stone-950 dark:text-stone-50">THE CURATOR</div>
+<div class="hidden md:flex gap-8 font-['Pretendard','Inter'] tracking-tight text-sm">
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Exhibitions</a>
+<a class="text-stone-950 dark:text-stone-50 font-bold border-b-2 border-stone-950 dark:border-stone-50 pb-1 hover:opacity-70 transition-opacity duration-300" href="#">Collections</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Archive</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none text-sm px-4 py-2 w-48 focus:ring-1 focus:ring-primary" placeholder="Search..." type="text"/>
+</div>
+<button class="text-stone-950 dark:text-stone-50 hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-stone-950 dark:text-stone-50 hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-10 max-w-[1600px] mx-auto">
+<!-- Search Header -->
+<header class="mb-16">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-4">Discovery Archive</p>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-primary leading-tight">
+                Search Results for <span class="italic">"Ceramic"</span>
+</h1>
+<div class="mt-6 flex flex-wrap gap-4 items-center justify-between border-b border-outline-variant/20 pb-8">
+<p class="text-sm text-on-surface-variant">Showing 24 refined specimens</p>
+<div class="flex gap-8">
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="text-[10px] uppercase tracking-widest font-bold">Sort By:</span>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">New Arrivals</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Filter Sidebar -->
+<aside class="w-full lg:w-64 flex-shrink-0 space-y-12">
+<div>
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-primary">Category</h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center group cursor-pointer">
+<span class="text-xs uppercase tracking-widest text-primary font-medium">Vases &amp; Vessels</span>
+<span class="text-[10px] text-on-surface-variant">(12)</span>
+</li>
+<li class="flex justify-between items-center group cursor-pointer">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Tableware</span>
+<span class="text-[10px] text-on-surface-variant">(08)</span>
+</li>
+<li class="flex justify-between items-center group cursor-pointer">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Sculptures</span>
+<span class="text-[10px] text-on-surface-variant">(04)</span>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-primary">Price Range</h3>
+<div class="space-y-4">
+<div class="h-0.5 w-full bg-surface-container-highest relative">
+<div class="absolute h-full bg-primary left-0 right-1/4"></div>
+<div class="absolute w-2 h-2 bg-primary top-1/2 -translate-y-1/2 left-0"></div>
+<div class="absolute w-2 h-2 bg-primary top-1/2 -translate-y-1/2 right-1/4"></div>
+</div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest text-on-surface-variant">
+<span>$0</span>
+<span>$1,200</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-primary">Brand</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 cursor-pointer group">
+<div class="w-3 h-3 border border-outline-variant group-hover:border-primary"></div>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Studio Minimal</span>
+</li>
+<li class="flex items-center gap-3 cursor-pointer group">
+<div class="w-3 h-3 border border-primary bg-primary"></div>
+<span class="text-xs uppercase tracking-widest text-primary font-medium">Earth &amp; Fire</span>
+</li>
+<li class="flex items-center gap-3 cursor-pointer group">
+<div class="w-3 h-3 border border-outline-variant group-hover:border-primary"></div>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Kyoto Kiln</span>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Product Grid (Bento/Asymmetric Style) -->
+<section class="flex-grow">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-16 gap-x-12">
+<!-- Product 1 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="minimalist white ceramic vase with organic curves standing on a raw stone surface with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG8Croy483s8Lu4ksu9OCDJdaLSbhBrNRoAm1d-HOcJOYRb6en0UPJdcwUm0RGlDrgqopS6dz7zjwNNYQxA-332aPc6tkfDPa0-rE1zdLHPPONCuvxPvm1Ega0nWVwD1rVn_tazIATP8zfl6FaH_L0ZjeMhRZAdWjNRipU1dFKXOewW9LXbs5UpXNZgpjotg-w-KcdaIYIxJpSUHg46MqDjsPP97dHpjQOKdHQt9dL9WKwmh2QzyXBjaJ4SNut3dtu4XieFdKmXV8"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Studio Minimal</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Organic Curved Vessel 01</h4>
+<p class="text-sm font-medium">$240.00</p>
+</div>
+</article>
+<!-- Product 2 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="hand-thrown dark charcoal ceramic bowl with textured matte glaze on a minimal gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHmvj05-DjN60SjsL8NUCUzqR3AN-IqUphHJAcjxCCuag8oJPzzzz2Py0x_EUzhph0aL-uKCLfMNJC6th20Fb4uD_HPjy6m4BHLONGTIJXPJ6cC47d3WwliAO3BTCjY-_YCh9UmcZYG23SyqOIyd8byEAa16PXCB_RFAcCUaOtUK8I6PT6syRKH6Fz56iJn9bKO10T52LJa25UK60NU5wcDfSM-JQ1tzsBTRzI-aAxX4YLfGzsB8JxUJvL97XsDKHGQ-X7Mu-NDyM"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Earth &amp; Fire</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Obsidian Serving Bowl</h4>
+<p class="text-sm font-medium">$185.00</p>
+</div>
+</article>
+<!-- Product 3 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="set of three handcrafted clay tea cups in varying earthy tones arranged symmetrically" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlnkDbrah-PlK_IdUOxJmJBIH4_j1FJL6O6NBhONHgt7_SkHoPCblq3UU8nwD_3GBKr4ziFNY7YVBmLtU7rwMdRIhViIwVea7fXGSzMfkWm6nTWyYEwiUzFQFGKBgq0CPRh42Pk_DgmdofRk6KAdnQsxb6HePNtN4oqQz59D9r4kJofhBpgQJNg-vEWZwzinpCq9Whrcf0n5h3HcAw-aGGReRo5Pz2z_kRELqkit6m6P-1HaNMEEv3AKXlyN9s5PydeeQwuE7oGHE"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Kyoto Kiln</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Wabi-Sabi Tea Set</h4>
+<p class="text-sm font-medium">$320.00</p>
+</div>
+</article>
+<!-- Product 4 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="abstract ceramic sculpture with geometric cutouts and sandy texture in warm sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAYPPg3Loqs7wMhGTzhICX5FO9PZq-D4fbEa7tpTDmzp3OOyGWNTkXEsRS9YkyAewKSVqIVkP4DLneNvpnhKvyb_C64uqIS9i2tgihBvMPAGOR6e4qGKZIQL1uvwmqwmhr8BqGWMmBZBqSNxPU7ud6xpn7qptBPQr39EXAn32zvqvY-ObC90uifw5klIA7U8hwGP5jz-kd50vgcx1_7zbpqleGFSVRvWoYR0l5z6B7IlcjC4WXEXy4qEBZJ9TE3oS8vjUxgaIINbE"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Artisan House</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Sculptural Form No. 12</h4>
+<p class="text-sm font-medium">$560.00</p>
+</div>
+</article>
+<!-- Product 5 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="tall architectural ceramic pillar vase in matte black standing alone in an empty gallery room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw-Q36eSL4FjPvHKVzMHUbTGtSK-QKlaEduDQJFO89O74YxjTf5KI-anUZsMCaD1J8Gerp6-rCMXzb8FpKjfHfDpZvc9EAAaGFeU06Cih3UIS0HTtXGaSCJ5fhXvzeHVroUPCa40BbHc677bjI38y6RM2PWAnQNCUA9LnHohnPEdv1dFOhMXty3o6QVu46eaZa4fkWDrsye5BHHjE57m-Mj4gJ_a6q3MPQRdPcY1-RifxQu1S5omRWO11ycBWYzs2FfoLzxw4TLzA"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Monolith</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Pillar Vase Large</h4>
+<p class="text-sm font-medium">$410.00</p>
+</div>
+</article>
+<!-- Product 6 -->
+<article class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low relative mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="collection of small ceramic spice jars with wooden lids arranged on a marble shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3cwgqiwG98ylkowyMigok9sdhPrGXkONrkkbzyHneVT4gFMxclbPzMfAN9M2LF7kYAgn-TzlHByM94jurOjW_coNRLWP1jgasK6-hk7k5qytif_k7NlidQo36pcdKz1_ups1h49TEi4NVpX6ORpsk3ASQVriBG0mY9UZGcE9jBt_IRbplA1tupkYpTtncOsFUbS8rbm4P0PmvaTWTWeOPRrGjHWS1b-_z3-bGeBBydBe3tqnWER4oklN2liZoqCvXYRaIV8t2hJc"/>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="w-10 h-10 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Daily Living</p>
+<h4 class="text-sm font-bold uppercase tracking-tight text-primary">Kitchen Jar Series</h4>
+<p class="text-sm font-medium">$65.00</p>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-24 flex items-center justify-center gap-12">
+<button class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                        Previous
+                    </button>
+<div class="flex gap-8 text-xs font-bold">
+<span class="text-primary border-b-2 border-primary pb-1">01</span>
+<span class="text-on-surface-variant cursor-pointer hover:text-primary">02</span>
+<span class="text-on-surface-variant cursor-pointer hover:text-primary">03</span>
+</div>
+<button class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+                        Next
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-10 border-t border-stone-200 dark:border-stone-900 bg-stone-100 dark:bg-stone-950 flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-6">
+<div class="text-sm font-bold text-stone-950 dark:text-stone-50">THE CURATED GALLERY</div>
+<p class="font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500 max-w-xs">
+                A sanctuary for the discerning eye. We archive and exhibit the world's most evocative design pieces.
+            </p>
+</div>
+<div class="flex flex-wrap gap-x-16 gap-y-8">
+<div class="space-y-4">
+<h5 class="font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] font-bold text-stone-950 dark:text-stone-50">Shop</h5>
+<nav class="flex flex-col gap-2 font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">New Arrivals</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Best Sellers</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Collections</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] font-bold text-stone-950 dark:text-stone-50">Support</h5>
+<nav class="flex flex-col gap-2 font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Shipping</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Contact</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Privacy Policy</a>
+</nav>
+</div>
+</div>
+<div class="w-full md:w-auto mt-8 md:mt-0 pt-8 md:pt-0 border-t md:border-t-0 border-stone-200 dark:border-stone-900">
+<p class="font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">
+                © 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+</body></html>

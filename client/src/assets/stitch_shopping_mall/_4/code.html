@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inquiry Management | The Curated Gallery Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1b1b1b",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#a0efff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "secondary-container": "#58e6ff",
+                        "on-tertiary-container": "#ca6752",
+                        "tertiary-fixed": "#ffdad3",
+                        "inverse-surface": "#2f3131",
+                        "surface-tint": "#5e5e5e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#7c2d1c",
+                        "on-secondary-fixed-variant": "#004e59",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#001f25",
+                        "on-secondary-container": "#006573",
+                        "secondary": "#006876",
+                        "on-background": "#1a1c1c",
+                        "secondary-fixed-dim": "#44d8f1",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f1f1f1",
+                        "background": "#f9f9f9",
+                        "primary-fixed": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c6c6c6",
+                        "on-tertiary-fixed": "#3e0500",
+                        "on-primary-fixed": "#1b1b1b",
+                        "tertiary-fixed-dim": "#ffb4a4",
+                        "outline-variant": "#cfc4c5",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface-variant": "#4c4546",
+                        "tertiary-container": "#3e0500",
+                        "surface-container-high": "#e8e8e8",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "surface": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation Shell -->
+<aside class="bg-[#f3f3f3] dark:bg-[#121212] h-screen w-64 fixed left-0 top-0 border-r border-[#cfc4c5]/20 flex flex-col py-8 px-4 gap-2 z-40">
+<div class="mb-12 px-2">
+<h1 class="text-lg font-black tracking-tighter text-[#000000] dark:text-[#ffffff]">Gallery Admin</h1>
+<p class="font-['Pretendard_Variable',Inter] text-[0.8125rem] text-[#4c4546] dark:text-[#cfc4c5]">System Controller</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Orders
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-[#ffffff] dark:bg-[#1b1b1b] text-[#000000] dark:text-[#ffffff] font-semibold rounded-sm font-['Pretendard_Variable',Inter] text-[0.8125rem]" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                CRM
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                Analytics
+            </a>
+</nav>
+<div class="mt-auto space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-sm text-[0.8125rem] font-bold uppercase tracking-widest mb-6 hover:bg-primary-container transition-colors">
+                New Exhibition
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#4c4546] dark:text-[#cfc4c5] font-['Pretendard_Variable',Inter] text-[0.8125rem] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Header -->
+<header class="h-16 flex items-center justify-between px-8 bg-surface/80 backdrop-blur-xl sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tighter text-primary">Inquiry Management</h2>
+<span class="bg-surface-container-high px-2 py-0.5 text-[0.6875rem] font-bold text-on-surface-variant">21 PENDING</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional gallery curator with neutral background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx6yIGu5n97ZuICm5y7dhcpcAvfyanxMBHhGM4Kco-HcxiujPz1SoAkNlwbVhMEFDGOePQwUEFGRdUdNpodel7i6bWr3H2y2PbIVvy4MmVqra1BIWzPUyPMh7jC419oIcqzYy0RtMA-smUVTU-pFFrRxif4nOxDx2zdDa15hm3-vIZT7nl-FqJn9AkmQASStrxAN3c1JbZ0dCNrZs_KryJiQBwjj7Cdf-EvJxfbUwSE7-auZzXbcgVwUcxlwqwCNCK9nGJ3DL9M-0"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-[1400px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Inquiry List (Table) -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest rounded-sm p-1 border-b-2 border-surface-container-high">
+<div class="overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-4 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Client</th>
+<th class="px-4 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Inquiry Type</th>
+<th class="px-4 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Status</th>
+<th class="px-4 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors group">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<div>
+<p class="text-[0.875rem] font-bold text-primary">Eleanor Vance</p>
+<p class="text-[0.75rem] text-on-surface-variant">e.vance@studio.com</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-primary">Acquisition Request</p>
+<p class="text-[0.75rem] text-on-surface-variant truncate w-40">Interested in 'The Void #4'...</p>
+</td>
+<td class="px-4 py-5">
+<span class="text-[0.6875rem] font-bold px-2 py-0.5 bg-error-container text-on-error-container rounded-sm">UNREAD</span>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-on-surface-variant font-medium">14:20</p>
+</td>
+</tr>
+<tr class="bg-surface-container-low border-l-2 border-primary">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<div>
+<p class="text-[0.875rem] font-bold text-primary">Julian Thorne</p>
+<p class="text-[0.75rem] text-on-surface-variant">j.thorne@private.net</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-primary">Valuation Inquiry</p>
+<p class="text-[0.75rem] text-on-surface-variant">Requesting appraisal for...</p>
+</td>
+<td class="px-4 py-5">
+<span class="text-[0.6875rem] font-bold px-2 py-0.5 bg-surface-container-high text-on-surface-variant rounded-sm">PENDING</span>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-on-surface-variant font-medium">11:05</p>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors group">
+<td class="px-4 py-5">
+<div class="flex items-center gap-3 invisible">
+<div class="w-2 h-2 rounded-full"></div>
+</div>
+<div class="flex items-center gap-3 -mt-5">
+<div class="w-2 h-2 rounded-full invisible"></div>
+<div>
+<p class="text-[0.875rem] font-bold text-primary">Mina Harker</p>
+<p class="text-[0.75rem] text-on-surface-variant">mina@architects.co</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-primary">Corporate Lease</p>
+<p class="text-[0.75rem] text-on-surface-variant truncate w-40">Spring collection rental...</p>
+</td>
+<td class="px-4 py-5">
+<span class="text-[0.6875rem] font-bold px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container rounded-sm uppercase">Replied</span>
+</td>
+<td class="px-4 py-5">
+<p class="text-[0.8125rem] text-on-surface-variant font-medium">Yesterday</p>
+</td>
+</tr>
+<!-- Add more rows as needed to reach 21 total visually -->
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors group">
+<td class="px-4 py-5" colspan="4">
+<div class="flex justify-center py-4">
+<button class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+                                                    View all 18 remaining <span class="material-symbols-outlined text-[1rem]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Inquiry Detail & Reply Editor -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-surface-container-lowest p-8 border-b-2 border-surface-container-high space-y-8">
+<div class="flex justify-between items-start">
+<div>
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">Current Thread</label>
+<h3 class="text-2xl font-bold tracking-tight text-primary">Valuation Inquiry</h3>
+<p class="text-[0.875rem] text-on-surface-variant">From: Julian Thorne (j.thorne@private.net)</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-6 border-l border-outline-variant/20">
+<p class="text-[0.875rem] leading-relaxed italic text-on-surface">
+                                "I am interested in receiving a formal valuation for the piece currently in the South Gallery, 'Obsidian Silence'. We are looking to include this in an upcoming private collection catalog and require documented appraisal by Thursday. Please advise on availability."
+                            </p>
+<p class="mt-4 text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-tighter">Received: Oct 24, 11:05 AM</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-primary">Your Reply</label>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-surface-container-high rounded-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[1.25rem]" data-icon="format_bold">format_bold</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[1.25rem]" data-icon="format_italic">format_italic</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[1.25rem]" data-icon="link">link</span>
+</button>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-low border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-secondary text-[0.875rem] font-body p-4 placeholder-outline transition-all" placeholder="Compose your response..." rows="8"></textarea>
+<div class="flex items-center gap-4 pt-2">
+<button class="bg-primary text-on-primary py-3 px-8 rounded-sm text-[0.8125rem] font-bold uppercase tracking-widest hover:bg-primary-container transition-all flex-1">
+                                    Send Response
+                                </button>
+<button class="border border-outline-variant/40 text-on-surface-variant py-3 px-6 rounded-sm text-[0.8125rem] font-bold uppercase tracking-widest hover:bg-surface-container-high transition-all">
+                                    Draft
+                                </button>
+</div>
+</div>
+</div>
+<!-- Contextual Data Card -->
+<div class="bg-surface-container-lowest p-6 border-b-2 border-surface-container-high">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="history">history</span>
+<h4 class="text-[0.6875rem] font-bold uppercase tracking-widest text-primary">Client History</h4>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-[0.8125rem] text-on-surface-variant">Total Purchases</span>
+<span class="text-[0.8125rem] font-bold text-primary">$42,500</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-[0.8125rem] text-on-surface-variant">Last Interaction</span>
+<span class="text-[0.8125rem] font-bold text-primary">12 Days Ago</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-[0.8125rem] text-on-surface-variant">Preferred Category</span>
+<span class="text-[0.8125rem] font-bold text-primary">Minimalist Sculpture</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Status Bar (Asymmetric Component) -->
+<div class="fixed bottom-8 right-8 flex items-center gap-4 bg-surface-container-lowest px-6 py-3 rounded-full border border-outline-variant/20 shadow-xl shadow-on-surface/5 z-50">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant">Live Sync Active</span>
+</div>
+<div class="w-px h-4 bg-outline-variant/40"></div>
+<p class="text-[0.6875rem] font-bold text-primary">Server: LHR-02</p>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="ml-64 bg-[#f3f3f3] dark:bg-[#121212] w-[calc(100%-16rem)] py-12 px-8 flex flex-col md:flex-row justify-between items-center">
+<p class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5]">
+            © 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.
+        </p>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Journal</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Contact</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Privacy</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Terms</a>
+</div>
+</footer>
+</body></html>

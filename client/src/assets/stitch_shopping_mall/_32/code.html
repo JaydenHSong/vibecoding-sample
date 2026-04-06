@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#c6c6c6",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "primary": "#000000",
+                    "error": "#ba1a1a",
+                    "tertiary": "#000000",
+                    "outline": "#7e7576",
+                    "surface-dim": "#dadada",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "surface-container-low": "#f3f3f3",
+                    "on-tertiary-fixed": "#3e0500",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#5e5e5e",
+                    "error-container": "#ffdad6",
+                    "secondary": "#006876",
+                    "inverse-surface": "#2f3131",
+                    "surface-container": "#eeeeee",
+                    "on-surface-variant": "#4c4546",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed": "#a0efff",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#1b1b1b",
+                    "secondary-container": "#58e6ff",
+                    "on-secondary-container": "#006573",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "background": "#f9f9f9",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "primary-container": "#1b1b1b",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#001f25",
+                    "tertiary-container": "#3e0500",
+                    "on-background": "#1a1c1c",
+                    "surface": "#f9f9f9",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e8e8e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 30px 60px rgba(26, 28, 28, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Suppressed for Focused Transactional Flow -->
+<main class="min-h-screen flex flex-col md:flex-row items-stretch overflow-hidden">
+<!-- Hero Section: The Editorial Visual -->
+<section class="hidden md:flex md:w-1/2 lg:w-3/5 bg-surface-container relative overflow-hidden items-center justify-center">
+<img alt="High-end fashion boutique interior with minimalist architectural lines and soft natural lighting" class="absolute inset-0 w-full h-full object-cover grayscale brightness-90" data-alt="Monochromatic high-end boutique interior with minimalist architectural display and soft directional morning sunlight casting long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEdVE1nP5V5ltuEN9VCFrseHJPH9VFVn8fy4BpacycokbGMOkb-wuqB84u5hW1m4kcaeigx6xVOqckg4oJsE7S59OAHyrzU4THRwd_fBiQ5Fe3PaTOkykbZCHCyFVLyPkL8cal2Z0O5Sc6opW8fm84_y4BC-XBUydO1qDFi88ANAdkcdf-IXXbAcX4Px-KpkHjElYPva-9-ctxzFSsQuIkmJASXIaeyA2bWiaSCkiFw467O9RQUe75wRGAzQtUYIq1mL6KF-1Izyg"/>
+<div class="relative z-10 p-16 w-full h-full flex flex-col justify-between">
+<div>
+<h1 class="text-[5rem] font-black leading-[0.9] tracking-tighter text-white">
+                        THE<br/>CURATED
+                    </h1>
+</div>
+<div class="max-w-md">
+<p class="text-white/80 font-medium tracking-tight text-lg leading-relaxed">
+                        Access an exclusive collection of globally sourced design pieces, architectural fashion, and timeless archives.
+                    </p>
+<div class="mt-8 flex gap-4">
+<div class="w-12 h-[1px] bg-white/40 self-center"></div>
+<span class="text-white/60 text-[0.6875rem] uppercase tracking-[0.2em] font-semibold">Volume 01: The New Minimal</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Section: The Transactional Canvas -->
+<section class="w-full md:w-1/2 lg:w-2/5 bg-surface flex items-center justify-center p-8 md:p-16 lg:p-24 relative">
+<div class="w-full max-w-sm">
+<!-- Branding Anchor -->
+<div class="mb-16 md:hidden text-center">
+<span class="text-2xl font-black tracking-tighter text-primary">CURATED</span>
+</div>
+<div class="space-y-1">
+<h2 class="text-3xl font-black tracking-tighter uppercase text-primary">Sign In</h2>
+<p class="text-on-surface-variant text-sm font-medium tracking-tight">Welcome back to the gallery.</p>
+</div>
+<form class="mt-12 space-y-8">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="text-[0.6875rem] uppercase tracking-widest font-bold text-on-surface-variant" for="email">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 px-0 py-3 focus:ring-0 focus:border-secondary transition-colors text-on-surface placeholder:text-outline-variant" id="email" name="email" placeholder="name@studio.com" type="email"/>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-[0.6875rem] uppercase tracking-widest font-bold text-on-surface-variant" for="password">Password</label>
+<a class="text-[0.6875rem] uppercase tracking-widest font-bold text-secondary hover:opacity-70 transition-opacity" href="#">Forgot?</a>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 px-0 py-3 focus:ring-0 focus:border-secondary transition-colors text-on-surface placeholder:text-outline-variant" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- Options -->
+<div class="flex items-center">
+<input class="h-4 w-4 rounded-sm border-outline-variant text-primary focus:ring-0 transition-colors" id="remember" name="remember" type="checkbox"/>
+<label class="ml-3 text-[0.6875rem] uppercase tracking-widest font-medium text-on-surface-variant" for="remember">Remember device</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary py-5 text-[0.6875rem] font-bold uppercase tracking-[0.2em] hover:bg-primary-container active:scale-[0.98] transition-all duration-300" type="submit">
+                        Continue
+                    </button>
+</form>
+<!-- Social Authentication -->
+<div class="mt-12">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-full border-t border-outline-variant/20"></div>
+<span class="relative bg-surface px-4 text-[0.6rem] uppercase tracking-[0.3em] font-bold text-outline">Or authenticate via</span>
+</div>
+<div class="mt-8 grid grid-cols-3 gap-4">
+<!-- Kakao -->
+<button class="flex flex-col items-center gap-3 group">
+<div class="w-12 h-12 flex items-center justify-center bg-[#FEE500] rounded-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+</div>
+<span class="text-[0.6rem] font-bold tracking-widest uppercase text-on-surface-variant">Kakao</span>
+</button>
+<!-- Naver -->
+<button class="flex flex-col items-center gap-3 group">
+<div class="w-12 h-12 flex items-center justify-center bg-[#03C75A] rounded-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-white text-[20px]" data-icon="circle">circle</span>
+</div>
+<span class="text-[0.6rem] font-bold tracking-widest uppercase text-on-surface-variant">Naver</span>
+</button>
+<!-- Google -->
+<button class="flex flex-col items-center gap-3 group">
+<div class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 rounded-sm group-hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="google">google</span>
+</div>
+<span class="text-[0.6rem] font-bold tracking-widest uppercase text-on-surface-variant">Google</span>
+</button>
+</div>
+</div>
+<!-- Toggle to Sign Up -->
+<div class="mt-16 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-[0.6875rem] uppercase tracking-widest font-medium text-on-surface-variant">
+                        New to the gallery? 
+                        <a class="text-primary font-black ml-2 hover:underline decoration-1 underline-offset-4" href="#">Create Account</a>
+</p>
+</div>
+</div>
+<!-- Footer Signature -->
+<div class="absolute bottom-8 left-0 w-full text-center px-8">
+<p class="text-[0.6rem] uppercase tracking-[0.3em] text-outline-variant font-medium">© 2024 THE CURATED GALLERY</p>
+</div>
+</section>
+</main>
+<!-- Invisible background noise texture overlay for high-end feel -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-[100]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPIakGOix7pcwGgjXvKEKSQt5KBu1ActkmTrlhevAmYZfGe7F9PXe79iyvWWijF98Blzd5VtJ1qD-Z0AR3Mq1xn1hm1HLjM4IXIFchCavQGo9h5rM8-vx4Hx6QRttBfNx_ZfsoFwVsXdu-1K3DESK5O2u99SXpMtTqb6NbdqMm3bkcFq6agV2UjwrHKKyULEmxL3Vv6JhjWRWTvXfaeuixw9BmEQkBvL6jwg42mqMCkCt1xOEjBQaAf2iVrV2Qgf85YvLLjpN5i5A')"></div>
+</body></html>

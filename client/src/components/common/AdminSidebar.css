@@ -1,0 +1,111 @@
+/* Design Ref: Stitch _9 — Admin sidebar */
+.admin-sidebar {
+  width: var(--admin-sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-surface-container-low);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  z-index: 50;
+}
+
+.admin-sidebar__brand {
+  margin-bottom: 32px;
+}
+
+.admin-sidebar__logo {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--color-primary);
+}
+
+.admin-sidebar__subtitle {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-on-surface-variant);
+  margin-top: 4px;
+}
+
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.admin-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s;
+}
+
+.admin-sidebar__item:hover {
+  background-color: var(--color-surface-container-high);
+}
+
+.admin-sidebar__item .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.admin-sidebar__item--active {
+  background-color: var(--color-surface-container-lowest);
+  color: var(--color-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transform: translateX(4px);
+  font-weight: 600;
+}
+
+.admin-sidebar__bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-sidebar__cta {
+  width: 100%;
+  margin-bottom: 16px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 12px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: background-color 0.2s;
+}
+
+.admin-sidebar__cta:hover {
+  background: #1b1b1b;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s;
+}
+
+.admin-sidebar__link:hover {
+  background-color: var(--color-surface-container-high);
+}
+
+.admin-sidebar__link .material-symbols-outlined {
+  font-size: 20px;
+}

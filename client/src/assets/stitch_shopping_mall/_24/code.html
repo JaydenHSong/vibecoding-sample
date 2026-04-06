@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e2e2e2",
+                    "outline": "#7e7576",
+                    "surface": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "secondary": "#006876",
+                    "on-tertiary-container": "#ca6752",
+                    "on-tertiary-fixed": "#3e0500",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "tertiary-fixed": "#ffdad3",
+                    "primary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-primary-container": "#848484",
+                    "inverse-primary": "#c6c6c6",
+                    "secondary-container": "#58e6ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "primary-container": "#1b1b1b",
+                    "surface-container-highest": "#e2e2e2",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#3e0500",
+                    "surface-tint": "#5e5e5e",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-secondary-fixed": "#001f25",
+                    "secondary-fixed": "#a0efff",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#006573",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "serif": ["Playfair Display", "serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-[#1a1c1c]/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<a class="text-2xl font-black tracking-tighter text-[#000000] dark:text-[#ffffff]" href="#">CURATED</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">Exhibitions</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-bold border-b border-black dark:border-white pb-1 text-black dark:text-white" href="#">Collections</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">Archive</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined hover:opacity-70 transition-opacity duration-300">search</button>
+<button class="material-symbols-outlined hover:opacity-70 transition-opacity duration-300" data-icon="shopping_bag">shopping_bag</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+<!-- Product Grid: Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Gallery Column -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low">
+<img alt="Sculptural Ceramic Vase" class="w-full h-full object-cover" data-alt="close-up of a minimalist matte black sculptural ceramic vase with organic curves standing on a light gray stone plinth in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHjxdQwPMMUPutUyeQdM0skiJ9agrXOdSDoZwIAvvC-2Uqyo7rHZJCj6WJuVnfELUnzUmLBiknXrfn8YWHzE77-WC2Nuu1cJDOHfLx3bBOYnvm_pPms7obI42E33TJOdWjI3-5nVyeuH5_B3A_NlHyn-al-rUY7eb_vNrZVUyTtrZw_o2UVwUgqayUN4Up6ZN20RpZGDtY15f6MHQEO6bKFHa41JlzitJVGqHcvD6VzYLF7wCvfrVEqMrOXmGuPZkzQHwGGaia1uI"/>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="aspect-square bg-surface-container-low">
+<img alt="Detail shot of texture" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity cursor-pointer" data-alt="extreme close-up of the textured matte black surface of a ceramic object showing fine clay grain and soft highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCBqklUScq3h-nL2OVyFa5R4Dl_SvpTRGmpXLatZyGQlwnbbA4rdN68gvwYNzmhmIbzELb9EaLkvYMw4L1zJegNP_J7hN_aRHTDTz1kv3bab2F13P9S2q82PiZGjPC5TsC41eczwfdgFIicnXjqE6lfwfBlpZrpKE08ZI9IpiPHv_gECbwnQIRvOEZJrrGelxb-w1tic0xOhdq5Gp_H7LCNv9GEO-PUfd56Lfha15k3auKf5iaTvJfc7iOndhlsP302KbZKT3UNSY"/>
+</div>
+<div class="aspect-square bg-surface-container-low">
+<img alt="Gallery setting" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity cursor-pointer" data-alt="minimalist art gallery setting with white walls and a single ceramic sculpture on a wooden pedestal with dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXVDfDMndQjfZycZh49LTuVxw-dOBPb4lZ0lTuP4nppxn4RclBRBCItM64TrIPfvcMmg1LeE3CioUahEnoxG2LgxT6pg-C-3HxppiwFaipg-17V1BEH_usIv7NvGh8JlRpUOH_FX6zWQfyrXka_4uT11sSe74nYkA2dp05oWLGsvyJj-0SguEG3RUfAMMbvPQj9Y4DcferrnLmt5Zt9A8noEJh467V2g8FzKI5Jqqzm6yFWF9t0bw6AHPEUKCAs8vy3ncC351AbZ8"/>
+</div>
+<div class="aspect-square bg-surface-container-low">
+<img alt="Size comparison" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity cursor-pointer" data-alt="lifestyle shot of a black designer vase sitting on a minimalist oak side table next to a small stack of art books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6HA6XOJLH3w8WHaRZRerXZ0k2o_zT2_uolqS330tNYtsmzYUX5BkEruYCeeTIWClzukZxa6m5dgjXqeQB1yrcMefAOwMbysW3f27mrBC9ndnOcH5_EZBIqeHk982qzCNJlvifstSWIO51fA_8NzTn0-lBS4P4JrTsY2o-LMvay7JQY-FSlZ_ZZf-zBV-jwCsz5nswWkebXj3UP3DhUND_p5XbnjvrobQjM4UM6IPukvITrEiJSFXQr9CN0skz5rRy9Jg0NpcCm-c"/>
+</div>
+</div>
+</div>
+<!-- Product Info Column -->
+<div class="lg:col-span-5 flex flex-col justify-start">
+<nav class="flex items-center gap-2 mb-8 text-[10px] tracking-widest uppercase text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Objects</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Ceramics</a>
+</nav>
+<h1 class="font-serif text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight">The Obsidian Monolith No. 04</h1>
+<p class="text-xl font-light text-on-surface-variant mb-10">$1,240.00</p>
+<!-- Configuration -->
+<div class="space-y-10 mb-12">
+<div>
+<span class="block text-[10px] tracking-widest uppercase mb-4 font-bold">Select Finish</span>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-primary p-1">
+<div class="w-full h-full rounded-full bg-[#1a1c1c]"></div>
+</button>
+<button class="w-12 h-12 rounded-full border border-transparent hover:border-outline-variant p-1 transition-all">
+<div class="w-full h-full rounded-full bg-[#e8e8e8]"></div>
+</button>
+<button class="w-12 h-12 rounded-full border border-transparent hover:border-outline-variant p-1 transition-all">
+<div class="w-full h-full rounded-full bg-[#7e7576]"></div>
+</button>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] tracking-widest uppercase font-bold">Select Size</span>
+<a class="text-[10px] tracking-widest uppercase underline opacity-60 hover:opacity-100 transition-opacity" href="#">Dimensions Guide</a>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-4 border border-outline-variant hover:border-primary transition-colors text-xs font-medium uppercase tracking-widest">Small</button>
+<button class="py-4 border border-primary bg-primary text-on-primary transition-colors text-xs font-medium uppercase tracking-widest">Medium</button>
+<button class="py-4 border border-outline-variant hover:border-primary transition-colors text-xs font-medium uppercase tracking-widest">Large</button>
+</div>
+</div>
+</div>
+<!-- CTA Actions -->
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary text-on-primary py-6 text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-all active:scale-[0.98]">
+                        Add to Collection
+                    </button>
+<button class="w-full border border-outline-variant py-6 text-xs uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-all active:scale-[0.98]">
+                        Immediate Acquisition
+                    </button>
+</div>
+<!-- Product Attributes List -->
+<div class="mt-16 pt-16 border-t border-outline-variant/20 space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<div>
+<span class="block text-xs font-bold uppercase tracking-wider mb-1">Authenticity Guaranteed</span>
+<p class="text-sm text-on-surface-variant font-light">Each piece includes a signed digital and physical certificate of provenance.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+<div>
+<span class="block text-xs font-bold uppercase tracking-wider mb-1">Insured Exhibition Shipping</span>
+<p class="text-sm text-on-surface-variant font-light">Complimentary white-glove delivery to select metropolitan areas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Content Sections -->
+<div class="mt-40 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1">
+<h2 class="text-xs uppercase tracking-[0.3em] text-secondary font-bold mb-6">The Narrative</h2>
+<h3 class="font-serif text-4xl mb-8 leading-snug italic">"A dialogue between geological permanence and human touch."</h3>
+<div class="space-y-6 text-on-surface-variant leading-relaxed font-light text-lg">
+<p>Designed by the Curated Studio, the Obsidian Monolith series explores the concept of 'Frozen Gravity'. Each vessel is hand-thrown in a custom-blend stoneware that incorporates volcanic sand from the Etna region.</p>
+<p>The firing process takes 72 hours in a reductive kiln atmosphere, resulting in a finish that is neither purely matte nor fully reflective, but possesses a deep, light-absorbing quality unique to this collection.</p>
+<p>Weight: 4.2kg. Dimensions: 32cm H x 24cm W.</p>
+</div>
+</div>
+<div class="order-1 md:order-2 aspect-[3/4] bg-surface-container-low overflow-hidden">
+<img alt="Artisan at work" class="w-full h-full object-cover" data-alt="blurry atmospheric shot of an artisan's clay-covered hands molding a dark ceramic vessel on a potter's wheel in a sun-drenched studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7znVkl85TsclIMhsw8WMRaEVP-ijPVEqHZQPe376M_8BI1DW2Xp3489AM7KyDmx-FKAqgzJh6Av01VnSvTtI0vyFJL3G6Q5F826y5J1_zFz95XSCwDhgQoCt2CfuHQG5-WWdVu2a7Xt2vBwCT7bLcifh7KoMy4CKKk6-_3lR8JRizuoCNYnpKpNSiJI0HQP2DGHWCcO-nDOdUCSWvb-rq1VsrlmWLwLDo-v5pCvJ8NRl8EUhQlwfhZ0kEfsArfPBrG1Pn0o7j5xU"/>
+</div>
+</div>
+<!-- Reviews Section: Minimalist -->
+<section class="mt-40 border-t border-outline-variant/10 pt-24">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-8">
+<div>
+<h2 class="text-3xl font-serif mb-2 italic">Reflections</h2>
+<p class="text-xs tracking-[0.2em] uppercase text-on-surface-variant">Acquisition Feedback</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-sm font-medium">4.9 / 5.0 (24 Reviews)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<!-- Review 1 -->
+<div class="space-y-4">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface font-light italic leading-relaxed">"The texture is unlike anything I've seen in ceramic work. It anchors my study perfectly. The weight feels substantial and premium."</p>
+<div class="pt-4">
+<span class="block text-[10px] font-bold uppercase tracking-widest">Marcus V.</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">London, UK</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="space-y-4">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-on-surface font-light italic leading-relaxed">"A true masterpiece of minimalism. My only note is the delivery took slightly longer than expected, but the white-glove service was exceptional."</p>
+<div class="pt-4">
+<span class="block text-[10px] font-bold uppercase tracking-widest">Elena R.</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Paris, France</span>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="space-y-4">
+<div class="flex gap-1 mb-2">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface font-light italic leading-relaxed">"The Monolith No. 04 is a sculpture first, a vase second. It commands attention in a room without saying a word."</p>
+<div class="pt-4">
+<span class="block text-[10px] font-bold uppercase tracking-widest">Julian K.</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">New York, NY</span>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="text-[10px] font-bold uppercase tracking-[0.3em] border-b border-primary pb-1 hover:opacity-70 transition-opacity">Read All Reflections</button>
+</div>
+</section>
+<!-- Related Objects -->
+<section class="mt-40">
+<h2 class="text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold mb-12 border-b border-outline-variant/10 pb-6">The Curated Set</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+<!-- Item 1 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6">
+<img alt="Brutalist Lamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="minimalist architectural lamp with a solid concrete base and a slim black metal arm casting a soft glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ1vTUyBBLtvNMLFD0QrQyjRXvgwdz8Qi5AKXjJhtK-y-exdXiT31DrNNt_C_iHS0AqBMssBqO6UE28QhE_qkiMbvWGtMQZ0rhv4VQ0PDi_OTZKMPbrqfbYHKmayz9MxJLs8siH7kqS14m7ApuYIUnL1MQ7NGonhrpWh8mm3Rnv8-vTMt2PsJNrGNjZNzyGd_c5FneQdUQR7GqArUymPr6EbwfQemard6oOwY9yqc-YcitZX6dl3hW0aI7fDnHpgV1qzkSs1vh3_I"/>
+</div>
+<h3 class="text-xs uppercase tracking-widest font-bold mb-1">Stalactite Desk Lamp</h3>
+<p class="text-xs text-on-surface-variant">$850.00</p>
+</a>
+<!-- Item 2 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6">
+<img alt="Abstract Sculpture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="small bronze abstract sculpture with smooth organic shapes sitting on a dark marble base in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJlRlTRnCcxpedZbmdjlM12kuidALKWkZaYoT4uP3tKPzZXx8g4qS-_aY7fCLu5M7-b2ggxKuzKmPHWYzWXmJafuzoN3cK3M2q8zJQxRdjsQrYlBjVEwKUtTQUBLTqO19EsuP7GBLRr4uxQBy2P3KiD6mXczRVQb7ShcXYPcq9YosQ3p428WRiW-Fd-VboxvKKICQBBcDbpyMMV5t-TfGoopMVQPyRk31JqyvZlDMBXaGvri6mdP-jJ8lYpIJHjIrRCiMFnQR1snQ"/>
+</div>
+<h3 class="text-xs uppercase tracking-widest font-bold mb-1">Fluid Bronze No. 12</h3>
+<p class="text-xs text-on-surface-variant">$1,800.00</p>
+</a>
+<!-- Item 3 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6">
+<img alt="Luxury Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="modern minimalist lounge chair with black leather and a slim chrome frame in a bright sunlit loft" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVV7FuV8-ai5KSSssRd2Gxka_NqNNYo9ZZ49FNWT1qlyvG3y4SmINihmkNVge8sbgItJfsjiFAgvDSdrqNuoBjer-73mW6CdV05cWcza8b4ZcukKGCx4AFUrfwoiFhnmTSpnu22hfdjA0TNj9SWzwLl6IRc91ecp_zbIbRvbwY8JoO00JzNm5TamwnliVWHxRUjCPbweeB6tSo16MR7l5eRlEe0bXMJ1hBmGfSCaibXlojOUtLTkghVyxf5Kis-tbL7g6K_0F3EMI"/>
+</div>
+<h3 class="text-xs uppercase tracking-widest font-bold mb-1">The Shadow Seat</h3>
+<p class="text-xs text-on-surface-variant">$3,400.00</p>
+</a>
+<!-- Item 4 -->
+<a class="group block" href="#">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6">
+<img alt="Abstract Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="large minimalist abstract painting with deep indigo brushstrokes on a cream textured canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPlv1BXoe2IZ_yBehkNPp7ZJREDiEAwyTG66r4GRRfYN9w6febU_u8YhNhBOrzNedUsCRZSrQlRncVYinUFCzj3NUKz4oWhA5hcp6JNsN3FQhJKm4Qhm2YbnmQP9IInte6IEi9-tsb6V8hnFiI4b-inurMNcUmcZsGZfnZW2JDLaju448BFKkiK1qjRj08bLKb39XX1TUHmc8tfU7Cu6Fr5WfEPazOQt3pe3DS3lFpXnXA6Amjce_wYZaVUr7JFsAeF6-sd9-Oo6k"/>
+</div>
+<h3 class="text-xs uppercase tracking-widest font-bold mb-1">Aether Study IV</h3>
+<p class="text-xs text-on-surface-variant">$5,200.00</p>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f3f3f3] dark:bg-[#121212] w-full py-24 px-8 mt-24">
+<div class="max-w-[1920px] mx-auto flex flex-col gap-16">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<span class="text-lg font-bold text-[#000000] dark:text-[#ffffff] block mb-6">THE CURATED GALLERY.</span>
+<p class="text-[10px] tracking-widest uppercase leading-relaxed text-on-surface-variant">
+                        Dedicated to the preservation and promotion of timeless craftsmanship and radical minimalism.
+                    </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-4">
+<span class="text-[10px] tracking-widest uppercase font-bold">Inquiries</span>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Contact</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Bespoke Orders</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Artist Portal</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] tracking-widest uppercase font-bold">Policy</span>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] tracking-widest uppercase font-bold">Presence</span>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Instagram</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Pinterest</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Vimeo</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full border-t border-black/5 dark:border-white/5 pt-12">
+<span class="font-['Inter'] text-[10px] tracking-widest uppercase text-on-surface-variant">© 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-8">
+<span class="font-['Inter'] text-[10px] tracking-widest uppercase text-on-surface-variant">Global Curatorial Standards</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-sm">language</span>
+<span class="font-['Inter'] text-[10px] tracking-widest uppercase">EN-US</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

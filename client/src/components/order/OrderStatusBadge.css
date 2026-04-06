@@ -1,0 +1,14 @@
+.order-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.order-badge--pending { background: var(--color-surface-container-high); color: var(--color-on-surface-variant); }
+.order-badge--paid { background: #e0f2fe; color: #0369a1; }
+.order-badge--shipping { background: #fef3c7; color: #92400e; }
+.order-badge--delivered { background: #d1fae5; color: #065f46; }
+.order-badge--cancelled { background: var(--color-error-container); color: var(--color-error); }

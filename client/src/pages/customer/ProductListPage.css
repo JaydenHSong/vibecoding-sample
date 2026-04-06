@@ -1,0 +1,172 @@
+/* Design Ref: Stitch _10 — Product list with sidebar + grid */
+.plp {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.plp__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .plp__layout {
+    flex-direction: row;
+    gap: 64px;
+  }
+}
+
+/* Sidebar */
+.plp__sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .plp__sidebar {
+    width: 256px;
+    flex-shrink: 0;
+  }
+}
+
+.plp__sidebar-inner {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.plp__sidebar-title {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-on-surface-variant);
+  margin-bottom: 24px;
+}
+
+.plp__sidebar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plp__cat-link {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.2s;
+}
+
+.plp__cat-link:hover {
+  opacity: 0.6;
+}
+
+.plp__cat-link--active {
+  font-weight: 700;
+}
+
+.plp__sidebar-sort {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .plp__sidebar-sort {
+    display: block;
+  }
+}
+
+.plp__sidebar-quote {
+  display: none;
+  padding: 32px;
+  background: var(--color-surface-container-low);
+}
+
+@media (min-width: 1024px) {
+  .plp__sidebar-quote {
+    display: block;
+  }
+}
+
+.plp__sidebar-journal {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 4px;
+}
+
+/* Main content */
+.plp__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.plp__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.plp__header .label-sm {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.plp__title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.plp__count {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+}
+
+/* Asymmetric product grid (Stitch _10 style) */
+.plp__grid-asym {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+.plp__grid-item {
+  grid-column: span 6;
+}
+
+.plp__grid-item--lg {
+  grid-column: span 8;
+}
+
+.plp__grid-item--lg + .plp__grid-item:not(.plp__grid-item--lg) {
+  grid-column: span 4;
+}
+
+@media (max-width: 768px) {
+  .plp__grid-asym {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .plp__grid-item,
+  .plp__grid-item--lg {
+    grid-column: span 1;
+  }
+}

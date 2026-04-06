@@ -1,0 +1,204 @@
+/* Design Ref: Stitch _6 — MyPage 2-column editorial layout */
+.mypage {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.mypage__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .mypage__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.mypage__name {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.mypage__header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-left: 2px solid var(--color-primary);
+  padding-left: 32px;
+}
+
+.mypage__bio {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  max-width: 340px;
+  line-height: 1.6;
+}
+
+/* 2-column layout */
+.mypage__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+@media (min-width: 1024px) {
+  .mypage__layout {
+    grid-template-columns: 4fr 8fr;
+  }
+}
+
+.mypage__section {
+  margin-bottom: 48px;
+}
+
+.mypage__section-title {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mypage__empty {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  padding: 24px 0;
+}
+
+/* Order cards */
+.mypage-order {
+  padding: 20px;
+  background: var(--color-surface-container-lowest);
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.mypage-order:hover {
+  background: var(--color-surface-container-low);
+}
+
+.mypage-order__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mypage-order__number {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mypage-order__status {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-on-surface-variant);
+  margin-top: 4px;
+}
+
+.mypage-order__arrow {
+  font-size: 18px;
+  color: var(--color-on-surface-variant);
+  transition: transform 0.2s;
+}
+
+.mypage-order:hover .mypage-order__arrow {
+  transform: translateX(4px);
+}
+
+/* Address */
+.mypage__address-card {
+  padding: 24px 24px 24px 28px;
+  background: var(--color-surface-container-lowest);
+  border-left: 2px solid var(--color-secondary);
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mypage__address-card strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.mypage__address-card p {
+  color: var(--color-on-surface-variant);
+}
+
+.mypage__addr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--color-surface-container-lowest);
+  margin-top: 16px;
+}
+
+.mypage__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-on-surface);
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 4px;
+  transition: opacity 0.2s;
+}
+
+.mypage__add-btn:hover {
+  opacity: 0.5;
+}
+
+/* Preferences */
+.mypage__prefs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mypage__success {
+  padding: 12px;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Wishlist grid */
+.mypage__wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 1280px) {
+  .mypage__wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}

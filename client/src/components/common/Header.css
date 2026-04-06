@@ -1,0 +1,170 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: rgba(251, 251, 251, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 100;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.header__nav {
+  display: none;
+  gap: 24px;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 32px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 1024px) {
+  .header__nav {
+    display: flex;
+  }
+}
+
+.header__nav a {
+  color: var(--color-on-surface);
+  transition: opacity 0.2s;
+}
+
+.header__nav a:hover {
+  opacity: 0.5;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__search {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.header__search:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+  .header__search {
+    display: flex;
+  }
+}
+
+.header__search-text {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+}
+
+.header__icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-on-surface);
+  padding: 0;
+}
+
+.header__icon-btn .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.header__icon-btn:hover {
+  opacity: 0.5;
+}
+
+.header__badge {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.header__icon-hide-mobile {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .header__icon-hide-mobile {
+    display: flex;
+  }
+}
+
+.header__user-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-on-surface);
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.header__user-btn:hover {
+  opacity: 0.5;
+}
+
+.header__user-name {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header__admin-btn {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  padding: 6px 12px;
+  transition: opacity 0.2s;
+}
+
+.header__admin-btn:hover {
+  opacity: 0.7;
+}

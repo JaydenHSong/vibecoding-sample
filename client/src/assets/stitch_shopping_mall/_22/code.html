@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#1b1b1b",
+                    "surface-container": "#eeeeee",
+                    "secondary-fixed": "#a0efff",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "secondary-container": "#58e6ff",
+                    "on-tertiary-container": "#ca6752",
+                    "tertiary-fixed": "#ffdad3",
+                    "inverse-surface": "#2f3131",
+                    "surface-tint": "#5e5e5e",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-secondary-fixed": "#001f25",
+                    "on-secondary-container": "#006573",
+                    "secondary": "#006876",
+                    "on-background": "#1a1c1c",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#7e7576",
+                    "inverse-on-surface": "#f1f1f1",
+                    "background": "#f9f9f9",
+                    "primary-fixed": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#848484",
+                    "inverse-primary": "#c6c6c6",
+                    "on-tertiary-fixed": "#3e0500",
+                    "on-primary-fixed": "#1b1b1b",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "outline-variant": "#cfc4c5",
+                    "primary": "#000000",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-surface-variant": "#4c4546",
+                    "tertiary-container": "#3e0500",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface": "#1a1c1c",
+                    "surface-variant": "#e2e2e2",
+                    "surface": "#f9f9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Admin Context) -->
+<aside class="bg-[#f3f3f3] dark:bg-[#121212] h-screen w-64 fixed left-0 top-0 border-r border-[#cfc4c5]/20 flex flex-col py-8 px-4 gap-2 z-50">
+<div class="mb-8 px-4">
+<h1 class="text-lg font-black tracking-tighter text-[#000000] dark:text-[#ffffff]">Gallery Admin</h1>
+<p class="font-['Pretendard_Variable',Inter] text-[0.8125rem] text-[#4c4546] dark:text-[#cfc4c5]">System Controller</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Orders</span>
+</a>
+<!-- Active State: CRM maps to Member Management -->
+<a class="flex items-center gap-3 px-4 py-3 bg-[#ffffff] dark:bg-[#1b1b1b] text-[#000000] dark:text-[#ffffff] font-semibold rounded-sm translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">CRM</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2a2a2a] transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-outline-variant/20 pt-4">
+<button class="bg-primary text-on-primary py-3 px-4 rounded-sm text-xs font-bold uppercase tracking-widest mb-4 hover:bg-primary-container transition-colors">
+                New Exhibition
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-['Pretendard_Variable',Inter] text-[0.8125rem]">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen p-12 bg-surface">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<span class="text-[0.6875rem] uppercase tracking-[0.2em] text-on-surface-variant font-bold">Administration</span>
+<h2 class="text-4xl font-bold tracking-tighter text-primary mt-2">Member Directory</h2>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none text-sm w-72 focus:ring-1 focus:ring-secondary transition-all" placeholder="Search by name or email" type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface text-sm border-none hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Filters</span>
+</button>
+</div>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
+<!-- Members List Table (2/3 width) -->
+<div class="xl:col-span-2 bg-surface-container-lowest p-1">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Member</th>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Tier</th>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Last Activity</th>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-on-surface-variant font-bold">Total Spent</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/30">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a middle-aged male art collector in a minimalist grey studio setting with soft natural side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi6yveyrYHUrF8YXvDfzEFmvmDWmsES8FyKtVuHQN8I3WDcIdtUMkSm-VM1Izn5ktpRJn8SbeymJ05cKVeRraeOlyW0WuDv2g2BlYTuwL0fsWtE_qTtBhiXxtM5kNnJbleACHp6dQsFt0Z1XM83thjB72X2x7uTEd0X7tu7BfR-vkWvDweDQTZBvEPqNO-fkPEeLzVDUxS2hPrRBgc2p_kfNCBdvG34XVfwz4HrxqGUhNp-QEqCh_Wq7C9v2kP20-pcxkfXpXaiPk"/>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Julian Thorne</div>
+<div class="text-[0.6875rem] text-on-surface-variant">julian.t@collectors.io</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[0.625rem] px-2 py-1 bg-primary text-on-primary font-bold tracking-widest uppercase">Patron</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm text-on-surface">2 hours ago</div>
+<div class="text-[0.625rem] text-on-surface-variant uppercase">Viewing "Obsidian series"</div>
+</td>
+<td class="px-6 py-5 font-medium text-sm">$14,250.00</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern portrait of a young woman with a creative professional aesthetic, warm studio lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAflN_UWXwWUa2qOB8IwY-SjWGUhmvTTTxOhv6VM_-Yvc9aQgFq0YqKWjYyYLSoniPepKzVJHWReQhQppYqtQi-UdQQTszadbFU-W03-kbY-mDt7Cxgf1wT4u49r9LggbF630XuVB46ca08fF1rC42-WbJx5jT_4jjCYXrgMtfXb-3NY4qMKjgIF-WaPRNdDibBaM5-2lPCiB-TyvrHw4jGIjKabXe_onaHbasiqKpFC7Ha59lItxi1ZZpeSx1kyWD-k9153wtR3z0"/>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Elena Rodriguez</div>
+<div class="text-[0.6875rem] text-on-surface-variant">e.rodriguez@design.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[0.625rem] px-2 py-1 border border-outline-variant text-outline font-bold tracking-widest uppercase">Collector</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm text-on-surface">Yesterday</div>
+<div class="text-[0.625rem] text-on-surface-variant uppercase">Purchased "The Void #4"</div>
+</td>
+<td class="px-6 py-5 font-medium text-sm">$8,900.00</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of an elegant man with glasses, sophisticated lighting, moody and professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwRIkaj3L8pQf0x1abD2x_reyUkDaXTU7CmQFHoXZWsju3NxcJPUXNKrkdKWrwWoglexb63gOakn2PFE8rBs3IKO9gPw5aiCDYKX2OTiYVK51E08YMwAAKeZshr32uagfa8vwz53qlTGQq0F9x1wvjvY2rVx9PMEq8yP7bq0pyfO57wqaYyOIbMcIP3xqpracBM06MKmbFTGHvF0NrYvVmpLVgv601OFKpdE_EmZEbynY4vKvTocbTaJrfPXcD3lqEQ_U_6z4dYWQ"/>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Marcus Chen</div>
+<div class="text-[0.6875rem] text-on-surface-variant">m.chen@arch.studio</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[0.625rem] px-2 py-1 border border-outline-variant text-outline font-bold tracking-widest uppercase">Member</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm text-on-surface">3 days ago</div>
+<div class="text-[0.625rem] text-on-surface-variant uppercase">Inquiry: Studio Visit</div>
+</td>
+<td class="px-6 py-5 font-medium text-sm">$2,100.00</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low flex justify-between items-center">
+<span class="text-[0.6875rem] text-on-surface-variant font-medium">Showing 1-18 of 244 members</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary text-[0.6875rem] font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-lowest text-on-surface-variant text-[0.6875rem] hover:text-primary transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-lowest text-on-surface-variant text-[0.6875rem] hover:text-primary transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Detail Panel (1/3 width) -->
+<div class="space-y-8">
+<!-- Main Profile Info -->
+<div class="bg-surface-container-lowest p-8 border-b-2 border-surface-container-high">
+<div class="flex justify-between items-start mb-8">
+<div class="w-24 h-32 bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Detailed portrait of Elena Rodriguez in high contrast monochrome, emphasizing texture and editorial fashion photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjoEBjl97qotAznB5YNGqRTgKD_RLwhorL5zVSGApOlgytb_QR93eywXigZODMWl2qdeg5gwW_9MyqN-ry5iIvxWABmd0SrkEOYad_J37brbuEKUEnAS49G8X6wDR1KBk_jE5SFMVRME00ESPLO5sVDm0-pBhFlh4OiqljVDCc5Cj3i75okGZzxMXTuIe70Atu5ZYoypmpaEv1ACEjTVBuHCnBHwokFWVyfCns9OAbluPgv5vNjmWynFGoXj-EbWJ4p658PAlku-8"/>
+</div>
+<div class="flex flex-col gap-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">edit</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors">block</button>
+</div>
+</div>
+<h3 class="text-2xl font-bold tracking-tighter mb-1">Elena Rodriguez</h3>
+<p class="text-sm text-on-surface-variant mb-6">e.rodriguez@design.com</p>
+<div class="grid grid-cols-2 gap-y-4 pt-6 border-t border-surface-container-high/30">
+<div>
+<span class="text-[0.625rem] uppercase tracking-widest text-outline block mb-1">Status</span>
+<span class="text-sm font-bold text-secondary">Verified Member</span>
+</div>
+<div>
+<span class="text-[0.625rem] uppercase tracking-widest text-outline block mb-1">Join Date</span>
+<span class="text-sm font-bold">12 Oct 2023</span>
+</div>
+<div class="col-span-2">
+<span class="text-[0.625rem] uppercase tracking-widest text-outline block mb-1">Interests</span>
+<div class="flex flex-wrap gap-1 mt-1">
+<span class="text-[0.625rem] bg-surface-container px-2 py-0.5 text-on-surface-variant uppercase tracking-tighter">Contemporary Art</span>
+<span class="text-[0.625rem] bg-surface-container px-2 py-0.5 text-on-surface-variant uppercase tracking-tighter">Minimalism</span>
+<span class="text-[0.625rem] bg-surface-container px-2 py-0.5 text-on-surface-variant uppercase tracking-tighter">Sculpture</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Order History Look-up -->
+<div class="bg-surface-container-lowest p-8 border-b-2 border-surface-container-high">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-[0.6875rem] uppercase tracking-[0.2em] font-bold text-on-surface-variant">Order History</h4>
+<span class="text-[0.6875rem] text-primary font-bold cursor-pointer hover:underline">View All</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start pb-4 border-b border-surface-container-high/30">
+<div>
+<p class="text-sm font-bold">INV-9822</p>
+<p class="text-[0.6875rem] text-on-surface-variant uppercase">"The Void #4" — Limited Print</p>
+<p class="text-[0.625rem] text-outline mt-1 italic">Delivered Jan 14, 2024</p>
+</div>
+<span class="text-sm font-bold">$3,200.00</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-surface-container-high/30">
+<div>
+<p class="text-sm font-bold">INV-9401</p>
+<p class="text-[0.6875rem] text-on-surface-variant uppercase">"Silence" — Bronze Study</p>
+<p class="text-[0.625rem] text-outline mt-1 italic">Delivered Nov 02, 2023</p>
+</div>
+<span class="text-sm font-bold">$5,700.00</span>
+</div>
+</div>
+<div class="mt-8 bg-primary-container p-4">
+<div class="flex justify-between items-center text-on-primary">
+<span class="text-[0.6875rem] uppercase tracking-widest font-medium opacity-70">Lifetime Value</span>
+<span class="text-xl font-bold tracking-tight">$8,900.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Suppressed based on Admin context, but here for completeness as per Design System) -->
+<footer class="ml-64 bg-[#f3f3f3] dark:bg-[#121212] w-full max-w-[1920px] py-12 px-8 flex flex-col md:flex-row justify-between items-center border-t border-outline-variant/10">
+<p class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5]">© 2024 The Curated Gallery. All Rights Reserved.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Journal</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Contact</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Privacy</a>
+<a class="font-['Pretendard_Variable',Inter] text-[0.6875rem] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] hover:opacity-70 transition-opacity" href="#">Terms</a>
+</div>
+</footer>
+</body></html>

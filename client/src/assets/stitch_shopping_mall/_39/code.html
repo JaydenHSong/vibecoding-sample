@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#7e7576",
+                    "on-tertiary-fixed": "#3e0500",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "tertiary": "#000000",
+                    "secondary-container": "#58e6ff",
+                    "primary-container": "#1b1b1b",
+                    "secondary-fixed": "#a0efff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "on-secondary-container": "#006573",
+                    "on-secondary-fixed": "#001f25",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-variant": "#e2e2e2",
+                    "secondary": "#006876",
+                    "on-surface": "#1a1c1c",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#5e5e5e",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#ca6752",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9f9",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-container": "#848484",
+                    "tertiary-container": "#3e0500",
+                    "on-background": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed": "#e2e2e2",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface-dim": "#dadada",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "inverse-primary": "#c6c6c6",
+                    "tertiary-fixed": "#ffdad3",
+                    "surface": "#f9f9f9",
+                    "on-primary-fixed-variant": "#474747"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 48px 24px;
+        }
+        .editorial-img-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #eeeeee;
+        }
+        .editorial-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .editorial-img-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-12 h-20 w-full">
+<div class="text-2xl font-black tracking-tighter text-black dark:text-white">CURATED GALLERY</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] tracking-tighter uppercase text-[11px] font-medium text-stone-400 dark:text-stone-500 hover:text-black dark:hover:text-white transition-colors" href="#">Exhibitions</a>
+<a class="font-['Inter'] tracking-tighter uppercase text-[11px] font-medium text-stone-400 dark:text-stone-500 hover:text-black dark:hover:text-white transition-colors" href="#">Collections</a>
+<a class="font-['Inter'] tracking-tighter uppercase text-[11px] font-medium text-stone-400 dark:text-stone-500 hover:text-black dark:hover:text-white transition-colors" href="#">Archive</a>
+<a class="font-['Inter'] tracking-tighter uppercase text-[11px] font-medium text-stone-400 dark:text-stone-500 hover:text-black dark:hover:text-white transition-colors" href="#">Journal</a>
+</div>
+<div class="flex gap-6 items-center">
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined text-xl">search</span></button>
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined text-xl">shopping_bag</span></button>
+<button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined text-xl">person</span></button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
+<!-- Search Header -->
+<header class="mb-16">
+<p class="text-[10px] tracking-[0.2em] uppercase text-on-surface-variant mb-4 font-medium">Search Results</p>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tighter uppercase">ARCHITECTURAL SILHOUETTE</h1>
+<p class="mt-6 text-on-surface-variant font-light">128 items found matching your criteria.</p>
+</header>
+<!-- Filter Section -->
+<section class="mb-12 flex flex-wrap items-center justify-between gap-6 border-y border-outline-variant/20 py-6">
+<div class="flex items-center gap-12">
+<div class="group cursor-pointer">
+<span class="text-[11px] uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Category</span>
+<span class="material-symbols-outlined align-middle text-[14px] ml-1">expand_more</span>
+</div>
+<div class="group cursor-pointer">
+<span class="text-[11px] uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Price Range</span>
+<span class="material-symbols-outlined align-middle text-[14px] ml-1">expand_more</span>
+</div>
+<div class="group cursor-pointer">
+<span class="text-[11px] uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Color</span>
+<span class="material-symbols-outlined align-middle text-[14px] ml-1">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-[11px] uppercase tracking-widest text-on-surface-variant">Sort by: Recommended</span>
+<span class="material-symbols-outlined text-lg">tune</span>
+</div>
+</section>
+<!-- Asymmetric Results Grid -->
+<div class="asymmetric-grid">
+<!-- Row 1 -->
+<div class="col-span-12 md:col-span-4 group">
+<div class="editorial-img-container aspect-[3/4]">
+<img alt="" data-alt="minimalist fashion model wearing oversized architectural black coat against a stark white studio wall with dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZdpFTmQuhX5XG0mJVbNb_WSPlspNGu6ndlfpKuTd-z7ta_pHYviBZ0sqsd0rusvU7lHilSD82FjaDA_CjcUHT22h7sudF6lZR4zHq0UH7S3-abpg_Bc3ntg1FjXD1sgfoeTydqtUR-q_IJTwXaXhIfcHBpmA2LEnI3y7lzfis1sI9Oqlhbtz-P6DRLbF5Aaife335wwIReuw8aI0tgdR7dOASB96LvYeU8LVNFxWIVteGmhQR6AH4dWd3TG78x7hNfyx0YroRPYg"/>
+</div>
+<div class="mt-6">
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">STUDIO NICHOLSON</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Volume Pleated Pant</h3>
+<p class="text-sm">₩425,000</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-8 group">
+<div class="editorial-img-container aspect-[16/9]">
+<img alt="" data-alt="high-end editorial shot of beige linen garments hanging on a sculptural metal rack in a sun-drenched gallery space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw8eFlI9oZp9XrZ34UpLzFFajE36Agy6j20twFbOHS1w1N_je2KES2sLG3r9G6eKze4kFIJBJ-bjdFOOKoJEllZIcf4XmjTdRp_O8L_IcJHJXvnz3af6GYbLd1hEmauYZutCBLppG9S5nuRpYY6ksCJi_jzpVwUV8MtdsIwdm02D51xGV6dPQB0Tf15cpwA1ugnKXftoB0opGQlWiVjl1INRJfeht1khoeKHZuPeTMyUKvC_pXkB4TWYdWdFXNeNM6CvqyTEjngfc"/>
+</div>
+<div class="mt-6 flex justify-between items-start">
+<div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">LEMAIRE</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Boxy Short Sleeve Shirt</h3>
+<p class="text-sm">₩389,000</p>
+</div>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">favorite</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="col-span-12 md:col-span-6 group md:mt-12">
+<div class="editorial-img-container aspect-square">
+<img alt="" data-alt="close-up of textured grey knitwear detailing on a wooden stool with soft morning light from a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbFfV9trfm6b40wxCutRkKoD6_PALzC0stNfmLcCrhJRldkdYKCnnxJfkc3RPBHZ8kw8ASKDQT7mnd3C1Z_rFT0ZKcMmgmRXTWDOcE96SPUljaBEHlNmMflMIMVYWqNFcLuFRpRE8c7V_M0FYTjYebmGT6W8NfWvijn2dlGoyW-HulpNpWEqB12F6mLTWZEBTDixDa4cTFypTy49sqBNCU_WReghbV40rFglEv5XHENR2YIVeTn8YJ78F9cVY0N-zq-lIQDauCGtA"/>
+</div>
+<div class="mt-6">
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">THE ROW</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Cashmere Blend Vest</h3>
+<p class="text-sm">₩1,240,000</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 md:col-start-8 group">
+<div class="editorial-img-container aspect-[3/4]">
+<img alt="" data-alt="abstract composition of a black structured handbag placed on a marble plinth with minimalist geometric shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE3eNOsSkTT9RWvAWmM25oDB35uTQl3nFVzrkknAm1L1OJ0Rr9Ot6Zld_fsAyOBM_5OROyKBMzt52TTQKz_1QqQrbKz6MMqz95UvgYK4f1Ge2jhn9CQsAGhNbUDKUh6-aWBbaufuwQXsf8ZHaaIQt2x20COwX4LPYlHHtSNCdepXAE50fPrT_boMZWf6r40USvoD4IyTKfvNv2oJjAC4UnjESh0ZP0m7VAQenBnnmXrS9MSuB3bahpqlLdkfCKYhON-C3TA_Vm1Lo"/>
+</div>
+<div class="mt-6">
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">JIL SANDER</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Tangle Medium Bag</h3>
+<p class="text-sm">₩980,000</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="col-span-12 group md:-mt-24">
+<div class="editorial-img-container aspect-[21/9]">
+<img alt="" data-alt="wide cinematic shot of multiple fashion models walking through a brutalist concrete building corridor in neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY-2ptb2rPL_LTI3yzFzf8VfEgl2w4VXOLfBjggvvPiqLbvk6MQrUjYMRHe7D9m5E7CwKB2Lw8WRooybcRakqCwd1QuEYOiB2UD9OxAgHQ-pZgSnMfA-kjP65rr7VD1YXUMzCxoTlrt1lDxdPVbqfL5rnZaA2k3wkp40GtZ710RHLvpkarLeGLHA49JQhov7Vn0zUcXAOV9xRAoPiGxP3EVmHgUT0QmmGVj5b049g20TEXAXWRhfCyAqINI4o8gqfTOoIODOmQb28"/>
+</div>
+<div class="mt-6 flex justify-between items-end">
+<div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">SEASONAL LOOKBOOK</p>
+<h3 class="text-xl font-bold tracking-tighter mb-2 italic">MODERN MINIMALISM: PART II</h3>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 text-[10px] tracking-widest uppercase font-bold hover:bg-primary-container transition-all">Explore Look</button>
+</div>
+</div>
+</div>
+<!-- Recommended Section (For empty or additional results) -->
+<section class="mt-48">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-bold tracking-tighter uppercase">CURATED FOR YOU</h2>
+<p class="text-on-surface-variant text-sm mt-2">Recommended pieces based on your aesthetic preferences.</p>
+</div>
+<a class="text-[10px] tracking-widest uppercase font-bold border-b border-primary pb-1" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Recommended Item 1 -->
+<div class="group">
+<div class="editorial-img-container aspect-[3/4] mb-6">
+<img alt="" data-alt="minimalist white cotton t-shirt neatly folded on a grey concrete surface with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrREdKvH5FvMoSA9VgFOhUxjoO-80i1cOpHAKnrSsUsFS54vF5QiGoin6H5qwD-jykf8OWoLVqde7LsxOpfvkS53CG_JA2Pm8pXIxj0kSA4UQdziAYlAw8RtkcOYqFZKSeT9PdVj7eC3wvEiC2GbDNphZ3vCzXNR8coX23mlGh9-d_bCO6ZahZiwbdFsedYzqQmMCpEh3CmzLeY4Ia1toi4_uwGxcZaK26gibj4ALBYLKutm4y-40bHXCIEHynd8ILsEmo9e68AvE"/>
+</div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">AURALEE</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Heavy Cotton Tee</h3>
+<p class="text-sm">₩120,000</p>
+</div>
+<!-- Recommended Item 2 -->
+<div class="group">
+<div class="editorial-img-container aspect-[3/4] mb-6">
+<img alt="" data-alt="detail shot of dark denim fabric with clean white stitching and silver hardware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPlk4NJ1PEv6T7r_iHU7YdDxe66SXDgSQ-V4osUOcyHpcFluIInFv2xZYSHugaLjokx-Qq5hRH2MKAwS0NWpa5cLptwprl3BmgjW4Sqv6EFDAJDqe2uRO-vwxoPVWwPYVp6NwLnbZPcyZYvbyRvuvkPa3EmnOg43w95AxLNicPqOgNsxAyDPEodIHEzEgeUPRRoETBVzn6dRBDFbq7t6Yi9pRgInHRLXQP9EGUQTupsuc0uqkeHrV3SUlA5ORUDkBs5arxRhARvBg"/>
+</div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">OUR LEGACY</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Third Cut Jeans</h3>
+<p class="text-sm">₩455,000</p>
+</div>
+<!-- Recommended Item 3 -->
+<div class="group">
+<div class="editorial-img-container aspect-[3/4] mb-6">
+<img alt="" data-alt="minimalist leather sneakers in off-white displayed on a glass shelf with reflection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnizqZvw-J1j-kosh1JB-685sYke4R2tlKQN6pRKXNR0YfiwNtwIOAUQSRlNhi5zwlmVAY3ghvQrjg2Eau7qeU5TtipK6ytKsl4pXDS69f8JcuEkqxoHmBsfaMJA9RV12a_ya_8jtgJRCnstLk3EUuFyqlXLBuRMc4ZoAMQV5K8hql6lUN6pf9yW3HbYR-IJTd65hZayWzc_WQ5MslAxgWxO9aHEbWaqmULt9Oz62Vq1cksFGE_IHJ6noy7pVrba7zTMq-0iAW1eE"/>
+</div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">COMMON PROJECTS</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Original Achilles Low</h3>
+<p class="text-sm">₩520,000</p>
+</div>
+<!-- Recommended Item 4 -->
+<div class="group">
+<div class="editorial-img-container aspect-[3/4] mb-6">
+<img alt="" data-alt="luxury acetate sunglasses with dark lenses on a minimalist stone background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4RM9-NpXDXWJ6VZ8bnS1L-wxWr4GsPGwSfuck2Znx-ns77Dtjv0DlyWXenVrP_6WM8z1Q34j4_ZvJ70q8x74Np9XG7AS_He8CYyIdCu65qy7HF3za5argNxymRe0_tdpCEgWFmJf5MTgb-YXZ_fDlI6RoQ3t3T--DOusYXJgSxQN_aKvqWPSDLKQJil4CPMaxJXns2rhUTHdClDfWXNnJNpTNKuHsYTyGVcP8By-1k2Ezn2xVTL88trsiC5IvCtAtF_xJNeR7IPU"/>
+</div>
+<p class="text-[10px] font-bold tracking-widest uppercase mb-1">GENTLE MONSTER</p>
+<h3 class="text-sm font-medium tracking-tight mb-2">Bold Collection Sunglasses</h3>
+<p class="text-sm">₩310,000</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-50 dark:bg-stone-900 w-full py-16 flex flex-col items-center gap-8 px-12">
+<div class="text-lg font-black text-black dark:text-white">CURATED GALLERY</div>
+<div class="flex gap-12">
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-black dark:hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-black dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-black dark:hover:text-white transition-colors" href="#">Contact</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-black dark:hover:text-white transition-colors" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="font-['Inter'] text-[10px] tracking-widest uppercase text-stone-400 mt-4">
+            © 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

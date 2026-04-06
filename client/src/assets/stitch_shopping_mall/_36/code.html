@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary-container": "#ca6752",
+                    "on-surface-variant": "#4c4546",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#58e6ff",
+                    "on-background": "#1a1c1c",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-secondary-container": "#006573",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-container": "#3e0500",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-highest": "#e2e2e2",
+                    "background": "#f9f9f9",
+                    "surface-container-low": "#f3f3f3",
+                    "surface": "#f9f9f9",
+                    "surface-container": "#eeeeee",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#3e0500",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-surface": "#1a1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-secondary-fixed": "#001f25",
+                    "tertiary-fixed": "#ffdad3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "secondary": "#006876",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "primary-container": "#1b1b1b",
+                    "outline": "#7e7576",
+                    "on-primary-fixed": "#1b1b1b",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#a0efff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-primary-container": "#848484"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Pretendard", "Inter", "sans-serif"],
+                    "body": ["Pretendard", "Inter", "sans-serif"],
+                    "label": ["Pretendard", "Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .tonal-shift-bottom { box-shadow: 0 4px 20px -10px rgba(0,0,0,0.05); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-10 h-20 w-full tonal-shift-bottom font-['Pretendard','Inter'] tracking-tight text-sm">
+<div class="text-2xl font-black tracking-tighter text-stone-950 dark:text-stone-50">THE CURATOR</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Exhibitions</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Collections</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Archive</a>
+<a class="text-stone-400 dark:text-stone-500 hover:text-stone-600 hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:opacity-70 transition-opacity duration-300 scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-stone-950 dark:text-stone-50 font-bold border-b-2 border-stone-950 dark:border-stone-50 pb-1 scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 md:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex md:col-span-3 flex-col gap-8">
+<div class="flex flex-col gap-1">
+<h1 class="text-2xl font-bold tracking-tight">MY PAGE</h1>
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-widest">User Dashboard</p>
+</div>
+<div class="flex flex-col py-8 gap-4 bg-stone-50 dark:bg-stone-900 h-fit border-r border-stone-200 dark:border-stone-800">
+<div class="px-6 mb-4">
+<p class="text-stone-900 dark:text-stone-100 text-lg font-bold">Admin Console</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-widest">System Curator</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-6 py-3 text-stone-950 dark:text-white border-l-4 border-stone-950 dark:border-stone-50 bg-stone-200/50 dark:bg-stone-800/50 text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span> Orders
+                    </a>
+<a class="flex items-center gap-3 px-6 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span> Wishlist
+                    </a>
+<a class="flex items-center gap-3 px-6 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="location_on">location_on</span> Shipping
+                    </a>
+<a class="flex items-center gap-3 px-6 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-xs font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span> Settings
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="md:col-span-9 space-y-16">
+<!-- User Summary Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-surface-container-high">
+<div class="w-16 h-16 bg-stone-100 rounded-full mb-4 flex items-center justify-center overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a neutral expression against a minimal grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1h8Ls3SYBe4DtByK3mGT3WRrWcpo44Kpw2xWsKJU16CYuvNa18xmN-5oDWsi27ZGGe8iEWviYow3qKm9Bk93C416FWiy3Pi7as2FhGpXNZAZtcFlUUG8MZMWEg8kk1BRQTHhSsA43OVtq-n1wkrkSPIMJ6W2yORbTtmGyI56OmhcwXZ2cfawruiGMI8zUVAwAXF_SRGaLRLiIUrjwr61sFWIiNE2BzdsHZbGyJ2d8SkXCMulDmEeIW9JbzoHkaLS71x9IluWmVc4"/>
+</div>
+<h2 class="text-xl font-bold tracking-tight mb-1">Alex Harrison</h2>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-tighter">Gold Member</p>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center items-center text-center border-b md:border-b-0 md:border-r border-surface-container-high">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Available Points</p>
+<p class="text-3xl font-black tracking-tighter">12,450 <span class="text-sm font-medium">P</span></p>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center items-center text-center">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Coupons</p>
+<p class="text-3xl font-black tracking-tighter">4 <span class="text-sm font-medium">EA</span></p>
+</div>
+</section>
+<!-- Recent Orders Section -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<h3 class="text-2xl font-bold tracking-tight">Recent Orders</h3>
+<a class="text-xs font-bold uppercase tracking-widest border-b border-primary pb-1" href="#">View All</a>
+</div>
+<div class="space-y-1">
+<!-- Order Item 1 -->
+<div class="bg-surface-container-lowest p-6 flex items-center gap-6 group hover:bg-surface-container-low transition-colors duration-300">
+<div class="w-24 h-32 bg-stone-100 flex-shrink-0 overflow-hidden">
+<img alt="Order Product" class="w-full h-full object-cover grayscale transition-all group-hover:grayscale-0 scale-105" data-alt="studio photograph of a minimal black structured wool coat hanging against a clean white wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZQpIounuyvv2D1x3B-cwNBelM2JFrpwtzP3O_JoVBYfyqfezZC772ZsOGn9VoDN8bdSzimnqcGwhXepJo3JrQ9qCUMJ3IehF9kQnHShbPYegr_M0dgO4qf_XuTD5OJP4IbN4OOaMv8EHekJOS0CHisJxEfQv5QsBnTWLj_UtF5bQgmkusbpfoXYFm6dISWLoab6crgSPTPrt4RxTghDdbALlHEbF8hoEZrgQdENWeDVYA3uyFN3HJ9ROln3VtW7uUIsZeksDpAPE"/>
+</div>
+<div class="flex-grow grid grid-cols-2 md:grid-cols-4 items-center gap-4">
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Order #20240315-001</p>
+<h4 class="text-sm font-bold truncate">Archival Wool Overcoat - Onyx Black</h4>
+<p class="text-xs text-on-surface-variant mt-1">Size: Large / Color: Black</p>
+</div>
+<div class="text-right md:text-left">
+<p class="text-sm font-black">₩849,000</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-stone-900 text-white text-[10px] font-bold uppercase tracking-widest">Delivering</span>
+</div>
+</div>
+</div>
+<!-- Order Item 2 -->
+<div class="bg-surface-container-lowest p-6 flex items-center gap-6 group hover:bg-surface-container-low transition-colors duration-300">
+<div class="w-24 h-32 bg-stone-100 flex-shrink-0 overflow-hidden">
+<img alt="Order Product" class="w-full h-full object-cover grayscale transition-all group-hover:grayscale-0 scale-105" data-alt="high fashion close-up of a designer leather handbag with subtle metallic hardware on a minimalist concrete surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesHbWQicp_BSTFpEWqy2bo5yjLSVtsE3ItReqLHhe17MMejpYV2YU7CEOf5UuWaeiHqT4WB_WyS7GQnKZEFR-wzY01O4mtt3k_zHevaDOcg3u0rk5DztR2v0hXqThXBb43uMrlT6JTjloai7wQPj-4EB_6GQb_EgvlZKLGn4JTTxi2Ft6ba-YuKjfYFi1_8L0M525XqI7I4L-w7wpgbWJFxJsFEN7PcJE4de0NGFcU_eaL-RrNO0nF3jIVemIu7AMTgv-yhfdjlM"/>
+</div>
+<div class="flex-grow grid grid-cols-2 md:grid-cols-4 items-center gap-4">
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Order #20240310-042</p>
+<h4 class="text-sm font-bold truncate">Sculptural Leather Tote</h4>
+<p class="text-xs text-on-surface-variant mt-1">Material: Calfskin / Color: Espresso</p>
+</div>
+<div class="text-right md:text-left">
+<p class="text-sm font-black">₩1,240,000</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-stone-100 text-stone-400 text-[10px] font-bold uppercase tracking-widest">Completed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Two Column Layout: Wishlist & Shipping -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Wishlist Section -->
+<div>
+<div class="flex justify-between items-end mb-8">
+<h3 class="text-2xl font-bold tracking-tight">Wishlist</h3>
+<a class="text-xs font-bold uppercase tracking-widest border-b border-primary pb-1" href="#">See All (12)</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-stone-100 overflow-hidden mb-3 relative">
+<img alt="Wishlist Item" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="asymmetric composition of a model wearing a high-end beige knit sweater standing in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnaE6Lv8lUH-EffNd41oucoPf6myPxWlM9sItPWx2VBqnMaPjMuTf9_TJ2Xmg0gVWCYYSFVaHHCP5IdPU7vDW0I5J3LoAw8G-c6aOc56jLTG6d4M3XS9-2e5yzcZN64NhjgBEGxq8V1KxRR7kbEwsrb-w27liDYeLdGIBbAAjJn6aRzFBcibX6kutCT1GsZIJ0jMP8FLWhos9TCcSAeHL5RH2Cqoa0GHDeyaqmlGcTjR8soj-MPw7EGdCJ0DdhWM0sx6LnFNui5Tk"/>
+<button class="absolute top-4 right-4 p-2 bg-white/40 backdrop-blur-md rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<h4 class="text-xs font-bold tracking-tight">Mohair Blend Knit</h4>
+<p class="text-[10px] font-black mt-1">₩289,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-stone-100 overflow-hidden mb-3 relative">
+<img alt="Wishlist Item" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="minimalist architectural photography of designer shoes placed on a stone pedestal with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAufiVatcQZ1nDy4o64rL0LWOzHT2KPS77xDt-miysy6epm3guYK7YiazqgdFuxPliDU2tIgaOSe4Ju3TdCAu2jVeHUxLNJID1ub9g4I-cCX0PHX8StgRJ1PRzeiWeJzpTXA1iw3pNoYxu5uRElXNHuMCyiAGipn-SIRk5_qXZCPAQuO-SovlAiczLxfMd_0hBxM3EAQ61i-JTib67SiAkTo83FOariXJFYOQ9i1b23L8VoLiUdFwH4Y0kVpXN1_6MFP9tYZLw77BA"/>
+<button class="absolute top-4 right-4 p-2 bg-white/40 backdrop-blur-md rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<h4 class="text-xs font-bold tracking-tight">Raw Edge Denim</h4>
+<p class="text-[10px] font-black mt-1">₩185,000</p>
+</div>
+</div>
+</div>
+<!-- Shipping Management Section -->
+<div>
+<div class="flex justify-between items-end mb-8">
+<h3 class="text-2xl font-bold tracking-tight">Shipping</h3>
+<button class="text-xs font-bold uppercase tracking-widest border-b border-primary pb-1">Edit Info</button>
+</div>
+<div class="bg-surface-container-lowest p-8 border-l-2 border-primary">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-0.5 bg-stone-100 text-[9px] font-bold uppercase tracking-tighter">Default</span>
+<span class="text-xs font-bold">Home</span>
+</div>
+<p class="text-sm font-medium leading-relaxed">
+                            (06234) 123-45 Apgujeong-ro,<br/>
+                            Gangnam-gu, Seoul, Republic of Korea<br/>
+                            Unit 102
+                        </p>
+<div class="mt-6 pt-6 border-t border-surface-container-high flex flex-col gap-2">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant font-medium">Recipient</span>
+<span class="font-bold uppercase">Alex Harrison</span>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant font-medium">Phone</span>
+<span class="font-bold">+82 10-****-1234</span>
+</div>
+</div>
+</div>
+<div class="mt-4 p-6 bg-surface-container-low flex items-center justify-center border-dashed border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="add">add</span>
+<span class="text-[10px] font-bold uppercase tracking-widest ml-2">Add New Address</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-10 border-t border-stone-200 dark:border-stone-900 bg-stone-100 dark:bg-stone-950 flex flex-col md:flex-row justify-between items-start gap-8 font-['Pretendard','Inter'] text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">
+<div class="flex flex-col gap-4">
+<div class="text-sm font-bold text-stone-950 dark:text-stone-50">THE CURATED GALLERY</div>
+<p>© 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Privacy Policy</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Terms of Service</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Contact</a>
+<a class="hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 underline transition-all" href="#">Shipping</a>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation Bar -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-surface-container-high flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-stone-400" data-icon="home">home</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter text-stone-400">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-stone-400" data-icon="search">search</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter text-stone-400">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-stone-950" data-icon="person">person</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter text-stone-950">My</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-stone-400" data-icon="favorite">favorite</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter text-stone-400">Wish</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-stone-400" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter text-stone-400">Bag</span>
+</button>
+</div>
+</body></html>

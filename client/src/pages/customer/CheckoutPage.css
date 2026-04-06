@@ -1,0 +1,127 @@
+/* Design Ref: Stitch _11 — Checkout editorial */
+.checkout-page {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.checkout-page__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1;
+  margin-bottom: 48px;
+}
+
+.checkout-page__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .checkout-page__layout {
+    grid-template-columns: 1fr 400px;
+  }
+}
+
+.checkout-page__section {
+  margin-bottom: 48px;
+}
+
+.checkout-page__section > .label-sm,
+.checkout-page__section > .auth-page__label {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.checkout-page__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.checkout-page__addresses {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.checkout-page__addr-btn {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  transition: all 0.2s;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.checkout-page__addr-btn span {
+  font-size: 11px;
+  color: var(--color-on-surface-variant);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.checkout-page__addr-btn.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-container-low);
+}
+
+.checkout-page__payment {
+  display: flex;
+  gap: 12px;
+}
+
+.checkout-page__payment-option {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkout-page__payment-option input {
+  display: none;
+}
+
+.checkout-page__payment-option.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.checkout-page__summary {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
+  padding: 32px;
+  background: var(--color-surface-container-low);
+}
+
+.checkout-page__summary h3 {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.checkout-page__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+}

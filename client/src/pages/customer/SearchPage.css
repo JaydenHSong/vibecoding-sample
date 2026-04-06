@@ -1,0 +1,182 @@
+/* Design Ref: Stitch _2 — Search page with sidebar filters */
+.search-page {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.search-page__header {
+  margin-bottom: 48px;
+}
+
+.search-page__bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 8px;
+}
+
+.search-page__input {
+  flex: 1;
+  border: none !important;
+  border-bottom: none !important;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  padding: 8px 0 !important;
+}
+
+.search-page__input::placeholder {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+.search-page__submit {
+  padding: 8px;
+  color: var(--color-on-surface);
+  transition: opacity 0.2s;
+}
+
+.search-page__submit:hover {
+  opacity: 0.5;
+}
+
+/* Layout: sidebar + main */
+.search-page__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .search-page__layout {
+    flex-direction: row;
+    gap: 64px;
+  }
+}
+
+/* Sidebar */
+.search-page__sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .search-page__sidebar {
+    width: 220px;
+    flex-shrink: 0;
+  }
+}
+
+.search-page__sidebar-inner {
+  position: sticky;
+  top: calc(var(--header-height) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (max-width: 1023px) {
+  .search-page__sidebar-inner {
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+}
+
+.search-page__filter-title {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-on-surface-variant);
+  margin-bottom: 20px;
+}
+
+.search-page__filter-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-page__filter-btn {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.2s;
+}
+
+.search-page__filter-btn:hover {
+  opacity: 0.6;
+}
+
+.search-page__filter-btn.active {
+  font-weight: 700;
+}
+
+/* Main results area */
+.search-page__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-page__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-page__results-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+
+.search-page__query-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 8px;
+}
+
+.search-page__count {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+}
+
+.search-page__empty {
+  text-align: center;
+  padding: 96px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-on-surface-variant);
+}
+
+.search-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .search-page__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 16px;
+  }
+}

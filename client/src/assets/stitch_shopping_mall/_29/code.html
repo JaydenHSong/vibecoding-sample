@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#a0efff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "tertiary": "#000000",
+                    "secondary": "#006876",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed": "#001f25",
+                    "on-tertiary-fixed": "#3e0500",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface-variant": "#e2e2e2",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "on-background": "#1a1c1c",
+                    "outline-variant": "#cfc4c5",
+                    "inverse-primary": "#c6c6c6",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-fixed": "#e2e2e2",
+                    "on-surface-variant": "#4c4546",
+                    "surface-dim": "#dadada",
+                    "on-secondary-container": "#006573",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-container": "#848484",
+                    "tertiary-fixed": "#ffdad3",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "on-tertiary-container": "#ca6752",
+                    "tertiary-container": "#3e0500",
+                    "surface-container": "#eeeeee",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1b1b1b",
+                    "on-primary-fixed": "#1b1b1b",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "secondary-container": "#58e6ff",
+                    "outline": "#7e7576",
+                    "on-surface": "#1a1c1c",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#5e5e5e",
+                    "primary": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-black/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-black dark:text-white">THE CURATED GALLERY</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] font-medium tracking-tight text-sm">
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">New</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">Brands</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">Editorial</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">Women</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">Men</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:text-black dark:hover:text-white transition-colors duration-300" href="#">Home</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-black dark:text-white scale-95 duration-200 ease-in-out">shopping_bag</button>
+<button class="material-symbols-outlined text-black dark:text-white scale-95 duration-200 ease-in-out">person</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1400px] mx-auto">
+<!-- Hero Header -->
+<header class="mb-24">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-4 block">Concierge &amp; Assistance</span>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter text-primary mb-8 leading-none">HOW CAN WE<br/>ASSIST YOU?</h1>
+<p class="text-on-surface-variant max-w-xl font-light leading-relaxed">Our dedicated concierge team is available to ensure your experience with The Curated Gallery remains seamless and exceptional.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- FAQ Section (Asymmetric Left) -->
+<section class="lg:col-span-7">
+<div class="mb-12">
+<h2 class="text-sm font-bold tracking-widest uppercase mb-12 flex items-center gap-4">
+<span class="w-8 h-px bg-primary"></span>
+                        Frequently Asked Questions
+                    </h2>
+<div class="space-y-0">
+<!-- Accordion Item 1 -->
+<div class="group border-b border-outline-variant/20 py-8">
+<details class="cursor-pointer group" open="">
+<summary class="list-none flex justify-between items-center text-xl font-medium tracking-tight">
+<span>Shipping &amp; International Delivery</span>
+<span class="material-symbols-outlined group-open:rotate-45 transition-transform duration-300">add</span>
+</summary>
+<div class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-2xl">
+                                    We offer complimentary express shipping on all orders over $500. For international deliveries, transit times typically range from 3-7 business days depending on the destination. All duties and taxes are calculated at checkout for a seamless experience.
+                                </div>
+</details>
+</div>
+<!-- Accordion Item 2 -->
+<div class="group border-b border-outline-variant/20 py-8">
+<details class="cursor-pointer group">
+<summary class="list-none flex justify-between items-center text-xl font-medium tracking-tight">
+<span>Returns &amp; Exchange Policy</span>
+<span class="material-symbols-outlined group-open:rotate-45 transition-transform duration-300">add</span>
+</summary>
+<div class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-2xl">
+                                    Returns are accepted within 14 days of delivery. Items must be in their original condition with all security tags attached. Please use the prepaid return label included in your original shipment.
+                                </div>
+</details>
+</div>
+<!-- Accordion Item 3 -->
+<div class="group border-b border-outline-variant/20 py-8">
+<details class="cursor-pointer group">
+<summary class="list-none flex justify-between items-center text-xl font-medium tracking-tight">
+<span>Authenticity Guarantee</span>
+<span class="material-symbols-outlined group-open:rotate-45 transition-transform duration-300">add</span>
+</summary>
+<div class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-2xl">
+                                    Every item curated for our gallery undergoes a rigorous multi-point inspection process by our master authenticators. Each purchase includes a digital certificate of authenticity.
+                                </div>
+</details>
+</div>
+</div>
+</div>
+</section>
+<!-- Inquiry Form & Concierge Details (Right Sidebar) -->
+<aside class="lg:col-span-5 space-y-24">
+<!-- Inquiry Form -->
+<div class="bg-surface-container-low p-10">
+<h3 class="text-xl font-bold tracking-tight mb-8">Personal Inquiry</h3>
+<form class="space-y-8">
+<div class="relative">
+<input class="peer w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary pt-6 pb-2 transition-all placeholder-transparent" id="name" placeholder=" " type="text"/>
+<label class="absolute left-0 top-0 text-[10px] uppercase tracking-widest text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-[10px]" for="name">Full Name</label>
+</div>
+<div class="relative">
+<input class="peer w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary pt-6 pb-2 transition-all placeholder-transparent" id="email" placeholder=" " type="email"/>
+<label class="absolute left-0 top-0 text-[10px] uppercase tracking-widest text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-[10px]" for="email">Email Address</label>
+</div>
+<div class="relative">
+<select class="peer w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary pt-6 pb-2 transition-all appearance-none" id="topic">
+<option disabled="" selected="" value=""></option>
+<option>Order Status</option>
+<option>Personal Styling</option>
+<option>Product Information</option>
+<option>Other</option>
+</select>
+<label class="absolute left-0 top-0 text-[10px] uppercase tracking-widest text-on-surface-variant" for="topic">Inquiry Topic</label>
+</div>
+<div class="relative">
+<textarea class="peer w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary pt-6 pb-2 transition-all placeholder-transparent resize-none" id="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-0 top-0 text-[10px] uppercase tracking-widest text-on-surface-variant transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-6 peer-focus:top-0 peer-focus:text-[10px]" for="message">Message</label>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-colors duration-300" type="submit">
+                            Send Inquiry
+                        </button>
+</form>
+</div>
+<!-- Contact Concierge Details -->
+<div class="space-y-12">
+<h3 class="text-sm font-bold tracking-widest uppercase flex items-center gap-4">
+<span class="w-8 h-px bg-primary"></span>
+                        Contact Concierge
+                    </h3>
+<div class="grid grid-cols-1 gap-12">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">call</span>
+<div>
+<h4 class="text-xs uppercase tracking-widest font-bold mb-2">Direct Line</h4>
+<p class="text-xl font-medium tracking-tight text-primary">+1 800 GALLERY</p>
+<p class="text-xs text-on-surface-variant mt-1">Available 24/7 for Priority Clients</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">mail</span>
+<div>
+<h4 class="text-xs uppercase tracking-widest font-bold mb-2">Email Correspondence</h4>
+<p class="text-xl font-medium tracking-tight text-primary">concierge@thecurated.gallery</p>
+<p class="text-xs text-on-surface-variant mt-1">Response within 2 hours</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+<div>
+<h4 class="text-xs uppercase tracking-widest font-bold mb-2">Private Showroom</h4>
+<p class="text-xl font-medium tracking-tight text-primary">742 Fifth Avenue, NYC</p>
+<p class="text-xs text-on-surface-variant mt-1">By Appointment Only</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Visual Anchor (Full Width Editorial Image) -->
+<section class="mt-32 w-full aspect-[21/9] overflow-hidden relative group">
+<img alt="Luxury office space with minimalist design and dramatic lighting" class="w-full h-full object-cover grayscale opacity-90 group-hover:scale-105 transition-transform duration-1000" data-alt="Modern minimalist luxury office with large windows, designer chairs, marble floors, and soft afternoon sun rays hitting clean white walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYGNepaMN3uz8hldcp9GLMTRJzROoY2U3qsNHuB_4x8Fbo9WzG7TYYriY6fCFfrAwU9enyQRL8WnrwSMUakyDJJVEsIGH5i7POg8hgCG2GgvPtudpBS43tAbguupLMe0401sF1LbH2Mo5cEn51cWF0HRdkMC1nQZPAlzfyTPHvQDIl8JdYkz742TZb8l_WTko9on0W589laDzmVscOQ3K2VkNv_n9_Qb-17l9bM0gkf45gDQO0jWeYBzE-fW8BJsxpvu8NeAUqEAk"/>
+<div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+<div class="text-center">
+<h3 class="text-white text-3xl md:text-5xl font-black tracking-tighter">BEYOND SERVICE</h3>
+<p class="text-white/80 text-[10px] uppercase tracking-widest mt-4">A Commitment to Excellence</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#cfc4c5]/20 bg-[#f3f3f3] dark:bg-[#1b1b1b]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-8 py-16 w-full mt-24">
+<div class="flex flex-col gap-6">
+<div class="text-lg font-bold text-black dark:text-white uppercase tracking-tighter">THE CURATED GALLERY</div>
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5] leading-relaxed">
+                    Elevating the digital commerce experience through meticulous curation and editorial excellence.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold text-black dark:text-white">Customer Care</h4>
+<div class="flex flex-col gap-2 font-['Inter'] text-[10px] uppercase tracking-widest">
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Shipping &amp; Returns</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Sustainability</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold text-black dark:text-white">Legal</h4>
+<div class="flex flex-col gap-2 font-['Inter'] text-[10px] uppercase tracking-widest">
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#4c4546] dark:text-[#cfc4c5] hover:underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Press</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold text-black dark:text-white">Journal</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-black dark:border-white py-2 text-[10px] focus:ring-0" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="absolute right-0 bottom-2 material-symbols-outlined text-sm">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-8 py-8 flex justify-between items-center w-full max-w-[1920px] mx-auto opacity-50">
+<div class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#4c4546] dark:text-[#cfc4c5]">
+                © 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-xl">share</span>
+<span class="material-symbols-outlined text-xl">camera</span>
+</div>
+</div>
+</footer>
+</body></html>

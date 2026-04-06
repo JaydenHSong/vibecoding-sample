@@ -1,0 +1,79 @@
+/* Design Ref: §Design Anchor — Stitch "The Curated Gallery" tokens (29cm editorial) */
+:root {
+  /* Primary */
+  --color-primary: #000000;
+  --color-primary-container: #1b1b1b;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #848484;
+
+  /* Secondary (teal accent) */
+  --color-secondary: #006876;
+  --color-secondary-container: #58e6ff;
+
+  /* Surface Hierarchy — Stitch exact values */
+  --color-background: #fbfbfb;
+  --color-surface: #fbfbfb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f6f6;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #f1f1f1;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface-dim: #dadada;
+  --color-surface-variant: #e2e2e2;
+
+  /* Text */
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #4c4546;
+
+  /* Outline (Ghost Border only: 20% opacity) */
+  --color-outline: #7e7576;
+  --color-outline-variant: #d1d1d1;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+
+  /* Inverse (Footer / dark sections) */
+  --color-inverse-surface: #2f3131;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-inverse-primary: #c6c6c6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Bodoni Moda', serif;
+  --font-display-lg: 3.5rem;
+  --font-display-md: 2.5rem;
+  --font-headline-lg: 2rem;
+  --font-headline-md: 1.5rem;
+  --font-body-lg: 1rem;
+  --font-body-md: 0.875rem;
+  --font-label-lg: 0.875rem;
+  --font-label-md: 0.75rem;
+  --font-label-sm: 0.6875rem;
+  --letter-spacing-tight: -0.02em;
+
+  /* Spacing (scale 3, base 8px) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Radius — Stitch uses 0 for all (editorial sharp edges) */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-full: 9999px;
+
+  /* Shadows (ambient only) */
+  --shadow-ambient: 0 4px 30px rgba(26, 28, 28, 0.05);
+  --shadow-float: 0 8px 60px rgba(26, 28, 28, 0.06);
+
+  /* Layout */
+  --header-height: 52px;
+  --admin-sidebar-width: 256px;
+  --content-max-width: 1920px;
+}

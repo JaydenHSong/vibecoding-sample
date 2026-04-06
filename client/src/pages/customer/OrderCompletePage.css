@@ -1,0 +1,81 @@
+/* Design Ref: Stitch editorial — Order complete */
+.order-complete {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.order-complete__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.order-complete__title {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}
+
+.order-complete__header .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+}
+
+.order-complete__subtitle {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+}
+
+.order-complete__card {
+  padding: 32px;
+  background: var(--color-surface-container-low);
+  margin-bottom: 48px;
+}
+
+.order-complete__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.order-complete__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-on-surface-variant);
+}
+
+.order-complete__items {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-complete__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+}
+
+.order-complete__total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.order-complete__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}

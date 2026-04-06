@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Console | The Curated Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e2e2e2",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "background": "#f9f9f9",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#1b1b1b",
+                    "on-secondary-fixed": "#001f25",
+                    "tertiary-container": "#3e0500",
+                    "on-background": "#1a1c1c",
+                    "surface": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#cfc4c5",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#1b1b1b",
+                    "secondary-container": "#58e6ff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#848484",
+                    "tertiary-fixed": "#ffdad3",
+                    "on-tertiary-container": "#ca6752",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-secondary-container": "#006573",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "surface-container-low": "#f3f3f3",
+                    "on-tertiary-fixed": "#3e0500",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#5e5e5e",
+                    "error-container": "#ffdad6",
+                    "secondary": "#006876",
+                    "inverse-surface": "#2f3131",
+                    "surface-container": "#eeeeee",
+                    "on-surface-variant": "#4c4546",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed": "#a0efff",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "inverse-primary": "#c6c6c6",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "primary": "#000000",
+                    "error": "#ba1a1a",
+                    "tertiary": "#000000",
+                    "outline": "#7e7576",
+                    "surface-dim": "#dadada"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex">
+<!-- SideNavBar (Execution from JSON) -->
+<nav class="fixed left-0 top-0 flex flex-col h-full p-4 bg-[#f3f3f3] dark:bg-[#1a1c1c] h-screen w-64 border-r border-transparent z-50">
+<div class="text-lg font-black tracking-tighter mb-8 text-[#000000] dark:text-[#ffffff]">
+            Admin Console
+            <div class="text-[10px] font-medium uppercase tracking-[0.2em] text-[#4c4546] dark:text-[#cfc4c5] mt-1">System Curator</div>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#ffffff] dark:bg-[#2c2e2e] text-[#000000] dark:text-[#ffffff] rounded-sm shadow-sm transition-all translate-x-1 duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="ad_units">ad_units</span>
+<span>Banners</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span>Reviews</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span>Inquiries</span>
+</a>
+</div>
+<div class="mt-auto pt-4 flex flex-col gap-1">
+<button class="w-full mb-6 bg-primary text-on-primary py-3 px-4 text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-primary-container transition-colors">
+                Create New Listing
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#4c4546] dark:text-[#cfc4c5] hover:bg-[#e8e8e8] dark:hover:bg-[#2c2e2e] transition-all font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 min-h-screen flex flex-col">
+<!-- TopAppBar (Execution from JSON) -->
+<header class="flex justify-between items-center w-full px-8 py-6 max-w-[1920px] mx-auto bg-[#f9f9f9]/80 backdrop-blur-xl dark:bg-[#1a1c1c]/80 sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-bold tracking-tighter text-[#000000] dark:text-[#ffffff]">Dashboard</h1>
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-low border-none focus:ring-0 text-sm py-2 px-10 w-80 rounded-sm" placeholder="Search orders, products, customers..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg" data-icon="search">search</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 bg-error text-on-error text-[10px] w-4 h-4 flex items-center justify-center rounded-full border-2 border-surface">3</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant/30">
+<div class="text-right">
+<p class="text-sm font-semibold text-primary">Alex Sterling</p>
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Lead Curator</p>
+</div>
+<img alt="Admin Avatar" class="w-10 h-10 rounded-sm object-cover" data-alt="close-up portrait of a professional man in a minimalist studio setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr2t86CamJF7WMMNz9OpwkvZQvuQofx49k9TnP0nzT0FWWF6cpL3vo_4a_kCaCWsr8UHZW3fSIh8cDA-RwbhJDKOq3KnS_2qGNOfIzTXCC_inN2TlEz8cVzZnudnW8oViSk9aQfPCcBeL9adWA6qfF5A0_MtXoFUObDxNEw7BfkiMdI0cDCAyWjz0WLd0wp060II3Wx9l45VnTwign1hvVJKr4hTMwfzdSQK2nVaz6nQgRAMAKeb3tfjQZgUWg40qH8CMk-M44c3Q"/>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="px-8 py-8 flex flex-col gap-8 max-w-[1920px] mx-auto w-full">
+<!-- Summary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-8 border-b-2 border-secondary shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold text-secondary bg-secondary-container/20 px-2 py-1 rounded-sm">+12.5%</span>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Today's Sales</p>
+<h3 class="text-3xl font-black tracking-tighter text-primary">$14,290.00</h3>
+</div>
+<div class="bg-surface-container-lowest p-8 border-b-2 border-primary shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-container-high px-2 py-1 rounded-sm">+4</span>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">New Orders</p>
+<h3 class="text-3xl font-black tracking-tighter text-primary">48</h3>
+</div>
+<div class="bg-surface-container-lowest p-8 border-b-2 border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="person_add">person_add</span>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-container-high px-2 py-1 rounded-sm">+8</span>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">New Members</p>
+<h3 class="text-3xl font-black tracking-tighter text-primary">124</h3>
+</div>
+</div>
+<!-- Main Data Section -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Revenue Chart Simulation -->
+<div class="xl:col-span-2 bg-surface-container-lowest p-8 shadow-sm">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h4 class="text-lg font-bold tracking-tight mb-1">Sales Statistics</h4>
+<p class="text-xs text-on-surface-variant tracking-wide">Revenue performance over the last 7 days</p>
+</div>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 border border-primary text-primary">Week</button>
+<button class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 text-on-surface-variant border border-transparent">Month</button>
+</div>
+</div>
+<div class="h-64 w-full flex items-end justify-between gap-4 px-4">
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-24 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-1/2 transition-all duration-500 group-hover:h-3/4"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Mon</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-32 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-2/3 transition-all duration-500 group-hover:h-4/5"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Tue</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-48 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-4/5 transition-all duration-500 group-hover:h-full"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Wed</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-40 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-primary h-3/5 transition-all duration-500 group-hover:h-4/5"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Thu</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-56 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-full transition-all duration-500"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Fri</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-28 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-1/3 transition-all duration-500 group-hover:h-1/2"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Sat</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-4">
+<div class="w-full bg-surface-container-high h-36 relative overflow-hidden group">
+<div class="absolute bottom-0 w-full bg-secondary h-2/5 transition-all duration-500 group-hover:h-3/5"></div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Sun</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="bg-surface-container-low p-8 shadow-sm flex flex-col gap-6">
+<h4 class="text-lg font-bold tracking-tight">Recent Inquiries</h4>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-sm font-semibold mb-1">Custom Order Request</p>
+<p class="text-xs text-on-surface-variant line-clamp-2">"Is the 'Nordic Dusk' series available in a larger format for corporate galleries?"</p>
+<p class="text-[10px] font-bold text-secondary mt-2 uppercase tracking-widest">Respond Now</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="rate_review">rate_review</span>
+</div>
+<div>
+<p class="text-sm font-semibold mb-1">New 5-Star Review</p>
+<p class="text-xs text-on-surface-variant line-clamp-2">"Exceptional quality and the packaging felt like an event itself. Highly recommend."</p>
+<p class="text-[10px] text-on-surface-variant mt-2 uppercase tracking-widest">2 hours ago</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-sm font-semibold mb-1">New VIP Application</p>
+<p class="text-xs text-on-surface-variant line-clamp-2">Sarah Jenkins applied for Collector Tier status.</p>
+<p class="text-[10px] text-on-surface-variant mt-2 uppercase tracking-widest">5 hours ago</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border border-outline-variant text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-surface transition-colors">
+                        View All Activity
+                    </button>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="bg-surface-container-lowest p-8 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h4 class="text-lg font-bold tracking-tight">Recent Orders</h4>
+<button class="text-xs font-bold text-on-surface-variant underline decoration-outline-variant hover:text-primary transition-colors">View All Orders</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-container-high">
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Order ID</th>
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Customer</th>
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Product</th>
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Amount</th>
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-center">Status</th>
+<th class="pb-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="group hover:bg-surface transition-colors">
+<td class="py-5 font-mono text-xs font-bold text-primary">#ORD-88219</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">EM</div>
+<span class="text-sm font-medium">Elena Moretti</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Void Study 04 (L)</td>
+<td class="py-5 text-sm font-bold text-right">$2,450.00</td>
+<td class="py-5">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-secondary-container/30 text-on-secondary-container px-3 py-1">Processing</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="group hover:bg-surface transition-colors">
+<td class="py-5 font-mono text-xs font-bold text-primary">#ORD-88218</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">JK</div>
+<span class="text-sm font-medium">Julian Kase</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Obsidian Sculpture</td>
+<td class="py-5 text-sm font-bold text-right">$8,200.00</td>
+<td class="py-5">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-surface-container-highest text-on-surface-variant px-3 py-1">Shipped</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="group hover:bg-surface transition-colors">
+<td class="py-5 font-mono text-xs font-bold text-primary">#ORD-88217</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">TC</div>
+<span class="text-sm font-medium">Thomas Chen</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Minimalist Arch III</td>
+<td class="py-5 text-sm font-bold text-right">$1,100.00</td>
+<td class="py-5">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-error-container text-on-error-container px-3 py-1">On Hold</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="group hover:bg-surface transition-colors">
+<td class="py-5 font-mono text-xs font-bold text-primary">#ORD-88216</td>
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">AL</div>
+<span class="text-sm font-medium">Anais Laurent</span>
+</div>
+</td>
+<td class="py-5 text-sm text-on-surface-variant">Marble Plinth Pair</td>
+<td class="py-5 text-sm font-bold text-right">$3,640.00</td>
+<td class="py-5">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-secondary-container/30 text-on-secondary-container px-3 py-1">Processing</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer (Execution from JSON) -->
+<footer class="w-full px-8 py-16 flex flex-col md:flex-row justify-between items-center gap-8 bg-[#f3f3f3] dark:bg-[#121212] mt-auto">
+<div class="text-xl font-bold text-[#000000] dark:text-[#ffffff]">The Curated Gallery</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#4c4546] hover:text-[#000000] transition-colors font-['Inter'] text-xs tracking-widest uppercase" href="#">Customer Service</a>
+<a class="text-[#4c4546] hover:text-[#000000] transition-colors font-['Inter'] text-xs tracking-widest uppercase" href="#">Terms &amp; Conditions</a>
+<a class="text-[#4c4546] hover:text-[#000000] transition-colors font-['Inter'] text-xs tracking-widest uppercase" href="#">Privacy Policy</a>
+<a class="text-[#4c4546] hover:text-[#000000] transition-colors font-['Inter'] text-xs tracking-widest uppercase" href="#">Shipping Info</a>
+</div>
+<p class="text-[#4c4546] font-['Inter'] text-xs tracking-widest uppercase">© 2024 The Curated Gallery. All rights reserved.</p>
+</footer>
+</main>
+</body></html>

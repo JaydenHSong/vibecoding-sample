@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curated Gallery | Collections</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;family=Playfair+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e2e2e2",
+                    "outline": "#7e7576",
+                    "surface": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "secondary": "#006876",
+                    "on-tertiary-container": "#ca6752",
+                    "on-tertiary-fixed": "#3e0500",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "tertiary-fixed": "#ffdad3",
+                    "primary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-primary-container": "#848484",
+                    "inverse-primary": "#c6c6c6",
+                    "secondary-container": "#58e6ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "primary-container": "#1b1b1b",
+                    "surface-container-highest": "#e2e2e2",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#3e0500",
+                    "surface-tint": "#5e5e5e",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-secondary-fixed": "#001f25",
+                    "secondary-fixed": "#a0efff",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#006573",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "serif": ["Playfair Display", "serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+        }
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .product-card-lg { grid-column: span 8; }
+        .product-card-sm { grid-column: span 4; }
+        .product-card-md { grid-column: span 6; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-[#1a1c1c]/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#000000] dark:text-[#ffffff]">CURATED</div>
+<div class="hidden md:flex gap-12">
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">Exhibitions</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-bold text-black dark:text-white border-b border-black dark:border-white pb-1" href="#">Collections</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">Archive</a>
+<a class="font-['Inter'] tracking-tight text-sm uppercase font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center border-b border-outline-variant pb-1">
+<span class="material-symbols-outlined text-sm opacity-50">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-[10px] tracking-widest px-2 uppercase" placeholder="SEARCH" type="text"/>
+</div>
+<button class="hover:opacity-70 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1920px] mx-auto">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Sidebar -->
+<aside class="w-full lg:w-64 shrink-0">
+<div class="sticky top-32 space-y-12">
+<section>
+<h3 class="font-['Inter'] text-[10px] tracking-widest uppercase font-bold mb-6 text-on-surface-variant">Categories</h3>
+<ul class="space-y-4">
+<li><a class="text-sm tracking-tight flex justify-between items-center group" href="#"><span>Objects</span><span class="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity italic font-serif">24</span></a></li>
+<li><a class="text-sm tracking-tight flex justify-between items-center group" href="#"><span>Fashion</span><span class="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity italic font-serif">18</span></a></li>
+<li><a class="text-sm tracking-tight flex justify-between items-center group font-bold" href="#"><span>Living</span><span class="text-[10px] opacity-100 italic font-serif">12</span></a></li>
+<li><a class="text-sm tracking-tight flex justify-between items-center group" href="#"><span>Art</span><span class="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity italic font-serif">09</span></a></li>
+</ul>
+</section>
+<section>
+<h3 class="font-['Inter'] text-[10px] tracking-widest uppercase font-bold mb-6 text-on-surface-variant">Price Range</h3>
+<div class="space-y-6">
+<input class="w-full h-px bg-outline-variant appearance-none accent-primary cursor-pointer" type="range"/>
+<div class="flex justify-between text-[10px] font-mono tracking-tighter">
+<span>$0</span>
+<span>$5,000+</span>
+</div>
+</div>
+</section>
+<section class="hidden lg:block">
+<div class="p-8 bg-surface-container-low">
+<p class="font-serif italic text-lg leading-tight mb-4">Curating the subtle, for those who notice.</p>
+<a class="text-[10px] tracking-widest uppercase border-b border-primary pb-1 font-bold" href="#">Read the Journal</a>
+</div>
+</section>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="flex-1">
+<!-- Sorting Top Bar -->
+<div class="flex flex-col md:flex-row justify-between items-baseline border-b border-outline-variant/30 pb-4 mb-12">
+<h1 class="text-4xl font-light tracking-tighter mb-4 md:mb-0">Living <span class="italic font-serif text-3xl ml-2">Collection</span></h1>
+<div class="flex gap-8 overflow-x-auto pb-2 no-scrollbar">
+<button class="text-[10px] tracking-widest uppercase font-bold text-primary whitespace-nowrap">New Arrivals</button>
+<button class="text-[10px] tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Price: Low to High</button>
+<button class="text-[10px] tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Popularity</button>
+</div>
+</div>
+<!-- Asymmetric Product Grid -->
+<div class="asymmetric-grid">
+<!-- Item 1: Large Featured -->
+<div class="product-card-lg group cursor-pointer">
+<div class="overflow-hidden bg-surface-container-low aspect-[16/9] mb-6">
+<img alt="Minimalist living room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Ultra minimalist interior scene with a single sculptural stone chair and soft architectural shadows on white concrete walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQDx3JjsCA5vPtHsKwqMjYcsp6KpNTfjus4C4HzAZKn5AuLqVNXXAfJnUy1msg0XEP3MIRTG8nVXBOBJho8sEDhenTms--xeGH2n1q8u0lOhz8inSSY6kScYUm1soOzgtvmsFS9eY3ZW3U2wDvuQVyvANSV-DJqyQdbGuapbR1BckF2WUBYykeK7l4jS6MJvSDZ3FcHWdMUksTC_R8sYCiqE-6YL6vmbb_0EpsfEF5k8zJQUmAO19u9JvDGb1t1MGE5AhRDDdFV3s"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-2xl font-serif italic">Monolith Sculptural Seat</h2>
+<p class="text-[10px] tracking-widest uppercase text-on-surface-variant mt-1">Living / Furniture</p>
+</div>
+<span class="text-lg font-light tracking-tighter">$2,450</span>
+</div>
+</div>
+<!-- Item 2: Small Accent -->
+<div class="product-card-sm group cursor-pointer mt-12">
+<div class="overflow-hidden bg-surface-container-low aspect-[3/4] mb-6">
+<img alt="Ceramic object" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Minimalist handcrafted white ceramic vase with an organic asymmetric shape on a light gray limestone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-4_Ow71CXuVFeGE12iAF3_4eM3SPx5eSDKzwI8GE90S4LC3y2i_mjGY8xQbasntshfXswSru47XdRbdkf38GxqNxv3rWuFF5jX7S9TEF0RGefQy6OQP_sAICpTl3oWmGkETPifKQKymIy6eck-NgFG73CS8ej33gzIHqj8Bfu2-9jny7MgUv7sY5RLsfVsur25r2SMCzSivJh213hQNZxdqDjMyOJJDxFIZFDfe40a5vfrfJPTU46RT28djHySWrbhceoQR8QSCo"/>
+</div>
+<div>
+<h2 class="text-xl font-serif italic">Echo Vessel No. 04</h2>
+<p class="text-[10px] tracking-widest uppercase text-on-surface-variant mt-1">Objects</p>
+<span class="block mt-2 text-sm font-light">$320</span>
+</div>
+</div>
+<!-- Item 3: Medium -->
+<div class="product-card-md group cursor-pointer">
+<div class="overflow-hidden bg-surface-container-low aspect-[4/5] mb-6">
+<img alt="Minimalist watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Luxury minimalist wristwatch with a matte black face and brushed steel strap lying on a piece of dark slate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ5oKBsEu4NMVfuDU3_6A_C1tvxDHNMXUcoC7SJqiA-kaTgw9KrL_-lms3k2YbjnH30XjSRopbwEikbi5P4ayysnAo6X9Hvp1f_JRriqedQA6bjEgOogkIIYk041WJlgwJBtIzC744F5TdodwPqIOovEgcZJCJL2lij8HUG0sT6OjM7WRUDVCsJJFy5_t0YmKV5MmUGFZq_nBJ6yqRBTdu-hZRsf4YJ__6ct3MGDG0P4WaN5AahYAF_d6B3f4yDdbV62orknBnVYc"/>
+</div>
+<div>
+<h2 class="text-xl font-serif italic">Void Chronograph</h2>
+<p class="text-[10px] tracking-widest uppercase text-on-surface-variant mt-1">Fashion / Accessories</p>
+<span class="block mt-2 text-sm font-light">$890</span>
+</div>
+</div>
+<!-- Item 4: Medium -->
+<div class="product-card-md group cursor-pointer mt-24">
+<div class="overflow-hidden bg-surface-container-low aspect-square mb-6">
+<img alt="Editorial fashion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="Editorial fashion shot of a draped silk garment in champagne color hanging elegantly against a stark white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5plLsNbjLQdEy_ul4mN68AWaJZTZ9CvAn3XxAW9Q4KOCENQ_2NmAi4-FNY64veuy6Jj41EwP8VHfudcwckyc2DyS3ZbcxlQ46xSyXyrgBt6GDpCMczuz_I4tdoGow89k3mapJNIaJoT-X6bKs75LRQQRzycNZ62r3OdjtoLLnQW9yjcNo74KhfvVFzFz9TpXKeVOeGA5sqD13WaBqxd_SHQS3xq2UvLL41eIu1-qMBvaVNDv8DMYAEPKBndHlqUcjW6O7yRlnJiI"/>
+</div>
+<div>
+<h2 class="text-xl font-serif italic">The Fluid Silk Wrap</h2>
+<p class="text-[10px] tracking-widest uppercase text-on-surface-variant mt-1">Fashion / Apparel</p>
+<span class="block mt-2 text-sm font-light">$1,100</span>
+</div>
+</div>
+<!-- Item 5: Large Landscape -->
+<div class="col-span-full group cursor-pointer py-12">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-2/3 overflow-hidden bg-surface-container-low aspect-[21/9]">
+<img alt="Minimalist lamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="High-end designer floor lamp with a thin black metal stem and a warm glowing sphere on a polished marble floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ8sYJCxsdriorw-_JAGmHApxHxf7i_XXZNizXyLy23sBs6ydQ5HARfTFvXSwt001N3nnsz2z3dJmN2FT9KHr_1-yae_3EjenQrIHvqwxMAhzfm7X_tL4sInh5u-FSHxocdSyFIzLV0hyBsG8aa9bkhd0b4fyHs1-EexdW036FlAGmwe15TkT8jLZVZvkfqr65Fad-sJ0jLpV9F2X-u2ivEq31M1Ciyn0HaPm8RhybtnhYgTpwpnderpB2uZFkxBGXD-RmUDM4I5g"/>
+</div>
+<div class="w-full md:w-1/3">
+<h2 class="text-4xl font-serif italic mb-4">Luna Floor Luminaire</h2>
+<p class="text-sm leading-relaxed text-on-surface-variant mb-6">Designed to mimic the soft diffusion of moonlight, the Luna series brings an ethereal atmosphere to any space through precise glasswork.</p>
+<div class="flex justify-between items-center border-t border-outline-variant pt-4">
+<span class="text-[10px] tracking-widest uppercase font-bold">Limited Edition</span>
+<span class="text-xl font-light">$4,200</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-24 pt-12 border-t border-outline-variant/30 flex justify-between items-center">
+<button class="text-[10px] tracking-widest uppercase font-bold opacity-30 cursor-not-allowed">Previous</button>
+<div class="flex gap-8 items-center">
+<span class="text-[10px] tracking-widest uppercase font-bold border-b border-primary">01</span>
+<span class="text-[10px] tracking-widest uppercase font-medium text-on-surface-variant hover:text-primary cursor-pointer transition-colors">02</span>
+<span class="text-[10px] tracking-widest uppercase font-medium text-on-surface-variant hover:text-primary cursor-pointer transition-colors">03</span>
+</div>
+<button class="text-[10px] tracking-widest uppercase font-bold hover:opacity-70 transition-opacity">Next</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 bg-[#f3f3f3] dark:bg-[#121212]">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full border-t border-black/5 dark:border-white/5 pt-12 max-w-[1920px] mx-auto">
+<div class="text-lg font-bold text-[#000000] dark:text-[#ffffff]">CURATED</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<div class="font-['Inter'] text-[10px] tracking-widest uppercase text-[#000000] dark:text-[#ffffff] opacity-80">
+                © 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

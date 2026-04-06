@@ -1,0 +1,136 @@
+.footer {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  padding: 80px 16px 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer__brand {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .footer__brand {
+    grid-column: span 1;
+  }
+}
+
+.footer__logo {
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.footer__desc {
+  font-size: 10px;
+  line-height: 1.8;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  max-width: 280px;
+  margin-bottom: 32px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__social-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.footer__social-link:hover {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__title {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.footer__section a {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.footer__section a:hover {
+  opacity: 1;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 24px;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 32px;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  opacity: 0.3;
+}
+
+.footer__bottom-links a:hover {
+  opacity: 1;
+}
+
+.footer__tagline {
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.2;
+  font-weight: 900;
+  text-transform: uppercase;
+}

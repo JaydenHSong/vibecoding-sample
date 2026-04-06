@@ -1,0 +1,333 @@
+/* Design Ref: Stitch _13 — Login/Register editorial split layout */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+}
+
+@media (min-width: 768px) {
+  .auth-page {
+    flex-direction: row;
+  }
+}
+
+/* Hero (left side) */
+.auth-page__hero {
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .auth-page__hero {
+    display: flex;
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .auth-page__hero {
+    width: 60%;
+  }
+}
+
+.auth-page__hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.9);
+}
+
+.auth-page__hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 64px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-page__hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.auth-page__hero-footer {
+  max-width: 420px;
+}
+
+.auth-page__hero-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.auth-page__hero-vol {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+.auth-page__hero-line {
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Form section (right side) */
+.auth-page__form-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+  .auth-page__form-section {
+    width: 50%;
+    padding: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .auth-page__form-section {
+    width: 40%;
+    padding: 96px;
+  }
+}
+
+.auth-page__form-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-page__mobile-logo {
+  display: block;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  .auth-page__mobile-logo {
+    display: none;
+  }
+}
+
+.auth-page__heading {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.auth-page__subtitle {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+
+/* Error */
+.auth-page__error {
+  background-color: var(--color-error-container);
+  color: var(--color-error);
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+/* Form fields */
+.auth-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.auth-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-page__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--color-on-surface-variant);
+}
+
+.auth-page__label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-page__forgot {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--color-secondary);
+  transition: opacity 0.2s;
+}
+
+.auth-page__forgot:hover {
+  opacity: 0.7;
+}
+
+.auth-page__field input {
+  border: none;
+  border-bottom: 1px solid rgba(207, 196, 197, 0.4);
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.auth-page__field input:focus {
+  border-bottom-color: var(--color-secondary);
+}
+
+/* Gender buttons */
+.auth-page__gender-group {
+  display: flex;
+  gap: 8px;
+}
+
+.auth-page__gender-btn {
+  flex: 1;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.auth-page__gender-btn:hover {
+  background-color: var(--color-surface-container-low);
+}
+
+.auth-page__gender-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+/* Submit */
+.auth-page__submit {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: background 0.3s;
+}
+
+.auth-page__submit:hover {
+  background: var(--color-primary-container);
+}
+
+.auth-page__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Divider */
+.auth-page__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 48px 0;
+  position: relative;
+}
+
+.auth-page__divider::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(207, 196, 197, 0.2);
+}
+
+.auth-page__divider span {
+  position: relative;
+  background: var(--color-surface);
+  padding: 0 16px;
+  font-size: 10px;
+  color: var(--color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+
+/* Social login */
+.auth-page__social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.auth-page__social-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s;
+}
+
+.auth-page__social-btn:hover:not(:disabled) {
+  background: var(--color-surface-container-low);
+  transform: scale(1.02);
+}
+
+.auth-page__social-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Switch link */
+.auth-page__switch {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+}
+
+.auth-page__switch a {
+  color: var(--color-secondary);
+  font-weight: 700;
+}

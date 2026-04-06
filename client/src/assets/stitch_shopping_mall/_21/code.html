@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary-container": "#ca6752",
+                    "on-surface-variant": "#4c4546",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#58e6ff",
+                    "on-background": "#1a1c1c",
+                    "secondary-fixed-dim": "#44d8f1",
+                    "on-secondary-container": "#006573",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-container": "#3e0500",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-highest": "#e2e2e2",
+                    "background": "#f9f9f9",
+                    "surface-container-low": "#f3f3f3",
+                    "surface": "#f9f9f9",
+                    "surface-container": "#eeeeee",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#3e0500",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-surface": "#1a1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-secondary-fixed": "#001f25",
+                    "tertiary-fixed": "#ffdad3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#7c2d1c",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "secondary": "#006876",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "primary-container": "#1b1b1b",
+                    "outline": "#7e7576",
+                    "on-primary-fixed": "#1b1b1b",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#a0efff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-primary-container": "#848484"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed-dim selection:text-on-secondary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-10 h-20 w-full">
+<div class="text-2xl font-black tracking-tighter text-stone-950 dark:text-stone-50">THE CURATOR</div>
+<div class="hidden md:flex gap-8 font-['Pretendard','Inter'] tracking-tight text-sm text-stone-400 dark:text-stone-500">
+<a class="hover:opacity-70 transition-opacity duration-300" href="#">Exhibitions</a>
+<a class="hover:opacity-70 transition-opacity duration-300" href="#">Collections</a>
+<a class="hover:opacity-70 transition-opacity duration-300" href="#">Archive</a>
+<a class="hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-stone-950 dark:text-stone-50 hover:opacity-70 transition-opacity duration-300">shopping_bag</button>
+<button class="material-symbols-outlined text-stone-950 dark:text-stone-50 hover:opacity-70 transition-opacity duration-300">person</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-24 px-6 md:px-0">
+<div class="max-w-3xl mx-auto">
+<!-- Breadcrumbs / Page Header -->
+<header class="mb-20">
+<p class="label-md text-secondary font-bold uppercase tracking-widest mb-4">Legal Framework</p>
+<h1 class="display-lg text-primary font-black tracking-tighter leading-none mb-8">이용약관 및 개인정보처리방침</h1>
+<div class="flex gap-4 border-b-2 border-surface-container-high pb-4">
+<button class="text-stone-950 font-bold border-b-2 border-stone-950 pb-4 -mb-4.5 transition-all">이용약관</button>
+<button class="text-stone-400 hover:text-stone-600 pb-4 transition-all">개인정보처리방침</button>
+</div>
+</header>
+<!-- Document Content Section -->
+<article class="space-y-16">
+<!-- Section 1 -->
+<section class="group">
+<div class="flex items-start gap-6">
+<span class="text-label-sm font-bold text-outline-variant mt-2">01.</span>
+<div class="space-y-6">
+<h2 class="headline-lg text-primary font-bold tracking-tight">목적 및 정의</h2>
+<div class="space-y-4 body-md text-on-surface-variant leading-relaxed">
+<p>이 약관은 THE CURATOR(이하 "회사")가 운영하는 온라인 서비스 및 플랫폼의 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+<p>"이용자"란 회사의 서비스에 접속하여 이 약관에 따라 회사가 제공하는 콘텐츠 및 서비스를 이용하는 고객을 의미합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Cards with Background Tonal Shift -->
+<section class="bg-surface-container-low p-10 md:p-12 space-y-8">
+<div class="flex items-start gap-6">
+<span class="text-label-sm font-bold text-outline mt-2">02.</span>
+<div class="space-y-6">
+<h2 class="headline-lg text-primary font-bold tracking-tight">서비스의 제공 및 변경</h2>
+<div class="space-y-4 body-md text-on-surface-variant leading-relaxed">
+<p>회사는 다음과 같은 서비스를 제공합니다:</p>
+<ul class="list-disc pl-5 space-y-2 marker:text-secondary">
+<li>디지털 갤러리 큐레이션 콘텐츠 제공</li>
+<li>아트웍 및 관련 상품의 판매 대행</li>
+<li>개별 큐레이터 아카이빙 시스템 지원</li>
+<li>기타 회사가 정하는 업무</li>
+</ul>
+<p>회사는 상당한 이유가 있는 경우에 운영상, 기술상의 필요에 따라 제공하고 있는 전부 또는 일부 서비스를 변경할 수 있습니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 -->
+<section class="group">
+<div class="flex items-start gap-6">
+<span class="text-label-sm font-bold text-outline-variant mt-2">03.</span>
+<div class="space-y-6">
+<h2 class="headline-lg text-primary font-bold tracking-tight">개인정보의 보호</h2>
+<div class="space-y-4 body-md text-on-surface-variant leading-relaxed">
+<p>회사는 관련 법령이 정하는 바에 따라 이용자의 개인정보를 보호하기 위해 노력합니다. 개인정보의 보호 및 사용에 대해서는 관련 법령 및 회사의 개인정보처리방침이 적용됩니다.</p>
+<div class="bg-surface-container-lowest border-l-4 border-secondary p-6 italic text-on-surface">
+                                    "우리는 당신의 데이터를 예술작품만큼 소중하게 다룹니다. 투명한 관리와 철저한 보안은 THE CURATOR의 핵심 가치입니다."
+                                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Imagery Integration (Editorial Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-10">
+<div class="space-y-6">
+<span class="text-label-sm font-bold text-outline-variant">04.</span>
+<h2 class="headline-lg text-primary font-bold tracking-tight">이용자의 의무</h2>
+<p class="body-md text-on-surface-variant leading-relaxed">
+                            이용자는 회사의 지식재산권을 존중해야 하며, 서비스 이용 과정에서 타인의 권리를 침해하거나 공서양속에 반하는 행위를 해서는 안 됩니다.
+                        </p>
+</div>
+<div class="aspect-[3/4] bg-surface-container overflow-hidden">
+<img alt="Interior of a minimalist art gallery" class="w-full h-full object-cover grayscale opacity-80" data-alt="a minimalist art gallery interior with white walls, concrete floors, and a single abstract painting illuminated by a spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrL1ogIHNDV1lA3BN7FNQlSYbPZgcC1cqdFnNB4cVKkbsfiikbJv3B4zDeed1tSKwQaJwfMpbxzn53hdTQCryzYbqZd6MPUN9raFGp_kGniKNfUeKXQ4c_ggXRgyZfL3VcP97nK9Q1RE5Zq2xrWzV4-M59DDhfZFPZ6EKCqqnIf-RimKa6SLBDYU02jNA3MJDVuKZXcbLP-jy6c_a2De8jpU4NA_idKITP62XxTC8iYMnyYhgF6jyR4lUo637BxBlIC73ej20TYck"/>
+</div>
+</section>
+<!-- Section 5 -->
+<section class="group border-t border-surface-container py-16">
+<div class="flex items-start gap-6">
+<span class="text-label-sm font-bold text-outline-variant mt-2">05.</span>
+<div class="space-y-6">
+<h2 class="headline-lg text-primary font-bold tracking-tight">책임제한 및 면책</h2>
+<div class="space-y-4 body-md text-on-surface-variant leading-relaxed">
+<p>회사는 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.</p>
+<p>회사는 이용자의 귀책사유로 인한 서비스 이용의 장애에 대하여는 책임을 지지 않습니다.</p>
+</div>
+</div>
+</div>
+</section>
+</article>
+<!-- Final Note -->
+<footer class="mt-20 pt-10 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] uppercase tracking-[0.2em] text-stone-400">최종 수정일: 2024년 5월 20일</p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-all">이전 페이지로</button>
+<button class="border border-outline-variant text-primary px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-all">PDF 다운로드</button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Global Footer Component -->
+<footer class="w-full py-16 px-10 border-t border-stone-200 dark:border-stone-900 bg-stone-100 dark:bg-stone-950 flex flex-col md:flex-row justify-between items-start gap-8 font-['Pretendard','Inter']">
+<div class="space-y-4">
+<div class="text-sm font-bold text-stone-950 dark:text-stone-50">THE CURATED GALLERY</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">© 2024 THE CURATED GALLERY. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4">
+<a class="text-[10px] uppercase tracking-[0.2em] text-stone-950 dark:text-stone-50 underline-offset-4 underline transition-all" href="#">Privacy Policy</a>
+<a class="text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
+<a class="text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 hover:underline transition-all" href="#">Contact</a>
+<a class="text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500 hover:text-stone-950 dark:hover:text-stone-50 underline-offset-4 hover:underline transition-all" href="#">Shipping</a>
+</div>
+</footer>
+</body></html>

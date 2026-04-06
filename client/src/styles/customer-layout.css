@@ -1,0 +1,17 @@
+/* Design Ref: §5.1 Customer Layout — Stitch editorial wide layout */
+.customer-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-layout__main {
+  flex: 1;
+  padding-top: var(--header-height);
+}
+
+.customer-layout__content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) 16px;
+}

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curated Gallery | Editorial Lifestyle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-highest": "#e2e2e2",
+                "primary-fixed-dim": "#c6c6c6",
+                "background": "#fbfbfb",
+                "secondary-fixed-dim": "#44d8f1",
+                "on-error-container": "#93000a",
+                "primary-container": "#1b1b1b",
+                "on-secondary-fixed": "#001f25",
+                "tertiary-container": "#3e0500",
+                "on-background": "#1a1c1c",
+                "surface": "#fbfbfb",
+                "on-surface": "#1a1c1c",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#d1d1d1",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#f1f1f1",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#1b1b1b",
+                "secondary-container": "#58e6ff",
+                "on-error": "#ffffff",
+                "on-primary-container": "#848484",
+                "tertiary-fixed": "#ffdad3",
+                "on-tertiary-container": "#ca6752",
+                "inverse-on-surface": "#f1f1f1",
+                "on-secondary-container": "#006573",
+                "surface-variant": "#e2e2e2",
+                "on-secondary-fixed-variant": "#004e59",
+                "surface-container-low": "#f6f6f6",
+                "on-tertiary-fixed": "#3e0500",
+                "on-primary": "#ffffff",
+                "surface-tint": "#5e5e5e",
+                "error-container": "#ffdad6",
+                "secondary": "#006876",
+                "inverse-surface": "#2f3131",
+                "surface-container": "#eeeeee",
+                "on-surface-variant": "#4c4546",
+                "tertiary-fixed-dim": "#ffb4a4",
+                "surface-bright": "#fbfbfb",
+                "secondary-fixed": "#a0efff",
+                "on-tertiary-fixed-variant": "#7c2d1c",
+                "inverse-primary": "#c6c6c6",
+                "primary-fixed": "#e2e2e2",
+                "on-primary-fixed-variant": "#474747",
+                "primary": "#000000",
+                "error": "#ba1a1a",
+                "tertiary": "#000000",
+                "outline": "#7e7576",
+                "surface-dim": "#dadada"
+            },
+            "borderRadius": {
+                "DEFAULT": "0rem",
+                "lg": "0rem",
+                "xl": "0rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Bodoni Moda", "serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbfbfb; color: #1a1c1c; -webkit-font-smoothing: antialiased; }
+        .serif { font-family: 'Bodoni Moda', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .editorial-text-vertical { writing-mode: vertical-rl; }
+        .mask-image-editorial { mask-image: linear-gradient(to bottom, black 80%, transparent); }
+        .tight-grid { gap: 1px; background-color: #e5e5e5; }
+        .tight-grid > * { background-color: #fbfbfb; }
+        .dot-pattern { background-image: radial-gradient(#d1d1d1 1px, transparent 1px); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar: Denser Integrated Aesthetic -->
+<nav class="bg-background/95 backdrop-blur-xl border-b border-black/[0.08] sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-4 py-3 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="text-xl font-black tracking-tighter uppercase serif italic">The Gallery</div>
+<div class="hidden lg:flex gap-6 items-center font-['Inter'] tracking-tighter text-[10px] uppercase font-bold border-l border-black/10 pl-8">
+<a class="hover:text-black/50 transition-colors" href="#">Shop</a>
+<a class="hover:text-black/50 transition-colors" href="#">Editorial</a>
+<a class="hover:text-black/50 transition-colors" href="#">Curations</a>
+<a class="hover:text-black/50 transition-colors" href="#">Brands</a>
+<a class="hover:text-black/50 transition-colors text-red-500" href="#">Sale</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-black/[0.03] px-3 py-1.5 rounded-sm">
+<input class="bg-transparent border-none focus:ring-0 text-[10px] w-48 placeholder-black/40 uppercase font-bold tracking-widest" placeholder="Search brands, items" type="text"/>
+<span class="material-symbols-outlined text-sm opacity-50">search</span>
+</div>
+<div class="flex items-center gap-5">
+<button class="relative flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="text-[10px] font-bold">2</span></button>
+<button class="hidden sm:block"><span class="material-symbols-outlined text-[20px]">favorite</span></button>
+<button><span class="material-symbols-outlined text-[20px]">menu</span></button>
+</div>
+</div>
+</div>
+</nav>
+<main class="min-h-screen">
+<!-- Hero Section: Layered & High Density -->
+<section class="w-full relative border-b border-black/10">
+<div class="relative h-[80vh] md:h-[90vh] w-full overflow-hidden flex flex-col lg:flex-row">
+<!-- Left: Main Image -->
+<div class="relative flex-1 h-full overflow-hidden">
+<img alt="Editorial Lifestyle" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz61-hZmM24R1dkaY6XzHRoy35UTIolCbvDW0G-ymZl8bKz96atZZi8-h3AGUsrzwL9ARlgm489DoN-6oN331NU85BBw1d2O5llgHNYmhK_tVGoB_sNIXZ0zsO-1flORsGTmRlXInLXa42QNKP1xJ_ma_nB-xiCCtUhloXNdrV2eCeOEBHWzMTpjBtPesCxttcLHI26chvI0VXINuqDaZ0ErJX7g9bV6Ym2QOm9If4Y20SMMPym9dX0unt2xoq4bq4qh02ecmNPtk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
+<!-- Floating Info Overlay -->
+<div class="absolute bottom-12 left-12 max-w-xl text-white z-20">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-white text-black text-[9px] font-black px-2 py-0.5 uppercase tracking-widest">Editor's Choice</span>
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase opacity-70">Vol. 42 / 2024</span>
+</div>
+<h1 class="serif text-5xl md:text-8xl font-light italic leading-[0.85] tracking-tighter mb-8">Structural <br/>Silhouettes <br/>&amp; Harmony.</h1>
+<div class="flex items-center gap-8">
+<a class="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] bg-white text-black px-8 py-4 hover:bg-black hover:text-white transition-all group" href="#">
+                            View Collection <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">east</span>
+</a>
+<p class="text-[10px] opacity-60 leading-relaxed font-medium uppercase tracking-widest hidden md:block">Exploring the intersection of<br/>brutalism and soft tailoring.</p>
+</div>
+</div>
+</div>
+<!-- Right: Vertical Index / Secondary Items (29CM style density) -->
+<div class="w-full lg:w-[400px] border-l border-black/10 bg-white flex flex-col">
+<div class="p-6 border-b border-black/10 flex justify-between items-center">
+<span class="text-[10px] font-black uppercase tracking-widest">Trending Now</span>
+<span class="text-[10px] font-bold opacity-30">01 — 05</span>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Mini Vertical Cards -->
+<div class="divide-y divide-black/[0.05]">
+<div class="flex gap-4 p-4 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+<div class="w-20 h-24 bg-gray-100 shrink-0 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuaGQx0RTQORWZVoVT18D2arWPPwGQFvMza3OWTGfIrQLtSj4v8QuS4nP6k2RIOHSyhvP0X6HAAJZMNj8aZRw-5dCqgO8ZAXPpnQKDWWkzBrd2vd92v9VldwoFdku1TqYq7-T0WCY1p8oSLGpgTPxRfamEeWzvPWrgdvq5db4S9gARcCqWCNYp997agehTHjNLcjO30gbYj2P0ce0kqRWEMy-rZubHLapmDND1aC1ZBRJYA7c5vRznoHXuz6I9i1IHnuvAIiWvjus"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[9px] font-black text-black/30 uppercase tracking-widest">Studio Nicholson</p>
+<h3 class="serif text-sm italic font-medium leading-tight my-1">Volume Pant in Navy</h3>
+<p class="text-[10px] font-bold">₩428,000</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+<div class="w-20 h-24 bg-gray-100 shrink-0 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbkB3PhwtTb_AstMD8dOIx-s5rCcKQOCCKQi7DbTNMBwvCElTPc91tdvAyR-gBxpUtsfVXDt2htExeCp4bv9LLAhN398ommhxvlW-WplQgQT8LOqTRKio7vHf5VMy3FfTNom6pLXV5wWQ2rmkJuK-50BFPIuTp8d2jeDUL8ak3xcFpxm73OOG_QipiEyXgfqVKEXxQL4am5WzXH9lNmA6Y0QfNLun30LVDKEPtq0-yQ0qN3Z7CChOsuTY4Cqn4HYrCW-php0paEL0"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[9px] font-black text-black/30 uppercase tracking-widest">A.P.C. Archive</p>
+<h3 class="serif text-sm italic font-medium leading-tight my-1">Grace Small Shoulder</h3>
+<p class="text-[10px] font-bold">₩720,000</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+<div class="w-20 h-24 bg-gray-100 shrink-0 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT4zafzbZCz1RbPObzxEp4nigBZj2DsxdIyDyOEAV-Vv-LOvWJXY7sjekjHqBzTnh9s8a9_8dV0UaukWqVArlrMk3x5A-NEtRqA9N2AV7rDCy3L6J-gnqUqNViZ7014p03VJZ5WQQwpXqXA23GzIWnGsfEiWYPLWi44Dd-3VrNSLazkPibxHcNcDQeHXvwVCofMjno88pbX7SxQrDboOzHyuqMZmlOGoQnDSXpaUBfTsXNV-626CQXxprZ47sEWmkRSKdS1jdKeXo"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[9px] font-black text-black/30 uppercase tracking-widest">Common Projects</p>
+<h3 class="serif text-sm italic font-medium leading-tight my-1">Achilles Low Black</h3>
+<p class="text-[10px] font-bold">₩495,000</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-black text-white flex justify-between items-center group cursor-pointer">
+<span class="text-[10px] font-black uppercase tracking-[0.3em]">Shop All Tending</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Real-time Best Ranking (1-10) -->
+<section class="border-b border-black/10">
+<div class="flex overflow-x-auto no-scrollbar">
+<div class="shrink-0 p-8 border-r border-black/10 bg-surface-container-low flex flex-col justify-between w-64">
+<h2 class="serif text-2xl italic leading-none">Real-time <br/>Best Rankings</h2>
+<div class="text-[9px] font-black uppercase tracking-widest opacity-40">Updated 10:00 AM</div>
+</div>
+<div class="flex">
+<!-- Rankings Item Loop -->
+<div class="w-48 shrink-0 p-6 border-r border-black/10 hover:bg-black/[0.02] transition-colors relative group">
+<span class="absolute top-4 left-4 serif text-3xl italic opacity-20 font-light">01</span>
+<div class="aspect-[3/4] bg-gray-100 mb-4 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnaUAnHqYHq1PymJYWQK3b9ymLeVRaPoTK6bl6nqo7cOXokjO9D8-O-wR2AaWq5YUIl1GrPPIPOYgABXV84THd6D92Hk28fL122HjJ0_tKgko2P5W_A3JmKbjoViTKplMwvXSVXa895Dsdwn_5jAedfO8zXW7e4td-DGqR6IZwLTJl7imRlK8_RYQ37yaD-_X8jvTMpNDyqG6s307VOJhfTIeglvR4PuumR02hFd3yYgSiO9S-9yF2_BZmiK-9QL_G-UTeK83rLnA"/>
+</div>
+<p class="text-[9px] font-bold text-black/30 mb-1 uppercase">Le Labo</p>
+<h4 class="text-[11px] font-bold uppercase tracking-tighter leading-tight mb-2 truncate">Santal 33 EDP</h4>
+<div class="flex justify-between items-baseline">
+<span class="text-[10px] font-black">₩280,000</span>
+<span class="text-[9px] text-red-500 font-bold">NEW</span>
+</div>
+</div>
+<div class="w-48 shrink-0 p-6 border-r border-black/10 hover:bg-black/[0.02] transition-colors relative group">
+<span class="absolute top-4 left-4 serif text-3xl italic opacity-20 font-light">02</span>
+<div class="aspect-[3/4] bg-gray-100 mb-4 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdqzEPDfyPUUMeaurXFRDCjw-XAuq4J_VDrn16X7dBkNC6hf1ltEyPykI51XdK5kTbEJD3NCiYABomZlMxpChKF3hGcnxeBwSw6Uy-I8gLzXADIexl9_Szf_DW3RdWnZGnMzBCrXyM01lTN7WVC3Y-psV95c8CwxPY1de-qqOH_mPdEy7EJsls6-4fJu_AkReYatyBHua0nuPu3cRy-VOIPMEKiM2eY8GlAtGX0zft3bxyKxnNCTnIqdulEWW3nTZKhgvtaRwWvYc"/>
+</div>
+<p class="text-[9px] font-bold text-black/30 mb-1 uppercase">Master &amp; Dynamic</p>
+<h4 class="text-[11px] font-bold uppercase tracking-tighter leading-tight mb-2 truncate">MH40 Headphones</h4>
+<div class="flex justify-between items-baseline">
+<span class="text-[10px] font-black">₩580,000</span>
+<span class="text-[9px] text-red-500 font-bold">12%</span>
+</div>
+</div>
+<div class="w-48 shrink-0 p-6 border-r border-black/10 hover:bg-black/[0.02] transition-colors relative group">
+<span class="absolute top-4 left-4 serif text-3xl italic opacity-20 font-light">03</span>
+<div class="aspect-[3/4] bg-gray-100 mb-4 overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK-T0JCfUs48Y7vydyODYh3FMoSOArGDhlafBjx3cWbjbaHO2cWspd33FD3y-zzrxgLawCM3Hfk7H1LA7I3h5-O3Xwaei80iF9io-3jRPKZQRKMhbj2NSsXQLHNnRECLaqW9964Sxg7HZ2sFuur0_O99cMff_-E7uzHhV8QmJXVL8Vo4cDPtm65xQWPL_o2_YjT-dV259sRt7FK4syryW5-N7FPES9ZUM9W-g79P3WZtPQX1ClRtZ11ewM-ySo4IBI-HsEQMICU6U"/>
+</div>
+<p class="text-[9px] font-bold text-black/30 mb-1 uppercase">Haeckels</p>
+<h4 class="text-[11px] font-bold uppercase tracking-tighter leading-tight mb-2 truncate">Ceramic Curios Set</h4>
+<div class="flex justify-between items-baseline">
+<span class="text-[10px] font-black">₩185,000</span>
+<span class="bg-black text-white text-[8px] px-1 font-bold">SET</span>
+</div>
+</div>
+<!-- more items... -->
+<div class="w-64 shrink-0 p-12 flex items-center justify-center border-r border-black/10">
+<a class="text-[10px] font-black uppercase tracking-[0.4em] border-b border-black pb-2 hover:opacity-50 transition-opacity" href="#">Show Top 100</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Staff Pick & Weekly Curation: Dense Mixed Grid -->
+<section class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-12 tight-grid border-b border-black/10">
+<!-- Sidebar: Navigation -->
+<div class="md:col-span-2 p-8 flex flex-col justify-between dot-pattern">
+<div>
+<h2 class="serif text-3xl italic mb-8">Weekly <br/>Focus</h2>
+<div class="flex flex-col gap-5 text-[10px] font-black uppercase tracking-widest">
+<a class="flex items-center justify-between border-b border-black/10 pb-2" href="#">01. Essential <span class="material-symbols-outlined text-xs">north_east</span></a>
+<a class="flex items-center justify-between border-b border-black/10 pb-2 opacity-30 hover:opacity-100 transition-opacity" href="#">02. Ceramics</a>
+<a class="flex items-center justify-between border-b border-black/10 pb-2 opacity-30 hover:opacity-100 transition-opacity" href="#">03. Knitwear</a>
+<a class="flex items-center justify-between border-b border-black/10 pb-2 opacity-30 hover:opacity-100 transition-opacity" href="#">04. Art Objects</a>
+</div>
+</div>
+<div class="pt-12">
+<p class="text-[10px] text-black/40 leading-relaxed font-bold uppercase tracking-widest">Curated by our Seoul-based editorial team.</p>
+</div>
+</div>
+<!-- Main Dense Content: 2+3 Asymmetrical -->
+<div class="md:col-span-10 grid grid-cols-1 lg:grid-cols-5 tight-grid">
+<!-- Large Featured Card (lg:2) -->
+<div class="lg:col-span-2 p-8 group relative overflow-hidden">
+<div class="absolute top-8 left-8 z-10">
+<span class="bg-black text-white text-[9px] font-black px-2 py-1 uppercase tracking-widest">Limited Edition</span>
+</div>
+<div class="aspect-square bg-gray-50 overflow-hidden mb-6">
+<img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6RmO3Zqca3ySZ_JewFENZKeaEWVSgeOhlmxRUSxxmqtcQBSl816y--XKAOhh-4-I2CD3OM2Oepcp0EgdLGzBQR9t1KDsIdxPeUhsQbuy3GnqU1zPrk0JhubxMcELxn963Msd2lJmMDmrI_4nZS_25LRbbXd1xrJEHq-Ac0DyfgVJBfInpfS_O_UGfOSbyn367uk0rij8BCIDnGyTzsmg2_AhBznO-7Xf62igeKdpgh1-H8hDSOEs7crKpNXLvtPujvKI9xTou1tM"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="serif text-3xl italic mb-2">The Architecture of Time</h3>
+<p class="text-xs text-black/50 max-w-sm mb-6 leading-relaxed">A deep dive into chronometric precision and artisanal craft.</p>
+</div>
+</div>
+<button class="text-[9px] font-black uppercase tracking-[0.4em] flex items-center gap-2 group-hover:gap-4 transition-all">Read Journal <span class="material-symbols-outlined text-sm">east</span></button>
+</div>
+<!-- Dense Staff Pick Cards (lg:3) -->
+<div class="lg:col-span-3 grid grid-cols-2 tight-grid">
+<!-- Dense Card 1 -->
+<div class="p-4 border-l border-black/[0.05] group">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<span class="absolute top-2 right-2 z-10 text-[8px] bg-white border border-black/10 px-1 font-black">EXCLUSIVE</span>
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuaGQx0RTQORWZVoVT18D2arWPPwGQFvMza3OWTGfIrQLtSj4v8QuS4nP6k2RIOHSyhvP0X6HAAJZMNj8aZRw-5dCqgO8ZAXPpnQKDWWkzBrd2vd92v9VldwoFdku1TqYq7-T0WCY1p8oSLGpgTPxRfamEeWzvPWrgdvq5db4S9gARcCqWCNYp997agehTHjNLcjO30gbYj2P0ce0kqRWEMy-rZubHLapmDND1aC1ZBRJYA7c5vRznoHXuz6I9i1IHnuvAIiWvjus"/>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[8px] font-black text-black/30 uppercase tracking-widest">Studio Nicholson</p>
+<h4 class="serif text-xs italic font-semibold">Wool Mix Trench Coat</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] font-bold">₩890,000</span>
+<span class="text-[10px] text-red-500 font-bold">15%</span>
+</div>
+</div>
+</div>
+<!-- Dense Card 2 -->
+<div class="p-4 group">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbkB3PhwtTb_AstMD8dOIx-s5rCcKQOCCKQi7DbTNMBwvCElTPc91tdvAyR-gBxpUtsfVXDt2htExeCp4bv9LLAhN398ommhxvlW-WplQgQT8LOqTRKio7vHf5VMy3FfTNom6pLXV5wWQ2rmkJuK-50BFPIuTp8d2jeDUL8ak3xcFpxm73OOG_QipiEyXgfqVKEXxQL4am5WzXH9lNmA6Y0QfNLun30LVDKEPtq0-yQ0qN3Z7CChOsuTY4Cqn4HYrCW-php0paEL0"/>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[8px] font-black text-black/30 uppercase tracking-widest">A.P.C.</p>
+<h4 class="serif text-xs italic font-semibold">Leather Crossbody Bag</h4>
+<p class="text-[10px] font-bold mt-1">₩620,000</p>
+</div>
+</div>
+<!-- Dense Card 3 -->
+<div class="p-4 border-t border-black/10 group">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT4zafzbZCz1RbPObzxEp4nigBZj2DsxdIyDyOEAV-Vv-LOvWJXY7sjekjHqBzTnh9s8a9_8dV0UaukWqVArlrMk3x5A-NEtRqA9N2AV7rDCy3L6J-gnqUqNViZ7014p03VJZ5WQQwpXqXA23GzIWnGsfEiWYPLWi44Dd-3VrNSLazkPibxHcNcDQeHXvwVCofMjno88pbX7SxQrDboOzHyuqMZmlOGoQnDSXpaUBfTsXNV-626CQXxprZ47sEWmkRSKdS1jdKeXo"/>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[8px] font-black text-black/30 uppercase tracking-widest">Common Projects</p>
+<h4 class="serif text-xs italic font-semibold">Chelsea Boot Suede</h4>
+<p class="text-[10px] font-bold mt-1">₩540,000</p>
+</div>
+</div>
+<!-- Dense Card 4 (Action Card) -->
+<div class="p-4 border-t border-black/10 bg-[#f4f4f4] flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-4xl font-extralight mb-4">auto_awesome</span>
+<h4 class="serif text-lg italic mb-2">More To Love</h4>
+<p class="text-[9px] font-bold text-black/40 uppercase tracking-widest mb-6">Discover Personalized <br/>Recommendations</p>
+<a class="bg-black text-white px-6 py-3 text-[9px] font-black uppercase tracking-widest" href="#">See All</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Spotlight: Overlapping & Visual Impact -->
+<section class="relative bg-surface p-12 md:p-24 overflow-hidden border-b border-black/10">
+<div class="max-w-[1920px] mx-auto flex flex-col lg:flex-row items-center gap-12 relative">
+<div class="w-full lg:w-2/3 relative">
+<div class="aspect-[16/7] overflow-hidden">
+<img alt="Brand Spotlight" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz61-hZmM24R1dkaY6XzHRoy35UTIolCbvDW0G-ymZl8bKz96atZZi8-h3AGUsrzwL9ARlgm489DoN-6oN331NU85BBw1d2O5llgHNYmhK_tVGoB_sNIXZ0zsO-1flORsGTmRlXInLXa42QNKP1xJ_ma_nB-xiCCtUhloXNdrV2eCeOEBHWzMTpjBtPesCxttcLHI26chvI0VXINuqDaZ0ErJX7g9bV6Ym2QOm9If4Y20SMMPym9dX0unt2xoq4bq4qh02ecmNPtk"/>
+</div>
+<div class="absolute -bottom-6 -right-6 hidden md:block bg-black p-8 text-white max-w-xs">
+<p class="text-[10px] font-black uppercase tracking-[0.4em] mb-4 opacity-50">Feature Brand</p>
+<h3 class="serif text-4xl italic mb-4">Lemaire</h3>
+<p class="text-xs text-white/60 leading-loose mb-6 italic">"A collective, independent project led by Christophe Lemaire and Sarah-Linh Tran."</p>
+<button class="text-[9px] font-black uppercase tracking-widest border-b border-white pb-1">Shop Collection</button>
+</div>
+</div>
+<div class="w-full lg:w-1/3 flex flex-col gap-8">
+<div class="flex items-center gap-4 border-b border-black/5 pb-4">
+<span class="text-xs font-black">01.</span>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest">Iconic Croissant Bag</h4>
+<p class="text-[10px] text-black/40">The ultimate signature piece</p>
+</div>
+</div>
+<div class="flex items-center gap-4 border-b border-black/5 pb-4">
+<span class="text-xs font-black">02.</span>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest">Soft Tailored Trousers</h4>
+<p class="text-[10px] text-black/40">Minimalism redefined</p>
+</div>
+</div>
+<div class="flex items-center gap-4 border-b border-black/5 pb-4">
+<span class="text-xs font-black">03.</span>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest">Second Skin Tops</h4>
+<p class="text-[10px] text-black/40">Breathable luxury layers</p>
+</div>
+</div>
+<p class="text-[11px] font-medium leading-relaxed opacity-60">Lemaire's approach is deeply rooted in the concept of a modular wardrobe, offering pieces that are both versatile and timeless.</p>
+</div>
+</div>
+</section>
+<!-- New Arrivals Grid: Airy but Filled -->
+<section class="px-4 py-20 max-w-[1920px] mx-auto">
+<div class="flex justify-between items-baseline mb-12 border-b border-black/10 pb-6">
+<div class="flex items-baseline gap-6">
+<h2 class="serif text-4xl italic">Fresh Arrivals</h2>
+<span class="text-[10px] font-bold opacity-30 uppercase tracking-widest">Autumn / Winter '24 Preview</span>
+</div>
+<a class="text-[10px] font-black uppercase tracking-widest hover:opacity-50 transition-opacity flex items-center gap-2" href="#">See Everything <span class="material-symbols-outlined text-sm">east</span></a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-12">
+<!-- Items -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative">
+<img alt="Santal 33" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnaUAnHqYHq1PymJYWQK3b9ymLeVRaPoTK6bl6nqo7cOXokjO9D8-O-wR2AaWq5YUIl1GrPPIPOYgABXV84THd6D92Hk28fL122HjJ0_tKgko2P5W_A3JmKbjoViTKplMwvXSVXa895Dsdwn_5jAedfO8zXW7e4td-DGqR6IZwLTJl7imRlK8_RYQ37yaD-_X8jvTMpNDyqG6s307VOJhfTIeglvR4PuumR02hFd3yYgSiO9S-9yF2_BZmiK-9QL_G-UTeK83rLnA"/>
+<div class="absolute bottom-2 left-2"><span class="bg-black text-white text-[7px] font-black px-1 py-0.5 uppercase">Best</span></div>
+</div>
+<p class="text-[9px] uppercase tracking-widest font-black text-black/30">Le Labo</p>
+<h3 class="serif text-sm font-semibold truncate">Santal 33 Eau de Parfum</h3>
+<p class="text-[11px] font-bold mt-1">₩280,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative">
+<img alt="Common Projects" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT4zafzbZCz1RbPObzxEp4nigBZj2DsxdIyDyOEAV-Vv-LOvWJXY7sjekjHqBzTnh9s8a9_8dV0UaukWqVArlrMk3x5A-NEtRqA9N2AV7rDCy3L6J-gnqUqNViZ7014p03VJZ5WQQwpXqXA23GzIWnGsfEiWYPLWi44Dd-3VrNSLazkPibxHcNcDQeHXvwVCofMjno88pbX7SxQrDboOzHyuqMZmlOGoQnDSXpaUBfTsXNV-626CQXxprZ47sEWmkRSKdS1jdKeXo"/>
+</div>
+<p class="text-[9px] uppercase tracking-widest font-black text-black/30">Common Projects</p>
+<h3 class="serif text-sm font-semibold truncate">Original Achilles Low</h3>
+<p class="text-[11px] font-bold mt-1">₩495,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative">
+<img alt="Audio" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdqzEPDfyPUUMeaurXFRDCjw-XAuq4J_VDrn16X7dBkNC6hf1ltEyPykI51XdK5kTbEJD3NCiYABomZlMxpChKF3hGcnxeBwSw6Uy-I8gLzXADIexl9_Szf_DW3RdWnZGnMzBCrXyM01lTN7WVC3Y-psV95c8CwxPY1de-qqOH_mPdEy7EJsls6-4fJu_AkReYatyBHua0nuPu3cRy-VOIPMEKiM2eY8GlAtGX0zft3bxyKxnNCTnIqdulEWW3nTZKhgvtaRwWvYc"/>
+</div>
+<p class="text-[9px] uppercase tracking-widest font-black text-black/30">Master &amp; Dynamic</p>
+<h3 class="serif text-sm font-semibold truncate">Audio Architecture MH40</h3>
+<p class="text-[11px] font-bold mt-1">₩580,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative">
+<img alt="Ceramic" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK-T0JCfUs48Y7vydyODYh3FMoSOArGDhlafBjx3cWbjbaHO2cWspd33FD3y-zzrxgLawCM3Hfk7H1LA7I3h5-O3Xwaei80iF9io-3jRPKZQRKMhbj2NSsXQLHNnRECLaqW9964Sxg7HZ2sFuur0_O99cMff_-E7uzHhV8QmJXVL8Vo4cDPtm65xQWPL_o2_YjT-dV259sRt7FK4syryW5-N7FPES9ZUM9W-g79P3WZtPQX1ClRtZ11ewM-ySo4IBI-HsEQMICU6U"/>
+<div class="absolute top-2 right-2"><span class="bg-red-500 text-white text-[7px] font-black px-1 py-0.5 uppercase">Sale</span></div>
+</div>
+<p class="text-[9px] uppercase tracking-widest font-black text-black/30">Haeckels</p>
+<h3 class="serif text-sm font-semibold truncate">Ceramic Curios Set</h3>
+<p class="text-[11px] font-bold mt-1">₩185,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative">
+<img alt="Studio Nicholson" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuaGQx0RTQORWZVoVT18D2arWPPwGQFvMza3OWTGfIrQLtSj4v8QuS4nP6k2RIOHSyhvP0X6HAAJZMNj8aZRw-5dCqgO8ZAXPpnQKDWWkzBrd2vd92v9VldwoFdku1TqYq7-T0WCY1p8oSLGpgTPxRfamEeWzvPWrgdvq5db4S9gARcCqWCNYp997agehTHjNLcjO30gbYj2P0ce0kqRWEMy-rZubHLapmDND1aC1ZBRJYA7c5vRznoHXuz6I9i1IHnuvAIiWvjus"/>
+</div>
+<p class="text-[9px] uppercase tracking-widest font-black text-black/30">Studio Nicholson</p>
+<h3 class="serif text-sm font-semibold truncate">Wool Volume Pant</h3>
+<p class="text-[11px] font-bold mt-1">₩428,000</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-[#f5f5f5] mb-4 overflow-hidden relative flex flex-col items-center justify-center border border-black/5 hover:bg-black hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl mb-4 font-thin">add</span>
+<span class="text-[10px] font-black uppercase tracking-[0.3em]">View Archive</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter: Denser Layout -->
+<section class="w-full py-24 bg-[#1a1a1c] text-white overflow-hidden relative">
+<div class="absolute inset-0 opacity-[0.03] dot-pattern pointer-events-none"></div>
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
+<div>
+<p class="text-[10px] font-black tracking-[0.5em] uppercase mb-4 text-white/40">Inside The Gallery</p>
+<h2 class="serif text-5xl leading-none italic mb-6">Curated <br/>Intelligence.</h2>
+<p class="text-xs text-white/40 leading-relaxed max-w-sm">Direct dispatches from the intersection of design, architecture, and luxury fashion. Exclusive early access and members-only stories.</p>
+</div>
+<div class="flex flex-col gap-8">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-white/20 px-0 py-4 text-sm focus:ring-0 focus:border-white transition-all placeholder-white/20 font-medium" placeholder="yourname@domain.com" type="email"/>
+<button class="absolute right-0 bottom-4 text-[10px] font-black uppercase tracking-[0.2em] hover:text-white/50 transition-colors">Join</button>
+</div>
+<div class="flex flex-wrap gap-4">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-3 h-3 bg-transparent border-white/20 rounded-none focus:ring-0 text-white" type="checkbox"/>
+<span class="text-[9px] font-bold text-white/40 uppercase tracking-widest group-hover:text-white/60 transition-colors">New Drops</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-3 h-3 bg-transparent border-white/20 rounded-none focus:ring-0 text-white" type="checkbox"/>
+<span class="text-[9px] font-bold text-white/40 uppercase tracking-widest group-hover:text-white/60 transition-colors">Editorial Stories</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer: Substantial & Denser -->
+<footer class="bg-background px-4 pt-20 pb-8 border-t border-black/[0.08]">
+<div class="max-w-[1920px] mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+<div class="col-span-2 lg:col-span-4">
+<div class="text-2xl font-black uppercase serif italic mb-6">The Gallery</div>
+<p class="text-[10px] leading-relaxed text-black/50 max-w-xs uppercase tracking-widest font-bold mb-8">
+                    An aesthetic destination curating the extraordinary for refined living. Established 2024.
+                </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all" href="#"><span class="text-xs font-bold uppercase">IG</span></a>
+<a class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all" href="#"><span class="text-xs font-bold uppercase">PN</span></a>
+<a class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all" href="#"><span class="text-xs font-bold uppercase">YT</span></a>
+</div>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-[10px] font-black uppercase tracking-[0.2em] mb-6">Navigation</h4>
+<ul class="flex flex-col gap-3 text-[10px] font-bold uppercase tracking-widest text-black/40">
+<li><a class="hover:text-black transition-colors" href="#">Shop All</a></li>
+<li><a class="hover:text-black transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Best Sellers</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Brands</a></li>
+<li><a class="hover:text-black transition-colors text-red-500" href="#">Clearance</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-[10px] font-black uppercase tracking-[0.2em] mb-6">Editorial</h4>
+<ul class="flex flex-col gap-3 text-[10px] font-bold uppercase tracking-widest text-black/40">
+<li><a class="hover:text-black transition-colors" href="#">Journal</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Lookbooks</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Spaces</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Archive</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-[10px] font-black uppercase tracking-[0.2em] mb-6">Assistance</h4>
+<ul class="flex flex-col gap-3 text-[10px] font-bold uppercase tracking-widest text-black/40">
+<li><a class="hover:text-black transition-colors" href="#">Customer Care</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-black transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="text-[10px] font-black uppercase tracking-[0.2em] mb-6">Location</h4>
+<div class="text-[10px] font-bold uppercase tracking-widest text-black/40 leading-relaxed">
+                    Flagship Store<br/>
+                    Gangnam-gu, Seoul<br/>
+                    Republic of Korea
+                </div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/10 gap-6">
+<div class="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-black/30">
+<p>© 2024 The Curated Gallery</p>
+<a class="hover:text-black transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-black transition-colors" href="#">Terms of Use</a>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-[9px] font-black uppercase tracking-widest text-black/20 italic serif text-lg">Density is Luxury</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
