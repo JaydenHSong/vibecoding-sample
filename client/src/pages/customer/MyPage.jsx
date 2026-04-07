@@ -110,17 +110,25 @@ export default function MyPage() {
             ))}
           </section>
 
-          {/* Primary Address */}
+          {/* Saved Addresses */}
           <section className="mypage__section">
-            <h3 className="mypage__section-title">Primary Address</h3>
-            {defaultAddr ? (
-              <div className="mypage__address-card">
-                <strong>{defaultAddr.label}</strong>
-                <p>{defaultAddr.address}{defaultAddr.detail && `, ${defaultAddr.detail}`}</p>
-                <p>{defaultAddr.zipCode}</p>
-              </div>
-            ) : (
+            <h3 className="mypage__section-title">Saved Addresses</h3>
+            {addresses.length === 0 ? (
               <p className="mypage__empty">No address saved.</p>
+            ) : (
+              addresses.map((addr) => (
+                <div key={addr._id} className="mypage__address-card" style={{ marginBottom: 12 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <div>
+                      <strong>{addr.label}</strong>
+                      {addr.isDefault && <span style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-primary)', marginLeft: 8 }}>Default</span>}
+                      <p>{addr.address}{addr.detail && `, ${addr.detail}`}</p>
+                      <p>{addr.zipCode}</p>
+                    </div>
+                    <button onClick={() => handleDeleteAddress(addr._id)} style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, whiteSpace: 'nowrap' }}>Remove</button>
+                  </div>
+                </div>
+              ))
             )}
             {showAddrForm ? (
               <form onSubmit={handleAddAddress} className="mypage__addr-form">

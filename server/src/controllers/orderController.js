@@ -106,9 +106,15 @@ exports.getById = async (req, res) => {
 // GET /api/admin/orders
 exports.getAllOrders = async (req, res) => {
   try {
-    const { page = 1, limit = 20, status } = req.query;
+    const { page = 1, limit = 20, status, search } = req.query;
     const query = {};
     if (status) query.status = status;
+    if (search) {
+      query.$or = [
+        { orderNumber: { $regex: search, $options: 'i' } },
+        { 'shippingAddress.name': { $regex: search, $options: 'i' } }
+      ];
+    }
 
     const [orders, total] = await Promise.all([
       Order.find(query)

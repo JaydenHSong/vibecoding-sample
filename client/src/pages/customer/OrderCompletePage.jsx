@@ -42,6 +42,18 @@ export default function OrderCompletePage() {
           <span>{order.paymentMethod === 'card' ? 'Credit Card' : order.paymentMethod === 'bank' ? 'Bank Transfer' : 'Virtual Account'}</span>
         </div>
 
+        {order.shippingAddress && (
+          <div className="order-complete__shipping">
+            <span className="order-complete__label" style={{ display: 'block', marginBottom: 8 }}>Shipping Address</span>
+            <p style={{ lineHeight: 1.6, fontSize: 14 }}>
+              <strong>{order.shippingAddress.name}</strong><br />
+              {order.shippingAddress.address}{order.shippingAddress.detail ? `, ${order.shippingAddress.detail}` : ''}<br />
+              {order.shippingAddress.zipCode}<br />
+              {order.shippingAddress.phone}
+            </p>
+          </div>
+        )}
+
         <div className="order-complete__items">
           <span className="order-complete__label" style={{ display: 'block', marginBottom: 16 }}>Items</span>
           {order.items.map((item, i) => (

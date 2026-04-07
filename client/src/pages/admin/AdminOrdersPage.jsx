@@ -13,20 +13,22 @@ export default function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);
   const [pagination, setPagination] = useState({});
   const [statusFilter, setStatusFilter] = useState('');
+  const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const fetchOrders = (p, status) => {
+  const fetchOrders = (p, status, q) => {
     setLoading(true);
     const params = { page: p, limit: 20 };
     if (status) params.status = status;
+    if (q) params.search = q;
     adminService.getOrders(params)
       .then((res) => { setOrders(res.data.data || []); setPagination(res.data.pagination || {}); })
       .catch(() => {})
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { fetchOrders(page, statusFilter); }, [page, statusFilter]);
+  useEffect(() => { fetchOrders(page, statusFilter, search); }, [page, statusFilter, search]);
 
   const initials = (name) =>
     name ? name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 2) : '??';
@@ -46,7 +48,7 @@ export default function AdminOrdersPage() {
     <div>
       <h1 className="admin-page-title">Orders</h1>
       <div className="admin-toolbar">
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
           {STATUSES.map((s) => (
             <button
               key={s}
@@ -56,6 +58,13 @@ export default function AdminOrdersPage() {
               {s || 'All'}
             </button>
           ))}
+          <input
+            type="text"
+            placeholder="Search order # or name..."
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+            style={{ marginLeft: 'auto', padding: '8px 14px', fontSize: 13, border: '1px solid rgba(0,0,0,0.1)', width: 220 }}
+          />
         </div>
       </div>
       {loading ? <LoadingSpinner /> : (
