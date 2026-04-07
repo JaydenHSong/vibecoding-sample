@@ -5,24 +5,35 @@ import { adminService } from '../../services/adminService';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import './AdminPages.css';
 
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const BAR_HEIGHTS = [96, 128, 192, 160, 224, 112, 144]; // Stitch visual heights
-
 export default function AdminDashboardPage() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [recentOrders, setRecentOrders] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  const [inquiries, setInquiries] = useState([]);
+  const [chartPeriod, setChartPeriod] = useState('7d');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       adminService.getDashboard(),
       adminService.getOrders({ page: 1, limit: 4 }),
-    ]).then(([dashRes, ordRes]) => {
+      adminService.getStats({ period: '7d' }),
+      adminService.getInquiries({ page: 1, limit: 3 }),
+    ]).then(([dashRes, ordRes, statsRes, inqRes]) => {
       setData(dashRes.data);
       setRecentOrders(ordRes.data.data || []);
+      setChartData(statsRes.data.revenueByDate || []);
+      setInquiries(inqRes.data.data || []);
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
+
+  const handlePeriodChange = (period) => {
+    setChartPeriod(period);
+    adminService.getStats({ period }).then((res) => {
+      setChartData(res.data.revenueByDate || []);
+    }).catch(() => {});
+  };
 
   if (loading) return <LoadingSpinner />;
 
@@ -47,7 +58,7 @@ export default function AdminDashboardPage() {
         <div className="admin-dash__card admin-dash__card--secondary">
           <div className="admin-dash__card-top">
             <span className="material-symbols-outlined" style={{ fontSize: 28, color: 'var(--color-secondary)' }}>trending_up</span>
-            <span className="admin-dash__badge admin-dash__badge--secondary">+12.5%</span>
+            <span className="admin-dash__badge admin-dash__badge--secondary">Today</span>
           </div>
           <p className="admin-dash__card-label">Today's Sales</p>
           <h3 className="admin-dash__card-value">${(data?.revenue?.today || 0).toLocaleString()}.00</h3>
@@ -77,28 +88,40 @@ export default function AdminDashboardPage() {
           <div className="admin-dash__chart-header">
             <div>
               <h4 className="admin-dash__section-title">Sales Statistics</h4>
-              <p className="admin-dash__section-sub">Revenue performance over the last 7 days</p>
+              <p className="admin-dash__section-sub">Revenue performance over the last {chartPeriod === '7d' ? '7 days' : '30 days'}</p>
             </div>
             <div style={{ display: 'flex', gap: 8 }}>
-              <button className="admin-dash__tab admin-dash__tab--active">Week</button>
-              <button className="admin-dash__tab">Month</button>
+              <button className={`admin-dash__tab ${chartPeriod === '7d' ? 'admin-dash__tab--active' : ''}`} onClick={() => handlePeriodChange('7d')}>Week</button>
+              <button className={`admin-dash__tab ${chartPeriod === '30d' ? 'admin-dash__tab--active' : ''}`} onClick={() => handlePeriodChange('30d')}>Month</button>
             </div>
           </div>
           <div className="admin-dash__bars">
-            {DAYS.map((day, i) => (
-              <div key={day} className="admin-dash__bar-col">
-                <div className="admin-dash__bar-track" style={{ height: BAR_HEIGHTS[i] }}>
-                  <div
-                    className="admin-dash__bar-fill"
-                    style={{
-                      height: `${40 + Math.random() * 50}%`,
-                      background: i === 3 ? 'var(--color-primary)' : 'var(--color-secondary)',
-                    }}
-                  />
-                </div>
-                <span className="admin-dash__bar-label">{day}</span>
-              </div>
-            ))}
+            {(() => {
+              const maxRev = Math.max(...chartData.map((d) => d.revenue), 1);
+              return chartData.map((d, i) => {
+                const label = chartPeriod === '7d'
+                  ? ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date(d._id + 'T00:00:00').getUTCDay()]
+                  : d._id.slice(5);
+                const pct = (d.revenue / maxRev) * 100;
+                return (
+                  <div key={d._id} className="admin-dash__bar-col">
+                    <div className="admin-dash__bar-track" style={{ height: 224 }}>
+                      <div
+                        className="admin-dash__bar-fill"
+                        style={{
+                          height: `${pct}%`,
+                          background: i === chartData.length - 1 ? 'var(--color-primary)' : 'var(--color-secondary)',
+                        }}
+                      />
+                    </div>
+                    <span className="admin-dash__bar-label">{label}</span>
+                  </div>
+                );
+              });
+            })()}
+            {chartData.length === 0 && (
+              <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 14, margin: 'auto' }}>No sales data yet</p>
+            )}
           </div>
         </div>
 
@@ -106,36 +129,26 @@ export default function AdminDashboardPage() {
         <div className="admin-dash__inquiries">
           <h4 className="admin-dash__section-title">Recent Inquiries</h4>
           <div className="admin-dash__inquiry-list">
-            <div className="admin-dash__inquiry">
-              <div className="admin-dash__inquiry-icon admin-dash__inquiry-icon--primary">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>mail</span>
+            {inquiries.length === 0 ? (
+              <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 14 }}>No inquiries yet</p>
+            ) : inquiries.map((inq) => (
+              <div key={inq._id} className="admin-dash__inquiry">
+                <div className={`admin-dash__inquiry-icon ${!inq.answer ? 'admin-dash__inquiry-icon--primary' : ''}`}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+                    {!inq.answer ? 'mail' : 'mark_email_read'}
+                  </span>
+                </div>
+                <div>
+                  <p className="admin-dash__inquiry-title">{inq.title}</p>
+                  <p className="admin-dash__inquiry-text">"{inq.content?.slice(0, 80)}{inq.content?.length > 80 ? '...' : ''}"</p>
+                  {!inq.answer ? (
+                    <p className="admin-dash__inquiry-action">Respond Now</p>
+                  ) : (
+                    <p className="admin-dash__inquiry-time">{new Date(inq.createdAt).toLocaleDateString()}</p>
+                  )}
+                </div>
               </div>
-              <div>
-                <p className="admin-dash__inquiry-title">Custom Order Request</p>
-                <p className="admin-dash__inquiry-text">"Is the 'Nordic Dusk' series available in a larger format?"</p>
-                <p className="admin-dash__inquiry-action">Respond Now</p>
-              </div>
-            </div>
-            <div className="admin-dash__inquiry">
-              <div className="admin-dash__inquiry-icon">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>rate_review</span>
-              </div>
-              <div>
-                <p className="admin-dash__inquiry-title">New 5-Star Review</p>
-                <p className="admin-dash__inquiry-text">"Exceptional quality and the packaging felt like an event itself."</p>
-                <p className="admin-dash__inquiry-time">2 hours ago</p>
-              </div>
-            </div>
-            <div className="admin-dash__inquiry">
-              <div className="admin-dash__inquiry-icon">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>person</span>
-              </div>
-              <div>
-                <p className="admin-dash__inquiry-title">New VIP Application</p>
-                <p className="admin-dash__inquiry-text">Sarah Jenkins applied for Collector Tier status.</p>
-                <p className="admin-dash__inquiry-time">5 hours ago</p>
-              </div>
-            </div>
+            ))}
           </div>
           <button className="admin-dash__view-all" onClick={() => navigate('/admin/inquiries')}>
             View All Activity
