@@ -73,6 +73,7 @@ export default function HomePage() {
                   <div className="hero__sidebar-info">
                     <p className="hero__sidebar-brand">{p.category?.name || 'Curated'}</p>
                     <h3 className="hero__sidebar-name serif">{p.name}</h3>
+                    <p className="hero__sidebar-desc">{p.description}</p>
                     <p className="hero__sidebar-price">${p.price?.toLocaleString()}</p>
                   </div>
                 </Link>

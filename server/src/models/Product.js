@@ -4,6 +4,7 @@ const productSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
   price: { type: Number, required: true },
   description: { type: String },
+  features: [{ type: String }],
   images: [{ type: String }],
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   options: [{

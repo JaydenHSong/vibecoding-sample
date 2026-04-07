@@ -5,6 +5,10 @@ import { productService } from '../../services/productService';
 import { reviewService } from '../../services/reviewService';
 import { userService } from '../../services/userService';
 import useAuthStore from '../../store/useAuthStore';
+import useCartStore from '../../store/useCartStore';
+import ImageGallery from '../../components/product/ImageGallery';
+import OptionSelector from '../../components/product/OptionSelector';
+import CartConfirmModal from '../../components/product/CartSlidePanel';
 import ReviewForm from '../../components/product/ReviewForm';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import './ProductDetailPage.css';
@@ -15,11 +19,13 @@ export default function ProductDetailPage() {
   const user = useAuthStore((s) => s.user);
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOptions, setSelectedOptions] = useState({});
   const [isWished, setIsWished] = useState(false);
   const [tab, setTab] = useState('description');
   const [loading, setLoading] = useState(true);
+  const [quantity, setQuantity] = useState(1);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [optionError, setOptionError] = useState('');
 
   useEffect(() => {
     Promise.all([
@@ -29,16 +35,23 @@ export default function ProductDetailPage() {
       setProduct(prodRes.data);
       setReviews(revRes.data.data || []);
       setLoading(false);
-    }).catch(() => {
-      setLoading(false);
-    });
+    }).catch(() => setLoading(false));
   }, [id]);
 
   const handleAddToCart = async () => {
     if (!user) { navigate('/login'); return; }
+    // Validate required options
+    const missing = product.options?.filter((opt) => !selectedOptions[opt.name]).map((opt) => opt.name);
+    if (missing?.length) {
+      setOptionError(`Please select ${missing.join(' and ')}`);
+      return;
+    }
+    setOptionError('');
     const { cartService } = await import('../../services/cartService');
-    await cartService.addItem({ product: id, quantity: 1, selectedOption });
-    navigate('/cart');
+    const optionStr = Object.entries(selectedOptions).map(([k, v]) => `${k}: ${v}`).join(', ');
+    await cartService.addItem({ product: id, quantity, selectedOption: optionStr });
+    useCartStore.getState().fetchCart();
+    setShowConfirm(true);
   };
 
   const handleWishlist = async () => {
@@ -50,27 +63,10 @@ export default function ProductDetailPage() {
   if (loading) return <LoadingSpinner />;
   if (!product) return <p style={{ textAlign: 'center', padding: '96px 0' }}>Product not found</p>;
 
-  const images = product.images?.length ? product.images : ['https://placehold.co/800x1066/f3f3f3/ccc?text=No+Image'];
-
   return (
     <div className="product-detail">
-      {/* Gallery */}
-      <div className="product-detail__gallery">
-        <div className="product-detail__main-image">
-          <img src={images[selectedImage]} alt={product.name} />
-        </div>
-        {images.length > 1 && (
-          <div className="product-detail__thumbs">
-            {images.map((img, i) => (
-              <button key={i} className={`product-detail__thumb ${i === selectedImage ? 'active' : ''}`} onClick={() => setSelectedImage(i)}>
-                <img src={img} alt="" />
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+      <ImageGallery images={product.images} name={product.name} />
 
-      {/* Info */}
       <div className="product-detail__info">
         <span className="label-sm">{product.category?.name}</span>
         <h1 className="serif" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontStyle: 'italic', fontWeight: 400, lineHeight: 1.1, margin: '8px 0 16px' }}>
@@ -86,25 +82,26 @@ export default function ProductDetailPage() {
           </div>
         )}
 
-        {/* Options */}
-        {product.options?.map((opt) => (
-          <div key={opt.name} className="product-detail__option">
-            <label className="label-sm">{opt.name}</label>
-            <div className="product-detail__option-values">
-              {opt.values.map((v) => (
-                <button key={v} className={`product-detail__option-btn ${selectedOption === v ? 'active' : ''}`} onClick={() => setSelectedOption(v)}>
-                  {v}
-                </button>
-              ))}
-            </div>
+        <OptionSelector options={product.options} selectedOptions={selectedOptions} onChange={setSelectedOptions} />
+
+        {/* Quantity */}
+        <div className="product-detail__quantity">
+          <label className="label-sm">Quantity</label>
+          <div className="product-detail__qty-control">
+            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>remove</span>
+            </button>
+            <span>{quantity}</span>
+            <button onClick={() => setQuantity(quantity + 1)}>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>add</span>
+            </button>
           </div>
-        ))}
+        </div>
 
         {/* Actions */}
+        {optionError && <p style={{ color: 'var(--color-error, #ef4444)', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>{optionError}</p>}
         <div className="product-detail__actions">
-          <button className="btn-primary" style={{ flex: 1, padding: '16px' }} onClick={handleAddToCart}>
-            Add to Cart
-          </button>
+          <button className="btn-primary" style={{ flex: 1, padding: '16px' }} onClick={handleAddToCart}>Add to Cart</button>
           <button className="product-detail__wish-btn" onClick={handleWishlist}>
             {isWished ? <IoHeart size={22} /> : <IoHeartOutline size={22} />}
           </button>
@@ -145,6 +142,16 @@ export default function ProductDetailPage() {
           </div>
         )}
       </div>
+
+      {showConfirm && (
+        <CartConfirmModal
+          product={product}
+          selectedOptions={selectedOptions}
+          quantity={quantity}
+          onClose={() => { setShowConfirm(false); setQuantity(1); }}
+          onGoToCart={() => navigate('/cart')}
+        />
+      )}
     </div>
   );
 }

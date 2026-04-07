@@ -48,4 +48,7 @@ app.use('/api/inquiries', require('./routes/inquiries'));
 app.use('/api/faq', require('./routes/faq'));
 app.use('/api/admin/dashboard', require('./routes/dashboard'));
 
+// Global error handler (must be after routes)
+app.use(require('./middleware/errorHandler'));
+
 module.exports = app;

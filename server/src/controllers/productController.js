@@ -82,7 +82,7 @@ exports.search = async (req, res) => {
   }
 };
 
-const ALLOWED_PRODUCT_FIELDS = ['name', 'price', 'description', 'images', 'category', 'options', 'stock', 'isBestSeller', 'isNew'];
+const ALLOWED_PRODUCT_FIELDS = ['name', 'price', 'description', 'features', 'images', 'category', 'options', 'stock', 'isBestSeller', 'isNew'];
 
 const pickFields = (body, fields) => {
   const picked = {};

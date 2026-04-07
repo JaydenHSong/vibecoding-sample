@@ -24,7 +24,7 @@ const productTemplates = [
   { name: 'Silk Blend Blouse', cat: 'tops', price: 120, desc: 'Elegant silk blend blouse for evening wear.', img: 'photo-1564257631407-4deb1f99d992' },
   { name: 'Merino Wool Polo', cat: 'tops', price: 95, desc: 'Premium merino wool polo knit.', img: 'photo-1586363104862-3a5e2ab60d99' },
   { name: 'Graphic Print Tee', cat: 'tops', price: 38, desc: 'Modern graphic print on organic cotton.', img: 'photo-1576566588028-4147f3842f27' },
-  { name: 'Oxford Dress Shirt', cat: 'tops', price: 88, desc: 'Classic oxford shirt for formal occasions.', img: 'photo-1598033129183-c4f50c736c10' },
+  { name: 'Oxford Dress Shirt', cat: 'tops', price: 88, desc: 'Classic oxford shirt for formal occasions.', img: 'photo-1602810318383-e386cc2a3ccf' },
   { name: 'Relaxed Henley', cat: 'tops', price: 45, desc: 'Comfortable henley with button placket.', img: 'photo-1529374255404-311a2a4f1fd9' },
   { name: 'Cropped Tank', cat: 'tops', price: 28, desc: 'Minimal cropped tank in soft jersey.', img: 'photo-1622470953794-aa9c70b0fb9d' },
   { name: 'Knit Sweater Vest', cat: 'tops', price: 68, desc: 'Layering essential knit vest.', img: 'photo-1614975059251-992f11792b9f' },
@@ -44,7 +44,7 @@ const productTemplates = [
   // Outerwear (10)
   { name: 'Wool Overcoat', cat: 'outerwear', price: 285, desc: 'Premium wool blend overcoat.', img: 'photo-1539533018447-63fcce2678e3' },
   { name: 'Leather Biker Jacket', cat: 'outerwear', price: 350, desc: 'Classic leather motorcycle jacket.', img: 'photo-1551028719-00167b16eac5' },
-  { name: 'Quilted Puffer', cat: 'outerwear', price: 195, desc: 'Lightweight quilted puffer jacket.', img: 'photo-1544923246-77307dd270b1' },
+  { name: 'Quilted Puffer', cat: 'outerwear', price: 195, desc: 'Lightweight quilted puffer jacket.', img: 'photo-1611312449408-fcece27cdbb7' },
   { name: 'Trench Coat', cat: 'outerwear', price: 245, desc: 'Timeless double-breasted trench.', img: 'photo-1591047139829-d91aecb6caea' },
   { name: 'Denim Trucker Jacket', cat: 'outerwear', price: 118, desc: 'Classic denim jacket with sherpa lining.', img: 'photo-1576995853123-5a10305d93c0' },
   { name: 'Bomber Jacket', cat: 'outerwear', price: 145, desc: 'MA-1 style bomber in satin.', img: 'photo-1556821840-3a63f95609a7' },
@@ -61,7 +61,7 @@ const productTemplates = [
   { name: 'Running Shoes', cat: 'shoes', price: 125, desc: 'Performance running shoes with cushion.', img: 'photo-1542291026-7eec264c27ff' },
   { name: 'Desert Boots', cat: 'shoes', price: 145, desc: 'Classic suede desert boots.', img: 'photo-1608256246200-53e635b5b65f' },
   { name: 'Platform Sandals', cat: 'shoes', price: 78, desc: 'Chunky platform leather sandals.', img: 'photo-1603487742131-4160ec999306' },
-  { name: 'High-Top Sneakers', cat: 'shoes', price: 110, desc: 'Retro high-top sneakers in canvas.', img: 'photo-1607522370275-f14206abe190' },
+  { name: 'High-Top Sneakers', cat: 'shoes', price: 110, desc: 'Retro high-top sneakers in canvas.', img: 'photo-1460353581641-37baddab0fa2' },
   { name: 'Dress Oxford', cat: 'shoes', price: 215, desc: 'Polished leather oxford dress shoes.', img: 'photo-1533867617858-e7b97e060509' },
   { name: 'Espadrilles', cat: 'shoes', price: 65, desc: 'Woven jute sole espadrilles.', img: 'photo-1622560480654-d96214fdc887' },
 
@@ -119,22 +119,45 @@ async function seed() {
   catDocs.forEach((c) => { catMap[c.slug] = c._id; });
   console.log(`Created ${catDocs.length} categories`);
 
+  // Extra images per category for gallery views
+  const extraImages = {
+    tops: ['photo-1583743814966-8936f5b7be1a', 'photo-1489987707025-afc232f7ea0f', 'photo-1503341504253-dff4f94032fc'],
+    bottoms: ['photo-1541099649105-f69ad21f3246', 'photo-1584370848010-d7fe6bc767ec', 'photo-1506629082955-511b1aa562c8'],
+    outerwear: ['photo-1551488831-00ddcb6c6bd3', 'photo-1544022613-e87ca75a784a', 'photo-1520975954732-35dd22299614'],
+    shoes: ['photo-1595341888016-a392ef81b7de', 'photo-1560769629-975ec94e6a86', 'photo-1597045566677-8cf032ed6634'],
+    accessories: ['photo-1590874103328-eac38a683ce7', 'photo-1606107557195-0e29a4b5b4aa', 'photo-1523170335258-f5ed11844a49'],
+  };
+
+  const colorOptions = {
+    tops: { name: 'Color', values: ['Black', 'White', 'Navy', 'Grey'] },
+    bottoms: { name: 'Color', values: ['Black', 'Khaki', 'Navy', 'Charcoal'] },
+    outerwear: { name: 'Color', values: ['Black', 'Camel', 'Olive'] },
+    shoes: { name: 'Color', values: ['Black', 'White', 'Brown'] },
+    accessories: { name: 'Color', values: ['Black', 'Tan', 'Brown'] },
+  };
+
+  const cldUrl = (id) => `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/fetch/w_800,q_80,f_auto/https://images.unsplash.com/${id}?w=800`;
+
   // Create products
-  const products = productTemplates.map((p, i) => ({
-    name: p.name,
-    price: p.price,
-    description: p.desc,
-    images: [`https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/fetch/w_800,q_80,f_auto/https://images.unsplash.com/${p.img}?w=800`],
-    category: catMap[p.cat],
-    stock: Math.floor(Math.random() * 50) + 10,
-    isBestSeller: i % 5 === 0,
-    isNew: i % 4 === 0,
-    options: p.cat === 'tops' || p.cat === 'bottoms'
-      ? [{ name: 'Size', values: ['XS', 'S', 'M', 'L', 'XL'] }]
-      : p.cat === 'shoes'
-        ? [{ name: 'Size', values: ['7', '8', '9', '10', '11', '12'] }]
-        : [],
-  }));
+  const products = productTemplates.map((p, i) => {
+    const extras = extraImages[p.cat];
+    const options = [];
+    if (p.cat === 'tops' || p.cat === 'bottoms') options.push({ name: 'Size', values: ['XS', 'S', 'M', 'L', 'XL'] });
+    else if (p.cat === 'shoes') options.push({ name: 'Size', values: ['7', '8', '9', '10', '11', '12'] });
+    options.push(colorOptions[p.cat]);
+
+    return {
+      name: p.name,
+      price: p.price,
+      description: p.desc,
+      images: [cldUrl(p.img), cldUrl(extras[i % 3]), cldUrl(extras[(i + 1) % 3]), cldUrl(extras[(i + 2) % 3])],
+      category: catMap[p.cat],
+      stock: Math.floor(Math.random() * 50) + 10,
+      isBestSeller: i % 5 === 0,
+      isNew: i % 4 === 0,
+      options,
+    };
+  });
 
   await Product.insertMany(products);
   console.log(`Created ${products.length} products`);
