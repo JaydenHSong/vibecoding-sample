@@ -17,6 +17,9 @@ exports.getCart = async (req, res) => {
 exports.addItem = async (req, res) => {
   try {
     const { product, variant, quantity = 1, selectedOption } = req.body;
+    if (!product || !Number.isInteger(quantity) || quantity <= 0 || quantity > 99) {
+      return res.status(400).json({ error: 'Invalid product or quantity' });
+    }
     let cart = await Cart.findOne({ user: req.user._id });
 
     // Plan SC: SC-01, SC-06 — validate stock before adding to cart
@@ -55,6 +58,9 @@ exports.addItem = async (req, res) => {
 exports.updateItem = async (req, res) => {
   try {
     const { quantity } = req.body;
+    if (!Number.isInteger(quantity) || quantity <= 0 || quantity > 99) {
+      return res.status(400).json({ error: 'Quantity must be 1-99' });
+    }
     const cart = await Cart.findOne({ user: req.user._id });
     if (!cart) return res.status(404).json({ error: '장바구니를 찾을 수 없습니다' });
 

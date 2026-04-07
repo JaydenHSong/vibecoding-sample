@@ -63,10 +63,11 @@ exports.search = async (req, res) => {
     const { q, page = 1, limit = 20 } = req.query;
     if (!q) return res.status(400).json({ error: '검색어를 입력해주세요' });
 
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const query = {
       $or: [
-        { name: { $regex: q, $options: 'i' } },
-        { description: { $regex: q, $options: 'i' } }
+        { name: { $regex: escaped, $options: 'i' } },
+        { description: { $regex: escaped, $options: 'i' } }
       ]
     };
 

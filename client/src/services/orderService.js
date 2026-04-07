@@ -5,5 +5,5 @@ export const orderService = {
   getMyOrders: (params) => api.get('/orders', { params }),
   getById: (id) => api.get(`/orders/${id}`),
   getPaymentConfig: () => api.get('/payments/config'),
-  createPaymentIntent: (amount) => api.post('/payments/create-intent', { amount }),
+  createPaymentIntent: () => api.post('/payments/create-intent'),
 };

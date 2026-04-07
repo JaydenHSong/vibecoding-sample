@@ -133,9 +133,10 @@ exports.getAllUsers = async (req, res) => {
     const { page = 1, limit = 20, search } = req.query;
     const query = {};
     if (search) {
+      const escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { email: { $regex: search, $options: 'i' } }
+        { name: { $regex: escaped, $options: 'i' } },
+        { email: { $regex: escaped, $options: 'i' } }
       ];
     }
 

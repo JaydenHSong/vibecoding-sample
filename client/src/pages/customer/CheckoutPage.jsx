@@ -48,7 +48,7 @@ export default function CheckoutPage() {
   // Create PaymentIntent when cart is ready
   useEffect(() => {
     if (totalAmount > 0 && !clientSecret) {
-      orderService.createPaymentIntent(totalAmount * 100)
+      orderService.createPaymentIntent()
         .then((res) => setClientSecret(res.data.clientSecret))
         .catch(() => {});
     }

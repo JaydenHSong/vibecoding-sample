@@ -112,9 +112,10 @@ exports.getAllOrders = async (req, res) => {
     const query = {};
     if (status) query.status = status;
     if (search) {
+      const escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { orderNumber: { $regex: search, $options: 'i' } },
-        { 'shippingAddress.name': { $regex: search, $options: 'i' } }
+        { orderNumber: { $regex: escaped, $options: 'i' } },
+        { 'shippingAddress.name': { $regex: escaped, $options: 'i' } }
       ];
     }
 
