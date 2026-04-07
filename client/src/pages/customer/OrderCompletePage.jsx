@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { orderService } from '../../services/orderService';
-import OrderStatusBadge from '../../components/order/OrderStatusBadge';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import './OrderCompletePage.css';
 
@@ -20,59 +19,94 @@ export default function OrderCompletePage() {
   if (loading) return <LoadingSpinner />;
   if (!order) return <p style={{ textAlign: 'center', padding: '96px 0' }}>Order not found</p>;
 
+  const orderDate = new Date(order.createdAt).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+
   return (
     <div className="order-complete">
-      <div className="order-complete__header">
-        <span className="material-symbols-outlined" style={{ fontSize: 56, color: 'var(--color-secondary)' }}>check_circle</span>
-        <h1 className="order-complete__title">Order Confirmed</h1>
-        <p className="order-complete__subtitle">Thank you for your purchase at The Gallery.</p>
+      {/* Thank You Letter */}
+      <div className="order-complete__letter">
+        <div className="order-complete__letter-header">
+          <div className="order-complete__monogram">TG</div>
+          <p className="order-complete__date">{orderDate}</p>
+        </div>
+
+        <h1 className="order-complete__greeting">Thank You</h1>
+        <p className="order-complete__message">
+          Dear {order.shippingAddress?.name || 'Valued Customer'},
+        </p>
+        <p className="order-complete__message">
+          We are truly grateful for your order. Each piece in our collection
+          is chosen with care, and we take the same care in preparing yours.
+          Your items will be thoughtfully packaged and shipped with priority
+          — because you deserve nothing less.
+        </p>
+        <p className="order-complete__message">
+          We hope every piece brings you joy.
+        </p>
+        <p className="order-complete__signature">
+          With appreciation,<br />
+          <strong>The Curated Gallery Team</strong>
+        </p>
       </div>
 
+      {/* Order Details Card */}
       <div className="order-complete__card">
-        <div className="order-complete__row">
-          <span className="order-complete__label">Order Number</span>
-          <strong>{order.orderNumber}</strong>
-        </div>
-        <div className="order-complete__row">
-          <span className="order-complete__label">Status</span>
-          <OrderStatusBadge status={order.status} />
-        </div>
-        <div className="order-complete__row">
-          <span className="order-complete__label">Payment</span>
-          <span>{order.paymentMethod === 'card' ? 'Credit Card' : order.paymentMethod === 'bank' ? 'Bank Transfer' : 'Virtual Account'}</span>
+        <div className="order-complete__card-header">
+          <span className="material-symbols-outlined order-complete__check">check_circle</span>
+          <div>
+            <p className="order-complete__confirmed">Order Confirmed</p>
+            <p className="order-complete__order-number">{order.orderNumber}</p>
+          </div>
         </div>
 
+        {/* Shipping */}
         {order.shippingAddress && (
-          <div className="order-complete__shipping">
-            <span className="order-complete__label" style={{ display: 'block', marginBottom: 8 }}>Shipping Address</span>
-            <p style={{ lineHeight: 1.6, fontSize: 14 }}>
-              <strong>{order.shippingAddress.name}</strong><br />
+          <div className="order-complete__section">
+            <span className="order-complete__label">Shipping To</span>
+            <p className="order-complete__detail">
+              {order.shippingAddress.name}<br />
               {order.shippingAddress.address}{order.shippingAddress.detail ? `, ${order.shippingAddress.detail}` : ''}<br />
-              {order.shippingAddress.zipCode}<br />
-              {order.shippingAddress.phone}
+              {order.shippingAddress.zipCode} &middot; {order.shippingAddress.phone}
             </p>
           </div>
         )}
 
-        <div className="order-complete__items">
-          <span className="order-complete__label" style={{ display: 'block', marginBottom: 16 }}>Items</span>
+        {/* Items */}
+        <div className="order-complete__section">
+          <span className="order-complete__label">Items</span>
           {order.items.map((item, i) => (
             <div key={i} className="order-complete__item">
-              <span>{item.name} x {item.quantity}</span>
-              <span>${(item.price * item.quantity).toLocaleString()}</span>
+              <div>
+                <span className="order-complete__item-name">{item.name}</span>
+                {item.variantOptions && (
+                  <span className="order-complete__item-variant">
+                    {' '}&middot; {Object.values(
+                      item.variantOptions instanceof Map
+                        ? Object.fromEntries(item.variantOptions)
+                        : item.variantOptions
+                    ).join(' / ')}
+                  </span>
+                )}
+                <span className="order-complete__item-qty"> x {item.quantity}</span>
+              </div>
+              <span className="order-complete__item-price">${(item.price * item.quantity).toLocaleString()}</span>
             </div>
           ))}
         </div>
 
+        {/* Total */}
         <div className="order-complete__total">
           <span>Total</span>
           <span>${order.totalAmount.toLocaleString()}</span>
         </div>
       </div>
 
+      {/* Actions */}
       <div className="order-complete__actions">
-        <Link to="/mypage" className="btn-secondary">View My Orders</Link>
-        <Link to="/products" className="btn-primary">Continue Shopping</Link>
+        <Link to="/mypage" className="order-complete__btn order-complete__btn--outline">View My Orders</Link>
+        <Link to="/products" className="order-complete__btn order-complete__btn--primary">Continue Shopping</Link>
       </div>
     </div>
   );

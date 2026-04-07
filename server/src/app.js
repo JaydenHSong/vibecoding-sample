@@ -47,6 +47,7 @@ app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/banners', require('./routes/banners'));
 app.use('/api/inquiries', require('./routes/inquiries'));
 app.use('/api/faq', require('./routes/faq'));
+app.use('/api/payments', require('./routes/payments'));
 app.use('/api/admin/dashboard', require('./routes/dashboard'));
 
 // Global error handler (must be after routes)

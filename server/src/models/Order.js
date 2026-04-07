@@ -32,7 +32,8 @@ const orderSchema = new mongoose.Schema({
     type: String,
     enum: ['card', 'bank', 'virtual'],
     required: true
-  }
+  },
+  paymentIntentId: { type: String }
 }, {
   timestamps: true
 });

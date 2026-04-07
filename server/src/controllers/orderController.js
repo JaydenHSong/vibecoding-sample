@@ -14,7 +14,7 @@ const generateOrderNumber = () => {
 // POST /api/orders
 exports.create = async (req, res) => {
   try {
-    const { shippingAddress, paymentMethod } = req.body;
+    const { shippingAddress, paymentMethod, paymentIntentId } = req.body;
     const cart = await Cart.findOne({ user: req.user._id }).populate('items.product items.variant');
 
     if (!cart || cart.items.length === 0) {
@@ -53,7 +53,9 @@ exports.create = async (req, res) => {
       items,
       totalAmount,
       shippingAddress,
-      paymentMethod
+      paymentMethod,
+      paymentIntentId,
+      status: paymentIntentId ? 'paid' : 'pending',
     });
 
     cart.items = [];

@@ -1,81 +1,202 @@
-/* Design Ref: Stitch editorial — Order complete */
+/* Design: Order Complete — Thank You Letter */
 .order-complete {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 48px 0;
 }
 
-.order-complete__header {
+/* Letter */
+.order-complete__letter {
   text-align: center;
   margin-bottom: 48px;
+  padding: 48px 32px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.order-complete__title {
-  font-size: 36px;
+.order-complete__letter-header {
+  margin-bottom: 32px;
+}
+
+.order-complete__monogram {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.order-complete__date {
+  font-size: 11px;
   text-transform: uppercase;
-  margin: 20px 0 8px;
-}
-
-.order-complete__header .material-symbols-outlined {
-  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 48;
-}
-
-.order-complete__subtitle {
-  font-size: 14px;
+  letter-spacing: 0.2em;
   color: var(--color-on-surface-variant);
+  margin: 0;
 }
 
+.order-complete__greeting {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+  letter-spacing: -0.02em;
+  margin: 0 0 32px;
+}
+
+.order-complete__message {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-on-surface-variant);
+  max-width: 440px;
+  margin: 0 auto 16px;
+}
+
+.order-complete__signature {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-on-surface-variant);
+  margin: 32px 0 0;
+}
+
+.order-complete__signature strong {
+  color: var(--color-on-surface);
+  font-weight: 700;
+}
+
+/* Order Card */
 .order-complete__card {
   padding: 32px;
   background: var(--color-surface-container-low);
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
-.order-complete__row {
+.order-complete__card-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.order-complete__check {
+  font-size: 36px;
+  color: var(--color-secondary);
+  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+}
+
+.order-complete__confirmed {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0 0 4px;
+}
+
+.order-complete__order-number {
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+  margin: 0;
+  font-family: monospace;
+}
+
+.order-complete__section {
+  padding: 16px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .order-complete__label {
+  display: block;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-on-surface-variant);
+  margin-bottom: 12px;
 }
 
-.order-complete__items {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+.order-complete__detail {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--color-on-surface);
 }
 
 .order-complete__item {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.order-complete__item-name {
   font-size: 14px;
+  font-weight: 500;
+}
+
+.order-complete__item-variant {
+  font-size: 13px;
   color: var(--color-on-surface-variant);
+}
+
+.order-complete__item-qty {
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+}
+
+.order-complete__item-price {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .order-complete__total {
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 18px;
   font-weight: 900;
   letter-spacing: -0.02em;
 }
 
+/* Actions */
 .order-complete__actions {
   display: flex;
   gap: 16px;
   justify-content: center;
+}
+
+.order-complete__btn {
+  padding: 16px 32px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.2s;
+  flex: 1;
+  max-width: 240px;
+}
+
+.order-complete__btn:hover {
+  opacity: 0.8;
+}
+
+.order-complete__btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.order-complete__btn--outline {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
 }
