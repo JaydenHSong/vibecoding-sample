@@ -20,6 +20,7 @@ export default function ProductDetailPage() {
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [selectedVariant, setSelectedVariant] = useState(null);
   const [isWished, setIsWished] = useState(false);
   const [tab, setTab] = useState('description');
   const [loading, setLoading] = useState(true);
@@ -38,18 +39,38 @@ export default function ProductDetailPage() {
     }).catch(() => setLoading(false));
   }, [id]);
 
+  // Design Ref: §5.2 — variant-aware add to cart with stock validation
   const handleAddToCart = async () => {
     if (!user) { navigate('/login'); return; }
-    // Validate required options
-    const missing = product.options?.filter((opt) => !selectedOptions[opt.name]).map((opt) => opt.name);
-    if (missing?.length) {
-      setOptionError(`Please select ${missing.join(' and ')}`);
-      return;
+
+    const hasVariants = product.variants?.length > 0;
+    const hasOptions = product.options?.length > 0;
+
+    if (hasOptions && hasVariants) {
+      if (!selectedVariant) {
+        const missing = product.options?.filter((opt) => !selectedOptions[opt.name]).map((opt) => opt.name);
+        setOptionError(missing?.length ? `Please select ${missing.join(' and ')}` : 'Selected option is unavailable');
+        return;
+      }
+      if (selectedVariant.stock < quantity) {
+        setOptionError(`Only ${selectedVariant.stock} items available`);
+        return;
+      }
+    } else if (hasOptions) {
+      const missing = product.options?.filter((opt) => !selectedOptions[opt.name]).map((opt) => opt.name);
+      if (missing?.length) { setOptionError(`Please select ${missing.join(' and ')}`); return; }
     }
+
     setOptionError('');
     const { cartService } = await import('../../services/cartService');
-    const optionStr = Object.entries(selectedOptions).map(([k, v]) => `${k}: ${v}`).join(', ');
-    await cartService.addItem({ product: id, quantity, selectedOption: optionStr });
+
+    if (hasVariants && selectedVariant) {
+      await cartService.addItem({ product: id, variant: selectedVariant._id, quantity });
+    } else {
+      const optionStr = Object.entries(selectedOptions).map(([k, v]) => `${k}: ${v}`).join(', ');
+      await cartService.addItem({ product: id, quantity, selectedOption: optionStr });
+    }
+
     useCartStore.getState().fetchCart();
     setShowConfirm(true);
   };
@@ -63,6 +84,13 @@ export default function ProductDetailPage() {
   if (loading) return <LoadingSpinner />;
   if (!product) return <p style={{ textAlign: 'center', padding: '96px 0' }}>Product not found</p>;
 
+  // Plan SC: SC-03 — display variant price when selected
+  const displayPrice = selectedVariant ? selectedVariant.price : product.price;
+  const hasVariants = product.variants?.length > 0;
+  const canAddToCart = hasVariants
+    ? selectedVariant && selectedVariant.stock > 0
+    : true;
+
   return (
     <div className="product-detail">
       <ImageGallery images={product.images} name={product.name} />
@@ -72,7 +100,7 @@ export default function ProductDetailPage() {
         <h1 className="serif" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontStyle: 'italic', fontWeight: 400, lineHeight: 1.1, margin: '8px 0 16px' }}>
           {product.name}
         </h1>
-        <p className="product-detail__price">${product.price?.toLocaleString()}</p>
+        <p className="product-detail__price">${displayPrice?.toLocaleString()}</p>
 
         {product.averageRating > 0 && (
           <div className="product-detail__rating">
@@ -82,7 +110,13 @@ export default function ProductDetailPage() {
           </div>
         )}
 
-        <OptionSelector options={product.options} selectedOptions={selectedOptions} onChange={setSelectedOptions} />
+        <OptionSelector
+          options={product.options}
+          variants={product.variants}
+          selectedOptions={selectedOptions}
+          onChange={setSelectedOptions}
+          onVariantSelect={setSelectedVariant}
+        />
 
         {/* Quantity */}
         <div className="product-detail__quantity">
@@ -101,7 +135,9 @@ export default function ProductDetailPage() {
         {/* Actions */}
         {optionError && <p style={{ color: 'var(--color-error, #ef4444)', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>{optionError}</p>}
         <div className="product-detail__actions">
-          <button className="btn-primary" style={{ flex: 1, padding: '16px' }} onClick={handleAddToCart}>Add to Cart</button>
+          <button className="btn-primary" style={{ flex: 1, padding: '16px' }} onClick={handleAddToCart} disabled={!canAddToCart}>
+            {hasVariants && selectedVariant?.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+          </button>
           <button className="product-detail__wish-btn" onClick={handleWishlist}>
             {isWished ? <IoHeart size={22} /> : <IoHeartOutline size={22} />}
           </button>
@@ -145,7 +181,7 @@ export default function ProductDetailPage() {
 
       {showConfirm && (
         <CartConfirmModal
-          product={product}
+          product={{ ...product, price: displayPrice }}
           selectedOptions={selectedOptions}
           quantity={quantity}
           onClose={() => { setShowConfirm(false); setQuantity(1); }}

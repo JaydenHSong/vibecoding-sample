@@ -174,6 +174,34 @@
   transform: scale(1.15);
 }
 
+/* Out of stock styles */
+.product-detail__color-swatch.out-of-stock {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.product-detail__color-swatch.out-of-stock::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 1px;
+  background: #ef4444;
+  transform: rotate(-45deg);
+}
+
+.product-detail__option-btn.out-of-stock {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.product-detail__option-btn.out-of-stock:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
 /* Actions */
 .product-detail__actions {
   display: flex;

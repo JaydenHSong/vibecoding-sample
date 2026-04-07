@@ -20,7 +20,7 @@ export default function CartPage() {
   if (loading) return <LoadingSpinner />;
 
   const items = cart?.items || [];
-  const totalAmount = items.reduce((sum, i) => sum + (i.product?.price || 0) * i.quantity, 0);
+  const totalAmount = items.reduce((sum, i) => sum + (i.variant?.price || i.product?.price || 0) * i.quantity, 0);
 
   return (
     <div className="cart-page">

@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom';
 import './CartItem.css';
 
 export default function CartItem({ item, onUpdate, onRemove }) {
-  const { product, quantity, selectedOption, _id } = item;
+  const { product, variant, quantity, selectedOption, _id } = item;
+
+  // Use variant price if available, fallback to product price
+  const unitPrice = variant?.price || product?.price || 0;
+  const optionText = variant?.options
+    ? Object.entries(variant.options instanceof Map ? Object.fromEntries(variant.options) : variant.options).map(([k, v]) => `${k}: ${v}`).join(' / ')
+    : selectedOption;
 
   return (
     <article className="cart-item">
@@ -15,10 +21,10 @@ export default function CartItem({ item, onUpdate, onRemove }) {
             <h3 className="cart-item__name">{product?.name}</h3>
             <p className="cart-item__meta">
               {product?.category?.name || 'Curated'}
-              {selectedOption && ` / ${selectedOption}`}
+              {optionText && ` / ${optionText}`}
             </p>
           </div>
-          <span className="cart-item__price">${(product?.price * quantity).toLocaleString()}</span>
+          <span className="cart-item__price">${(unitPrice * quantity).toLocaleString()}</span>
         </div>
         <div className="cart-item__bottom">
           <div className="cart-item__quantity">

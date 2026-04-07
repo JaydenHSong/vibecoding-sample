@@ -1,8 +1,9 @@
-// Design Ref: §Stitch _9 — Admin Product Form (Add/Edit)
+// Design Ref: §Stitch _9 — Admin Product Form (Add/Edit) + §5.3 Variant Matrix
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { adminService } from '../../services/adminService';
 import { categoryService } from '../../services/productService';
+import VariantMatrix from '../../components/admin/VariantMatrix';
 import './AdminPages.css';
 
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'domq6fisj';
@@ -20,6 +21,7 @@ export default function AdminProductFormPage() {
   const [error, setError] = useState('');
   const [images, setImages] = useState([]);
   const [options, setOptions] = useState([]);
+  const [variants, setVariants] = useState([]);
   const [form, setForm] = useState({
     name: '', price: '', description: '', category: '', stock: '', isBestSeller: false, isNew: false,
   });
@@ -33,6 +35,12 @@ export default function AdminProductFormPage() {
           setForm({ name: p.name, price: p.price, description: p.description || '', category: p.category?._id || '', stock: p.stock, isBestSeller: p.isBestSeller, isNew: p.isNew });
           setImages(p.images || []);
           setOptions(p.options || []);
+          // Load existing variants with options converted from Map
+          const loadedVariants = (p.variants || []).map(v => ({
+            ...v,
+            options: v.options instanceof Map ? Object.fromEntries(v.options) : v.options
+          }));
+          setVariants(loadedVariants);
         });
       });
     }
@@ -80,10 +88,21 @@ export default function AdminProductFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.price || !form.category) { setError('Name, price, and category are required'); return; }
-    const data = { ...form, price: Number(form.price), stock: Number(form.stock) || 0, images, options };
+    const data = { ...form, price: Number(form.price), stock: Number(form.stock) || 0, images, options, variants };
     try {
-      if (isEdit) await adminService.updateProduct(id, data);
-      else await adminService.createProduct(data);
+      if (isEdit) {
+        await adminService.updateProduct(id, data);
+        // Save variants via bulk upsert
+        if (variants.length > 0) {
+          await adminService.bulkUpsertVariants(id, variants);
+        }
+      } else {
+        const res = await adminService.createProduct(data);
+        // Save variants for new product
+        if (variants.length > 0 && res.data?._id) {
+          await adminService.bulkUpsertVariants(res.data._id, variants);
+        }
+      }
       navigate('/admin/products');
     } catch (err) { setError(err.response?.data?.error || 'Failed to save product'); }
   };
@@ -159,6 +178,11 @@ export default function AdminProductFormPage() {
               </div>
             </div>
           ))}
+
+          {/* Variant Matrix — after option toggles */}
+          {options.length > 0 && options.some(o => o.values?.length > 0) && (
+            <VariantMatrix options={options} variants={variants} onChange={setVariants} basePrice={Number(form.price) || 0} />
+          )}
         </div>
 
         <div style={{ display: 'flex', gap: 24 }}>

@@ -34,7 +34,7 @@ export default function CheckoutPage() {
   }, [user]);
 
   const items = cart?.items || [];
-  const totalAmount = items.reduce((sum, i) => sum + (i.product?.price || 0) * i.quantity, 0);
+  const totalAmount = items.reduce((sum, i) => sum + (i.variant?.price || i.product?.price || 0) * i.quantity, 0);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -145,7 +145,7 @@ export default function CheckoutPage() {
           {items.map((item) => (
             <div key={item._id} className="checkout-page__item">
               <span>{item.product?.name} x {item.quantity}</span>
-              <span>${(item.product?.price * item.quantity).toLocaleString()}</span>
+              <span>${((item.variant?.price || item.product?.price) * item.quantity).toLocaleString()}</span>
             </div>
           ))}
           <div className="checkout-page__item" style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(0,0,0,0.1)', fontWeight: 900, color: 'var(--color-on-surface)', fontSize: 18 }}>

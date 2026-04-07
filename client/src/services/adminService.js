@@ -10,6 +10,7 @@ export const adminService = {
   createProduct: (data) => api.post('/products', data),
   updateProduct: (id, data) => api.put(`/products/${id}`, data),
   deleteProduct: (id) => api.delete(`/products/${id}`),
+  bulkUpsertVariants: (productId, variants) => api.post(`/admin/products/${productId}/variants`, { variants }),
 
   // Categories
   createCategory: (data) => api.post('/categories', data),

@@ -1,6 +1,7 @@
 const Order = require('../models/Order');
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
+const stockService = require('../services/stockService');
 
 const crypto = require('crypto');
 
@@ -14,19 +15,35 @@ const generateOrderNumber = () => {
 exports.create = async (req, res) => {
   try {
     const { shippingAddress, paymentMethod } = req.body;
-    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
+    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product items.variant');
 
     if (!cart || cart.items.length === 0) {
       return res.status(400).json({ error: '장바구니가 비어있습니다' });
     }
 
-    const items = cart.items.map(item => ({
-      product: item.product._id,
-      name: item.product.name,
-      price: item.product.price,
-      quantity: item.quantity,
-      selectedOption: item.selectedOption
+    // Plan SC: SC-01 — use variant price, snapshot variant info
+    const items = cart.items.map(item => {
+      const variant = item.variant;
+      return {
+        product: item.product._id,
+        variant: variant?._id,
+        name: item.product.name,
+        price: variant ? variant.price : item.product.price,
+        quantity: item.quantity,
+        sku: variant?.sku,
+        variantOptions: variant?.options ? Object.fromEntries(variant.options) : undefined,
+        selectedOption: item.selectedOption
+      };
+    });
+
+    // Plan SC: SC-06 — atomic stock decrement via transaction
+    const variantItems = items.filter(i => i.variant).map(i => ({
+      variantId: i.variant,
+      quantity: i.quantity
     }));
+    if (variantItems.length > 0) {
+      await stockService.decrementMultiple(variantItems);
+    }
 
     const totalAmount = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -39,7 +56,6 @@ exports.create = async (req, res) => {
       paymentMethod
     });
 
-    // 장바구니 비우기
     cart.items = [];
     await cart.save();
 
@@ -129,8 +145,20 @@ exports.getOrderDetail = async (req, res) => {
 exports.updateStatus = async (req, res) => {
   try {
     const { status } = req.body;
-    const order = await Order.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    const order = await Order.findById(req.params.id);
     if (!order) return res.status(404).json({ error: '주문을 찾을 수 없습니다' });
+
+    // Plan SC: SC-07 — restore stock on cancellation
+    if (status === 'cancelled' && order.status !== 'cancelled') {
+      for (const item of order.items) {
+        if (item.variant) {
+          await stockService.increment(item.variant, item.quantity);
+        }
+      }
+    }
+
+    order.status = status;
+    await order.save();
     res.json(order);
   } catch (error) {
     console.error('Order error:', error);

@@ -1,9 +1,10 @@
 const Cart = require('../models/Cart');
+const stockService = require('../services/stockService');
 
 // GET /api/cart
 exports.getCart = async (req, res) => {
   try {
-    let cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
+    let cart = await Cart.findOne({ user: req.user._id }).populate('items.product items.variant');
     if (!cart) cart = { user: req.user._id, items: [] };
     res.json(cart);
   } catch (error) {
@@ -15,25 +16,34 @@ exports.getCart = async (req, res) => {
 // POST /api/cart
 exports.addItem = async (req, res) => {
   try {
-    const { product, quantity = 1, selectedOption } = req.body;
+    const { product, variant, quantity = 1, selectedOption } = req.body;
     let cart = await Cart.findOne({ user: req.user._id });
+
+    // Plan SC: SC-01, SC-06 — validate stock before adding to cart
+    if (variant) {
+      const { available, stock } = await stockService.checkAvailability(variant, quantity);
+      if (!available) {
+        return res.status(400).json({ error: 'Insufficient stock', available: stock });
+      }
+    }
 
     if (!cart) {
       cart = new Cart({ user: req.user._id, items: [] });
     }
 
-    const existing = cart.items.find(
-      item => item.product.toString() === product && item.selectedOption === selectedOption
+    const existing = cart.items.find(item =>
+      item.product.toString() === product &&
+      (variant ? item.variant?.toString() === variant : item.selectedOption === selectedOption)
     );
 
     if (existing) {
       existing.quantity += quantity;
     } else {
-      cart.items.push({ product, quantity, selectedOption });
+      cart.items.push({ product, variant, quantity, selectedOption });
     }
 
     await cart.save();
-    await cart.populate('items.product');
+    await cart.populate('items.product items.variant');
     res.json(cart);
   } catch (error) {
     console.error('Cart error:', error);
@@ -53,7 +63,7 @@ exports.updateItem = async (req, res) => {
 
     item.quantity = quantity;
     await cart.save();
-    await cart.populate('items.product');
+    await cart.populate('items.product items.variant');
     res.json(cart);
   } catch (error) {
     console.error('Cart error:', error);
@@ -69,7 +79,7 @@ exports.removeItem = async (req, res) => {
 
     cart.items.pull(req.params.itemId);
     await cart.save();
-    await cart.populate('items.product');
+    await cart.populate('items.product items.variant');
     res.json(cart);
   } catch (error) {
     console.error('Cart error:', error);

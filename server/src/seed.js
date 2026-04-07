@@ -7,6 +7,7 @@ const Category = require('./models/Category');
 const Product = require('./models/Product');
 const Banner = require('./models/Banner');
 const FAQ = require('./models/FAQ');
+const Variant = require('./models/Variant');
 
 const categories = [
   { name: 'Tops', slug: 'tops' },
@@ -91,6 +92,19 @@ const faqs = [
   { question: 'What payment methods do you accept?', answer: 'We accept credit cards, bank transfers, and virtual accounts.', category: 'Payment', order: 5 },
 ];
 
+function generateCombinations(options) {
+  if (!options || options.length === 0) return [{}];
+  const [first, ...rest] = options;
+  const restCombos = generateCombinations(rest);
+  const combos = [];
+  for (const value of first.values) {
+    for (const combo of restCombos) {
+      combos.push({ [first.name]: value, ...combo });
+    }
+  }
+  return combos;
+}
+
 async function seed() {
   await connectDB();
 
@@ -99,6 +113,7 @@ async function seed() {
     User.deleteMany({}),
     Category.deleteMany({}),
     Product.deleteMany({}),
+    Variant.deleteMany({}),
     Banner.deleteMany({}),
     FAQ.deleteMany({}),
   ]);
@@ -159,8 +174,55 @@ async function seed() {
     };
   });
 
-  await Product.insertMany(products);
-  console.log(`Created ${products.length} products`);
+  const createdProducts = await Product.insertMany(products);
+  console.log(`Created ${createdProducts.length} products`);
+
+  // Create variants for each product
+  const variantDocs = [];
+  for (const prod of createdProducts) {
+    const opts = prod.options || [];
+    if (opts.length === 0) {
+      // No options → single default variant
+      variantDocs.push({
+        product: prod._id,
+        sku: `DEFAULT-${prod._id.toString().slice(-6).toUpperCase()}`,
+        price: prod.price,
+        stock: prod.stock,
+        options: new Map(),
+        isActive: true
+      });
+      continue;
+    }
+    // Generate all option combinations
+    const combos = generateCombinations(opts);
+    let totalStock = 0;
+    for (const combo of combos) {
+      const prodIdx = prod._id.toString().slice(-4).toUpperCase();
+      const skuParts = [prod.name.split(' ')[0].toUpperCase().slice(0, 4) + prodIdx];
+      for (const val of Object.values(combo)) {
+        skuParts.push(val.toUpperCase().slice(0, 3));
+      }
+      const stock = Math.floor(Math.random() * 30) + 5;
+      totalStock += stock;
+      // Variant price: base price + size surcharge
+      let price = prod.price;
+      if (combo.Size === 'XL') price = Math.round(prod.price * 1.1);
+      else if (combo.Size === '12' || combo.Size === '11') price = Math.round(prod.price * 1.05);
+
+      variantDocs.push({
+        product: prod._id,
+        sku: skuParts.join('-'),
+        price,
+        stock,
+        options: new Map(Object.entries(combo)),
+        isActive: true
+      });
+    }
+    // Update product stock to total of all variants
+    await Product.findByIdAndUpdate(prod._id, { stock: totalStock });
+  }
+  await Variant.insertMany(variantDocs);
+  console.log(`Created ${variantDocs.length} variants`);
 
   // Create banners
   await Banner.insertMany(banners);

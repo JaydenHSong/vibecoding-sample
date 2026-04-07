@@ -1,4 +1,6 @@
 const Product = require('../models/Product');
+const Variant = require('../models/Variant');
+const variantService = require('../services/variantService');
 
 // GET /api/products
 exports.getAll = async (req, res) => {
@@ -41,9 +43,14 @@ exports.getAll = async (req, res) => {
 // GET /api/products/:id
 exports.getById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate('category', 'name slug');
+    const [product, variants] = await Promise.all([
+      Product.findById(req.params.id).populate('category', 'name slug'),
+      Variant.find({ product: req.params.id, isActive: true }).sort({ createdAt: 1 })
+    ]);
     if (!product) return res.status(404).json({ error: '상품을 찾을 수 없습니다' });
-    res.json(product);
+    const productObj = product.toObject();
+    productObj.variants = variants;
+    res.json(productObj);
   } catch (error) {
     console.error('Product error:', error);
     res.status(500).json({ error: '서버 오류가 발생했습니다' });
@@ -96,6 +103,10 @@ const pickFields = (body, fields) => {
 exports.create = async (req, res) => {
   try {
     const product = await Product.create(pickFields(req.body, ALLOWED_PRODUCT_FIELDS));
+    // Auto-create variants if provided
+    if (req.body.variants?.length) {
+      await variantService.bulkUpsert(product._id, req.body.variants);
+    }
     res.status(201).json(product);
   } catch (error) {
     console.error('Product error:', error);
